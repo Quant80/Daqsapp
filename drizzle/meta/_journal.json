@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1772204588126,
+      "tag": "0000_chemical_eddie_brock",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1772204773161,
+      "tag": "0001_numerous_owl",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1772206698003,
+      "tag": "0002_normal_sandman",
+      "breakpoints": true
+    }
+  ]
+}
