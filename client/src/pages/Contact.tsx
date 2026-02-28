@@ -34,6 +34,26 @@ export default function Contact() {
     service: "",
     message: "",
   });
+
+  // small helper for consistent section headers
+  const SectionHeader: React.FC<{
+    icon?: React.ComponentType<{ className?: string }>;
+    title: string;
+    subtitle?: string;
+  }> = ({ icon: Icon, title, subtitle }) => (
+    <div className="mb-8">
+      <div className="flex items-center gap-3">
+        {Icon && <Icon className="w-5 h-5 text-primary" />}
+        <h2
+          className="text-2xl font-bold text-foreground"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
+          {title}
+        </h2>
+      </div>
+      {subtitle && <p className="text-muted-foreground text-sm">{subtitle}</p>}
+    </div>
+  );
   const [submitted, setSubmitted] = useState(false);
 
   const submitContact = trpc.contact.submit.useMutation({
@@ -54,11 +74,28 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{
+      "--primary": "var(--section-docs-accent)",
+      "--primary-foreground": "var(--section-docs-accent-foreground)",
+    } as React.CSSProperties}>
       {/* Hero */}
-      <section className="daqs-gradient hero-pattern pt-32 pb-20">
-        <div className="container text-center">
-          <Badge className="mb-4 bg-[oklch(0.72_0.14_75/0.2)] text-[oklch(0.82_0.12_80)] border-[oklch(0.72_0.14_75/0.3)]">
+      <section className="relative min-h-[400px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
+
+        <div className="container relative z-10 text-center">
+          <Badge
+            className="mb-4"
+            style={{
+              backgroundColor: "var(--section-docs-accent)",
+              color: "var(--section-docs-accent-foreground)",
+              borderColor: "transparent",
+            }}
+          >
             Contact Us
           </Badge>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
@@ -76,17 +113,14 @@ export default function Contact() {
           <div className="grid lg:grid-cols-3 gap-10">
             {/* Contact Info */}
             <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "var(--font-serif)" }}>
-                  Get in Touch
-                </h2>
-                <p className="text-muted-foreground text-sm">
-                  Reach out directly to our CEOs or use the contact form and we'll respond within 24 hours.
-                </p>
-              </div>
+              <SectionHeader
+                icon={MapPin}
+                title="Get in Touch"
+                subtitle="Reach out directly to our CEOs or use the contact form and we'll respond within 24 hours."
+              />
 
               {/* Trymore */}
-              <Card className="border border-border">
+              <Card className="border border-border hover:shadow-md transition-shadow">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-700 to-blue-900 flex items-center justify-center text-white font-bold" style={{ fontFamily: "var(--font-serif)" }}>
@@ -115,7 +149,7 @@ export default function Contact() {
               </Card>
 
               {/* Albert */}
-              <Card className="border border-border">
+              <Card className="border border-border hover:shadow-md transition-shadow">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-700 to-emerald-900 flex items-center justify-center text-white font-bold" style={{ fontFamily: "var(--font-serif)" }}>
@@ -144,7 +178,7 @@ export default function Contact() {
               </Card>
 
               {/* General Info */}
-              <Card className="border border-border">
+              <Card className="border border-border hover:shadow-md transition-shadow">
                 <CardContent className="p-5 space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center shrink-0">
@@ -319,37 +353,37 @@ export default function Contact() {
       {/* Domain & Email Setup Guide */}
       <section className="py-16 bg-muted/40">
         <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "var(--font-serif)" }}>
-                Domain & Email Setup Guide
-              </h2>
-              <p className="text-muted-foreground text-sm">Steps to activate your DAQS domain and professional email addresses</p>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                {
-                  step: "1",
-                  title: "Register www.daqs.com",
-                  desc: "Visit a domain registrar (GoDaddy, Namecheap, or Google Domains) and register daqs.com or daqs.co.za as your primary domain.",
-                },
-                {
-                  step: "2",
-                  title: "Set Up Email Hosting",
-                  desc: "Use Google Workspace, Microsoft 365, or Zoho Mail to create Trymore.N@daqs.co.za and A.ncube@daqs.co.za as professional email accounts.",
-                },
-                {
-                  step: "3",
-                  title: "Configure DNS Records",
-                  desc: "Point your domain's DNS records (MX, CNAME, TXT) to your email provider and this website's hosting server.",
-                },
-                {
-                  step: "4",
-                  title: "Go Live",
-                  desc: "Once DNS propagates (24-48 hours), your domain and email addresses will be fully active and accessible worldwide.",
-                },
-              ].map((item) => (
-                <div key={item.step} className="bg-background rounded-xl p-5 border border-border">
+          <Card className="border-0 shadow-lg">
+            <CardContent className="p-8">
+              <SectionHeader
+                icon={Globe}
+                title="Domain & Email Setup Guide"
+                subtitle="Steps to activate your DAQS domain and professional email addresses"
+              />
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  {
+                    step: "1",
+                    title: "Register www.daqs.com",
+                    desc: "Visit a domain registrar (GoDaddy, Namecheap, or Google Domains) and register daqs.com or daqs.co.za as your primary domain.",
+                  },
+                  {
+                    step: "2",
+                    title: "Set Up Email Hosting",
+                    desc: "Use Google Workspace, Microsoft 365, or Zoho Mail to create Trymore.N@daqs.co.za and A.ncube@daqs.co.za as professional email accounts.",
+                  },
+                  {
+                    step: "3",
+                    title: "Configure DNS Records",
+                    desc: "Point your domain's DNS records (MX, CNAME, TXT) to your email provider and this website's hosting server.",
+                  },
+                  {
+                    step: "4",
+                    title: "Go Live",
+                    desc: "Once DNS propagates (24-48 hours), your domain and email addresses will be fully active and accessible worldwide.",
+                  },
+                ].map((item) => (
+                <div key={item.step} className="bg-background rounded-xl p-5 border border-border hover:shadow-lg transition-shadow">
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold shrink-0">
                       {item.step}
@@ -362,9 +396,10 @@ export default function Contact() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-    </div>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  </div>
   );
 }

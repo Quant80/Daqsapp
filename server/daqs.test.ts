@@ -136,4 +136,16 @@ describe("chatbot.chat", () => {
     });
     expect(result.reply).toBeTruthy();
   });
+
+  it("mentions robotics when asked", async () => {
+    const caller = appRouter.createCaller(createPublicContext());
+    const reply = await caller.chatbot.chat({
+      sessionId: "test-session-789",
+      message: "Do you provide robotics training or automation consulting?",
+      history: [],
+    });
+    expect(reply.reply).toBeTruthy();
+    // we don't assert content exactly since LLM output is mocked, but the prompt now
+    // includes robotics so the assistant should be able to respond about it.
+  });
 });

@@ -54,19 +54,17 @@ export default function Navigation() {
     >
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/daqs-logo-EV68xV5bGmYBLiPmyiGuYW.webp"
-              alt="DAQS Logo"
-              className="w-12 h-12 object-contain group-hover:opacity-90 transition-opacity"
-            />
+          {/* Logo - Large and prominent at top left */}
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
+            <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center font-bold text-xl text-white" style={{ fontFamily: "var(--font-serif)" }}>
+              D
+            </div>
             <div className="hidden sm:block">
-              <div className={`font-bold text-lg leading-tight transition-colors ${scrolled ? "text-foreground" : "text-white"}`} style={{ fontFamily: "var(--font-serif)" }}>
+              <div className={`font-bold text-xl lg:text-2xl leading-tight transition-colors ${scrolled ? "text-foreground" : "text-white"}`} style={{ fontFamily: "var(--font-serif)" }}>
                 DAQS
               </div>
-              <div className={`text-xs leading-tight transition-colors ${scrolled ? "text-muted-foreground" : "text-white/80"}`}>
-                Data Analytics & Solutions
+              <div className={`text-xs lg:text-sm leading-tight transition-colors ${scrolled ? "text-muted-foreground" : "text-white/80"}`}>
+                Data Analytics & Quantitative Solutions
               </div>
             </div>
           </Link>
@@ -177,7 +175,7 @@ export default function Navigation() {
                     </div>
                     <div>
                       <div className="text-white font-bold" style={{ fontFamily: "var(--font-serif)" }}>DAQS</div>
-                      <div className="text-white/70 text-xs">Analytics & Solutions</div>
+                      <div className="text-white/70 text-xs">Data Analytics & Quantitative Solutions</div>
                     </div>
                   </div>
                   <Button

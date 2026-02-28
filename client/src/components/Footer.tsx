@@ -15,7 +15,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-bold text-xl text-white" style={{ fontFamily: "var(--font-serif)" }}>DAQS</div>
-                <div className="text-white/60 text-xs">Data Analytics & Qunatitative Solutions</div>
+                <div className="text-white/60 text-xs">Data Analytics & Quantitative Solutions</div>
               </div>
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-6">

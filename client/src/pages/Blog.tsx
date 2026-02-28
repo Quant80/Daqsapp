@@ -58,6 +58,11 @@ export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
 
+  const sectionStyle = {
+    "--primary": "var(--section-blog-accent)",
+    "--primary-foreground": "var(--section-blog-accent-foreground)",
+  } as React.CSSProperties;
+
   const filteredPosts = blogPosts.filter((post) => {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -66,7 +71,7 @@ export default function Blog() {
   });
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={sectionStyle}>
       {/* ── HERO ────────────────────────── */}
       <section className="relative min-h-[400px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0 opacity-20" style={{

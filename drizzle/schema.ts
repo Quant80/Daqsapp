@@ -47,6 +47,7 @@ export const documents = mysqlTable("documents", {
     "whitepaper",
     "case_study",
     "research",
+    "robotics",
     "training",
     "report",
     "other",

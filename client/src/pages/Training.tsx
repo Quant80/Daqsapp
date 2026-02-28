@@ -148,6 +148,75 @@ const categories = [
       },
     ],
   },
+  {
+    id: "robotics",
+    label: "Robotics & Automation",
+    icon: Cpu,
+    courses: [
+      {
+        title: "Introduction to Robotics & Automation",
+        level: "Beginner",
+        duration: "6 Weeks",
+        format: "Online / In-Person",
+        price: "Contact for Pricing",
+        description: "Explore the fundamentals of robotics, control systems, and automation technologies with hands‑on projects using microcontrollers and simulation tools.",
+        topics: [
+          "Robotics Fundamentals & Kinematics",
+          "Control Systems and Feedback",
+          "Introduction to ROS (Robot Operating System)",
+          "Microcontrollers (Arduino/Raspberry Pi)",
+          "Sensors & Actuators",
+          "Basic Automation Workflows",
+        ],
+        outcomes: [
+          "Build simple robot prototypes",
+          "Write control code for automated tasks",
+          "Understand the components of industrial automation",
+        ],
+      },
+      {
+        title: "Industrial Automation Systems",
+        level: "Intermediate",
+        duration: "8 Weeks",
+        format: "Online / In-Person",
+        price: "Contact for Pricing",
+        description: "Delve into programmable logic controllers (PLCs), SCADA systems, and robotics integration used in manufacturing and process control environments.",
+        topics: [
+          "PLC Programming & Ladder Logic",
+          "SCADA and HMI Design",
+          "Robot Cell Integration",
+          "Safety Standards and Compliance",
+          "Vision Systems for Automation",
+          "PID Control Tuning",
+        ],
+        outcomes: [
+          "Design and simulate automated production lines",
+          "Program PLCs for real‑world tasks",
+          "Integrate robotic arms with control systems",
+        ],
+      },
+      {
+        title: "Robotic Process Automation (RPA) & Software Automation",
+        level: "Advanced",
+        duration: "4 Weeks",
+        format: "Online",
+        price: "Contact for Pricing",
+        description: "Learn to automate repetitive software tasks using popular RPA platforms and combine them with physical robotics for hybrid automation solutions.",
+        topics: [
+          "RPA Tools (UiPath, Automation Anywhere)",
+          "Workflow Design & Orchestration",
+          "Integrating RPA with Physical Devices",
+          "Error Handling & Logging",
+          "AI‑powered Automation",
+        ],
+        outcomes: [
+          "Implement end‑to‑end software automation bots",
+          "Bridge RPA with hardware controllers",
+          "Measure ROI on automation projects",
+        ],
+      },
+    ],
+  },
 ];
 
 const levelColors: Record<string, string> = {
@@ -158,8 +227,13 @@ const levelColors: Record<string, string> = {
 };
 
 export default function Training() {
+  const sectionStyle = {
+    "--primary": "var(--section-training-accent)",
+    "--primary-foreground": "var(--section-training-accent-foreground)",
+  } as React.CSSProperties;
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={sectionStyle}>
       {/* Hero */}
       <section className="relative min-h-[400px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0 opacity-20" style={{
@@ -170,7 +244,14 @@ export default function Training() {
         <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
         
         <div className="container relative z-10 text-center">
-          <Badge className="mb-4 bg-[oklch(0.72_0.14_75/0.2)] text-[oklch(0.82_0.12_80)] border-[oklch(0.72_0.14_75/0.3)]">
+          <Badge
+            className="mb-4"
+            style={{
+              backgroundColor: "var(--section-training-accent)",
+              color: "var(--section-training-accent-foreground)",
+              borderColor: "transparent",
+            }}
+          >
             Training & Education
           </Badge>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>

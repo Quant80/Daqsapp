@@ -68,7 +68,7 @@ const documentsRouter = router({
       z.object({
         title: z.string().min(1).max(255),
         description: z.string().max(1000).optional(),
-        category: z.enum(["whitepaper", "case_study", "research", "training", "report", "other"]),
+        category: z.enum(["whitepaper", "case_study", "research", "robotics", "training", "report", "other"]),
         fileName: z.string().max(255),
         fileData: z.string(), // base64
         mimeType: z.string().max(100),
@@ -156,7 +156,16 @@ DAQS offers:
 - Quantitative Solutions (derivatives pricing, risk management, portfolio optimisation, algorithmic trading)
 - Accounting Services (bookkeeping, auditing, tax planning, financial reporting)
 - Pension Fund Management & Investment Advisory
-- Training Programs in data science, ML, AI, quantitative finance, and accounting
+- Robotics & Automation
+  - Industrial robotics integration and robotic cell design
+  - Control systems, PLC & SCADA architecture
+  - Robot vision and machine perception for inspection and guidance
+  - Custom robotic prototyping with ROS, microcontrollers and embedded controllers
+  - Robotic Process Automation (RPA) and software workflow automation
+- Training Programs
+  - Classroom and hands-on courses in data science, ML/AI, quantitative finance, accounting, and robotics & automation
+  - Executive workshops for AI and automation strategy
+  - Short courses on PLCs, ROS, vision systems, and RPA platforms
 
 Our Team:
 - Trymore Ncube (CEO & Director): BSc Mathematics, MSc Financial Engineering, MSc Machine Learning & AI, PhD Data Science (candidate), Microsoft Certified Data Scientist Associate. Contact: +27 60 343 1561, Trymore.N@daqs.co.za

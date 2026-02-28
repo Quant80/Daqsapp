@@ -17,6 +17,13 @@ const stats = [
   { value: "98%", label: "Client Satisfaction", icon: Star },
 ];
 
+// hero section images based on user-provided examples
+const heroImages = [
+  "https://images.unsplash.com/photo-1677442d019cecf8d13b98acaa2b1e38?auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1666375365289-23547f3410e3?auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1620712014215-7b16ead56fd6?auto=format&fit=crop&w=800&q=60",
+];
+
 const services = [
   {
     icon: BarChart3,
@@ -115,6 +122,15 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 export default function Home() {
+  const [currentHero, setCurrentHero] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHero((i) => (i + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
@@ -148,7 +164,7 @@ export default function Home() {
             {/* Left: Text */}
             <div>
               <Badge className="mb-6 bg-[oklch(0.72_0.14_75/0.2)] text-[oklch(0.82_0.12_80)] border-[oklch(0.72_0.14_75/0.3)] hover:bg-[oklch(0.72_0.14_75/0.3)]">
-                <Star className="w-3 h-3 mr-1" /> Microsoft Certified Data Scientists
+              {/* <Star className="w-3 h-3 mr-1" /> Microsoft Certified Data Scientists */}
               </Badge>
               <h1
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
@@ -167,7 +183,7 @@ export default function Home() {
                   </Button>
                 </Link>
                 <Link href="/contact" asChild>
-                  <Button size="lg" variant="outline" className="border-white/30 text-white bg-white/10 hover:bg-white/20 hover:text-white hover:border-white/50 backdrop-blur-sm">
+                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                     Book Consultation
                   </Button>
                 </Link>
@@ -183,26 +199,16 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Service cards preview */}
-            <div className="hidden lg:grid grid-cols-2 gap-4">
-              {[
-                { icon: BarChart3, title: "Data Analytics", val: "Advanced Insights" },
-                { icon: Brain, title: "Machine Learning", val: "AI-Powered" },
-                { icon: TrendingUp, title: "Investment Analysis", val: "Portfolio Optimisation" },
-                { icon: Calculator, title: "Accounting", val: "Full Financial Suite" },
-              ].map((item, i) => (
-                <div
-                  key={item.title}
-                  className="glass-card rounded-xl p-5 hover:bg-white/80 transition-all duration-300 group"
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                >
-                  <div className="w-10 h-10 rounded-lg bg-primary/15 flex items-center justify-center mb-3 group-hover:bg-primary/25 transition-colors">
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div className="font-semibold text-foreground text-sm">{item.title}</div>
-                  <div className="text-muted-foreground text-xs mt-1">{item.val}</div>
-                </div>
-              ))}
+            {/* Right: Rotating AI imagery */}
+            <div className="hidden lg:flex items-center justify-center">
+              <img
+                src={heroImages[currentHero]}
+                alt="AI and robotics"
+                className="rounded-xl shadow-lg w-full max-w-md h-auto"
+                onError={(e) => {
+                  e.currentTarget.src = heroImages[(currentHero + 1) % heroImages.length];
+                }}
+              />
             </div>
           </div>
         </div>

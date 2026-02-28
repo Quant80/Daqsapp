@@ -14,16 +14,48 @@
     <style>
       :root { --font-sans: 'Inter', system-ui, sans-serif; --font-serif: 'Playfair Display', Georgia, serif; }
       body { font-family: var(--font-sans); }
+      /* Quick hero-safe layout for non-JS users and SEO */
+      .hero-fallback {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        text-align: center;
+        background: linear-gradient(180deg, rgba(15,102,255,0.06), rgba(212,175,55,0.03));
+        color: var(--foreground, #041521);
+      }
+      .hero-fallback h1 { font-family: var(--font-serif); font-size: 2.25rem; margin: 0 0 0.5rem; }
+      .hero-fallback p { margin: 0; color: rgba(4,21,33,0.8); }
+      @media (min-width: 768px) {
+        .hero-fallback h1 { font-size: 3rem; }
+      }
     </style>
   </head>
 
   <body>
     <div id="root"></div>
+    <!-- Minimal, cool fallback hero for static preview and SEO -->
+    <noscript>
+      <section class="hero-fallback">
+        <div>
+          <h1>DAQS — Data Analytics & Quantitative Solutions</h1>
+          <p>Applied AI, quantitative research, and investment analytics — built for clarity and impact.</p>
+        </div>
+      </section>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    <script type="module">
+      // dynamically inject analytics script if endpoint configured
+      if (import.meta.env.VITE_ANALYTICS_ENDPOINT) {
+        const s = document.createElement('script');
+        s.defer = true;
+        s.type = 'module';
+        s.src = `${import.meta.env.VITE_ANALYTICS_ENDPOINT}/umami`;
+        s.setAttribute('data-website-id', import.meta.env.VITE_ANALYTICS_WEBSITE_ID || "");
+        document.head.appendChild(s);
+      }
+    </script>
   </body>
 
 </html>

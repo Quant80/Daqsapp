@@ -243,17 +243,36 @@ export default function Media() {
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
 
+  const sectionStyle = {
+    "--primary": "var(--section-media-accent)",
+    "--primary-foreground": "var(--section-media-accent-foreground)",
+  } as React.CSSProperties;
+
   const { data: mediaData, refetch } = trpc.media.list.useQuery();
   const allMedia = [...sampleMedia, ...(mediaData || [])];
 
   const categories = ["all", "podcast", "tutorial", "webinar", "talk", "other"];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={sectionStyle}>
       {/* Hero */}
-      <section className="daqs-gradient hero-pattern pt-32 pb-20">
-        <div className="container text-center">
-          <Badge className="mb-4 bg-[oklch(0.72_0.14_75/0.2)] text-[oklch(0.82_0.12_80)] border-[oklch(0.72_0.14_75/0.3)]">
+      <section className="relative min-h-[400px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
+        <div className="absolute inset-0 opacity-20" style={{
+          backgroundImage: 'url("https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/training-page-bg-GKeRVAPZdMURsLs4ULHQQT.webp")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
+
+        <div className="container relative z-10 text-center">
+          <Badge
+            className="mb-4"
+            style={{
+              backgroundColor: "var(--section-media-accent)",
+              color: "var(--section-media-accent-foreground)",
+              borderColor: "transparent",
+            }}
+          >
             Media Hub
           </Badge>
           <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
