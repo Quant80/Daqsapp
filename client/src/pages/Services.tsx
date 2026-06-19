@@ -4,11 +4,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  BarChart3, Brain, Calculator, TrendingUp, Database, Cpu,
-  LineChart, PieChart, Shield, ArrowRight, CheckCircle, Zap,
-  BookOpen, FileText, Target, Users
+  BarChart3, Brain, Calculator, Cpu,
+  LineChart, ArrowRight, CheckCircle, Zap,
+  BookOpen, FileText, Target, Users,
+  Sparkles, Activity, ShieldCheck, Award, GraduationCap, Star,
 } from "lucide-react";
 import { useEffect } from "react";
+
+const stats = [
+  { value: "10+", label: "Years Combined Experience", icon: Award },
+  { value: "200+", label: "Clients Served", icon: Users },
+  { value: "50+", label: "Training Programs", icon: GraduationCap },
+  { value: "98%", label: "Client Satisfaction", icon: Star },
+];
 
 const serviceCategories = [
   {
@@ -121,24 +129,106 @@ export default function Services() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[350px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
-        <div className="absolute inset-0 opacity-20" style={{
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
+        <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'url("https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/services-page-bg-9Aek7aTnKkmS7mx76ScEES.webp")',
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
-        
-        <div className="container relative z-10 text-center">
-          <Badge className="mb-4 bg-[oklch(0.72_0.14_75/0.2)] text-[oklch(0.82_0.12_80)] border-[oklch(0.72_0.14_75/0.3)]">
-            Our Services
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
-            Expert Solutions Across Every Domain
-          </h1>
-          <p className="text-white/75 text-lg max-w-2xl mx-auto">
-            From data engineering to investment advisory — DAQS offers a comprehensive suite of analytical, technological, and financial services.
-          </p>
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/15 rounded-full blur-3xl" />
+
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Copy */}
+            <div>
+              <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> Our Services
+              </Badge>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
+                Expert Solutions{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-accent bg-clip-text text-transparent">
+                  Across Every Domain
+                </span>
+              </h1>
+              <p className="text-white/70 text-lg max-w-xl mb-8 leading-relaxed">
+                From data engineering to investment advisory — DAQS offers a comprehensive suite of analytical, technological, and financial services.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-8">
+                <Link href="/contact" asChild>
+                  <Button size="lg" className="daqs-gold-gradient text-foreground font-semibold border-0">
+                    Get a Consultation <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+                <a href="#data-analysis">
+                  <Button size="lg" variant="outline" className="border-white/25 text-white hover:bg-white/10 hover:text-white">
+                    Explore Services
+                  </Button>
+                </a>
+              </div>
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                {["Microsoft Certified", "PhD-Level Expertise", "10+ Years Experience"].map((badge) => (
+                  <div key={badge} className="flex items-center gap-2 text-white/70 text-sm">
+                    <CheckCircle className="w-4 h-4 text-emerald-400" /> {badge}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Dashboard mockup */}
+            <div className="relative hidden lg:block">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-2xl p-5">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
+                  <span className="ml-2 text-white/50 text-xs">DAQS Insights · Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {stats.map((s) => (
+                    <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
+                      <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                      <div className="text-white/55 text-xs mt-1">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-emerald-600 text-xs font-semibold mb-1">
+                  <Activity className="w-3.5 h-3.5" /> LIVE INSIGHT
+                </div>
+                <div className="text-foreground text-sm font-semibold">Churn Risk Model</div>
+                <div className="text-muted-foreground text-xs">Accuracy improved to 96.2%</div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-primary text-xs font-semibold mb-1">
+                  <ShieldCheck className="w-3.5 h-3.5" /> RISK FLAG
+                </div>
+                <div className="text-foreground text-sm font-semibold">Portfolio Volatility</div>
+                <div className="text-muted-foreground text-xs">Within target range — 4.1% VaR</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats strip */}
+      <section className="bg-[#071428] py-14 border-y border-white/5">
+        <div className="container text-center">
+          <div className="text-accent text-xs font-semibold tracking-widest uppercase mb-3">What We Deliver</div>
+          <h2 className="text-2xl lg:text-3xl font-bold text-white mb-10" style={{ fontFamily: "var(--font-serif)" }}>
+            Results <span className="text-sky-300">Backed by Numbers</span>
+          </h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+            {stats.map((s) => (
+              <div key={s.label} className="px-4">
+                <div className="text-3xl lg:text-4xl font-bold text-white mb-1" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                <div className="text-white/55 text-sm">{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
