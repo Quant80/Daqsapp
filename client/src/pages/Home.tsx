@@ -222,39 +222,50 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ── STATS ─────────────────────────────────────────────── */}
+      <section className="relative bg-[#071428] py-16 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="container relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center group">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-sky-400/10 border border-white/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
+                  <stat.icon className="w-6 h-6 text-sky-300" />
+                </div>
+                <div className="text-3xl lg:text-4xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>
+                  {stat.value}
+                </div>
+                <div className="text-white/50 text-sm mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Bottom wave */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+        <div className="absolute bottom-0 left-0 right-0 leading-none">
+          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block">
             <path d="M0 80L60 66.7C120 53.3 240 26.7 360 20C480 13.3 600 26.7 720 33.3C840 40 960 40 1080 33.3C1200 26.7 1320 13.3 1380 6.7L1440 0V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z" fill="oklch(0.98 0.005 240)" />
           </svg>
         </div>
       </section>
 
-      {/* ── STATS ─────────────────────────────────────────────── */}
-      <section className="py-16 bg-background">
-        <div className="container">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center group">
-                <div className="w-14 h-14 rounded-2xl bg-primary/8 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/15 transition-colors">
-                  <stat.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div className="text-3xl lg:text-4xl font-bold text-primary" style={{ fontFamily: "var(--font-serif)" }}>
-                  {stat.value}
-                </div>
-                <div className="text-muted-foreground text-sm mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── SERVICES ─────────────────────────────────────────── */}
-      <section className="py-20 bg-muted/40">
-        <div className="container">
+      <section className="relative py-20 bg-background overflow-hidden">
+        <div className="absolute top-0 right-0 w-[28rem] h-[28rem] bg-primary/[0.04] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[24rem] h-[24rem] bg-accent/[0.04] rounded-full blur-3xl pointer-events-none" />
+        <div className="container relative z-10">
           <div className="text-center mb-14">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Our Expertise</Badge>
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" /> Our Expertise
+            </Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4" style={{ fontFamily: "var(--font-serif)" }}>
               Comprehensive Solutions for the Modern Enterprise
             </h2>
@@ -265,7 +276,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <Link key={service.title} href={service.href} className="h-full">
-                <Card className="h-full border-0 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer daqs-card-hover overflow-hidden">
+                <Card className="h-full border border-border/60 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group cursor-pointer daqs-card-hover overflow-hidden bg-card">
                   <CardContent className="p-6">
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform`}>
                       <service.icon className="w-6 h-6 text-white" />
@@ -284,7 +295,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-10">
             <Link href="/services" asChild>
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/20 border-0">
                 View All Services <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -317,29 +328,28 @@ export default function Home() {
               </ul>
             </div>
             <div className="space-y-4">
-              <div className="daqs-gradient rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: "var(--font-serif)" }}>Vision</h3>
-                <p className="text-white/80 leading-relaxed">
+              <div className="relative rounded-2xl p-8 text-white overflow-hidden bg-gradient-to-br from-[#0b2540] to-blue-600 shadow-xl shadow-blue-900/20">
+                <div className="absolute -top-10 -right-10 w-48 h-48 bg-sky-300/15 rounded-full blur-3xl pointer-events-none" />
+                <h3 className="text-2xl font-bold mb-3 relative z-10" style={{ fontFamily: "var(--font-serif)" }}>Vision</h3>
+                <p className="text-white/80 leading-relaxed relative z-10">
                   To be the leading data analytics and quantitative solutions firm in Africa and beyond, driving innovation through the power of data, AI, and financial intelligence.
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-secondary/10 rounded-xl p-5 border border-secondary/20">
-                  <div className="text-2xl font-bold text-secondary mb-1" style={{ fontFamily: "var(--font-serif)" }}>BSc</div>
-                  <div className="text-sm text-muted-foreground">Mathematics & Accounting foundations</div>
-                </div>
-                <div className="bg-primary/8 rounded-xl p-5 border border-primary/15">
-                  <div className="text-2xl font-bold text-primary mb-1" style={{ fontFamily: "var(--font-serif)" }}>MSc</div>
-                  <div className="text-sm text-muted-foreground">Financial Engineering & ML/AI</div>
-                </div>
-                <div className="bg-primary/8 rounded-xl p-5 border border-primary/15">
-                  <div className="text-2xl font-bold text-primary mb-1" style={{ fontFamily: "var(--font-serif)" }}>PhD</div>
-                  <div className="text-sm text-muted-foreground">Data Science (in progress)</div>
-                </div>
-                <div className="bg-secondary/10 rounded-xl p-5 border border-secondary/20">
-                  <div className="text-2xl font-bold text-secondary mb-1" style={{ fontFamily: "var(--font-serif)" }}>MCA</div>
-                  <div className="text-sm text-muted-foreground">Microsoft Certified Associate</div>
-                </div>
+                {[
+                  { deg: "BSc", desc: "Mathematics & Accounting foundations", icon: GraduationCap },
+                  { deg: "MSc", desc: "Financial Engineering & ML/AI", icon: Brain },
+                  { deg: "PhD", desc: "Data Science (in progress)", icon: Award },
+                  { deg: "MCA", desc: "Microsoft Certified Associate", icon: Shield },
+                ].map((item) => (
+                  <div key={item.deg} className="bg-card rounded-xl p-5 border border-border/60 hover:border-primary/30 hover:shadow-md transition-all">
+                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                      <item.icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <div className="text-xl font-bold text-foreground mb-1" style={{ fontFamily: "var(--font-serif)" }}>{item.deg}</div>
+                    <div className="text-sm text-muted-foreground">{item.desc}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -350,6 +360,7 @@ export default function Home() {
       <section className="py-16 bg-muted/40">
         <div className="container">
           <div className="text-center mb-10">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Who We Serve</Badge>
             <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-3" style={{ fontFamily: "var(--font-serif)" }}>
               Industries We Serve
             </h2>
@@ -357,8 +368,8 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {industries.map((ind) => (
-              <div key={ind.label} className="bg-background rounded-xl p-4 text-center border border-border hover:border-primary/30 hover:shadow-md transition-all group">
-                <div className="w-10 h-10 rounded-lg bg-primary/8 flex items-center justify-center mx-auto mb-2 group-hover:bg-primary/15 transition-colors">
+              <div key={ind.label} className="bg-card rounded-xl p-5 text-center border border-border/60 hover:border-primary/30 hover:shadow-lg hover:-translate-y-0.5 transition-all group">
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                   <ind.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div className="text-xs font-medium text-foreground">{ind.label}</div>
@@ -369,8 +380,9 @@ export default function Home() {
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────── */}
-      <section className="py-20 daqs-gradient relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-blue-700">
         <div className="absolute inset-0 hero-pattern" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="container relative z-10 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Ready to Unlock the Power of Your Data?
@@ -380,12 +392,12 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact" asChild>
-              <Button size="lg" className="daqs-gold-gradient text-foreground font-semibold border-0 shadow-lg hover:opacity-90">
+              <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
                 Start Your Journey <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
             <Link href="/training" asChild>
-              <Button size="lg" variant="outline" className="border-white/30 text-white bg-white/10 hover:bg-white/20 hover:text-white hover:border-white/50">
+              <Button size="lg" variant="outline" className="rounded-full border-white/30 text-white bg-white/10 hover:bg-white/20 hover:text-white hover:border-white/50">
                 <BookOpen className="w-4 h-4 mr-2" /> Explore Training
               </Button>
             </Link>
