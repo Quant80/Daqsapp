@@ -137,7 +137,7 @@ export default function Home() {
       <section className="relative min-h-screen bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden">
         {/* Background image with overlay */}
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-45"
           style={{
             backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp')",
             backgroundSize: "cover",
@@ -146,7 +146,7 @@ export default function Home() {
           }}
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.7)] via-[oklch(0.12_0.03_260/0.55)] to-[oklch(0.18_0.05_290/0.7)]" />
         {/* Decorative grid */}
         <div
           className="absolute inset-0 opacity-5"
