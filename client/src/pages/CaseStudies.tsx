@@ -1,8 +1,37 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, TrendingUp, BarChart3, PieChart } from "lucide-react";
+import { ArrowRight, TrendingUp, BarChart3, PieChart, ExternalLink, HeartPulse, GraduationCap } from "lucide-react";
 import { Link } from "wouter";
+
+const liveProjects = [
+  {
+    name: "SmartCare AI",
+    tagline: "Intelligent Hospital Management Platform",
+    desc: "A unified, real-time platform giving clinicians, nurses, and administrators a single AI-powered view of every patient — from admission to discharge.",
+    url: "https://smartcare-systems.netlify.app/",
+    icon: HeartPulse,
+    tags: ["Healthcare", "AI/ML", "Real-Time Dashboards"],
+    stats: [
+      { value: "94%", label: "AI Model Accuracy" },
+      { value: "186", label: "Bed Capacity Tracked" },
+      { value: "99.9%", label: "Uptime SLA" },
+    ],
+  },
+  {
+    name: "DUT Student Success",
+    tagline: "Academic Risk & Analytics Platform",
+    desc: "Gives lecturers, advisors, and administrators a single unified view of every student — from enrolment to graduation — powered by real-time academic intelligence.",
+    url: "https://dut-student-success-dashboard.netlify.app/",
+    icon: GraduationCap,
+    tags: ["Education", "Predictive Analytics", "Risk Scoring"],
+    stats: [
+      { value: "67k", label: "Students Monitored" },
+      { value: "94%", label: "AI Model Accuracy" },
+      { value: "<3s", label: "Risk Score Generation" },
+    ],
+  },
+];
 
 const caseStudies = [
   {
@@ -55,13 +84,13 @@ export default function CaseStudies() {
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
-      <section className="relative min-h-[400px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
-        <div className="absolute inset-0 opacity-20" style={{
+      <section className="relative min-h-[400px] bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] overflow-hidden pt-32 pb-16">
+        <div className="absolute inset-0 opacity-30" style={{
           backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-business-analytics-Gvyzr6kAwiaQvBKrqDNhbj.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061726]/65 via-[#0b2540]/45 to-[#0c1f33]/65" />
 
         <div className="container relative z-10">
           <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-serif)" }}>
@@ -73,8 +102,57 @@ export default function CaseStudies() {
         </div>
       </section>
 
+      {/* ── FEATURED LIVE PROJECTS ────────────────────────── */}
+      <section className="py-16 bg-[#071428]">
+        <div className="container">
+          <div className="text-center mb-12">
+            <div className="text-sky-300 text-xs font-semibold tracking-widest uppercase mb-3">Featured Work</div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3" style={{ fontFamily: "var(--font-serif)" }}>
+              Live Platforms We've Built
+            </h2>
+            <p className="text-white/60 max-w-2xl mx-auto">
+              Real products, in production today. See the platforms for yourself — no demo video, just the live thing.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {liveProjects.map((project) => (
+              <div key={project.name} className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 hover:border-blue-400/40 transition-all">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center">
+                    <project.icon className="w-6 h-6 text-sky-300" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-lg">{project.name}</h3>
+                    <p className="text-white/50 text-xs">{project.tagline}</p>
+                  </div>
+                </div>
+                <p className="text-white/70 text-sm leading-relaxed mb-5">{project.desc}</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="bg-white/5 border border-white/10 text-white/70 text-xs px-2.5 py-1 rounded-full">{tag}</span>
+                  ))}
+                </div>
+                <div className="grid grid-cols-3 gap-2 mb-6">
+                  {project.stats.map((s) => (
+                    <div key={s.label} className="bg-white/5 rounded-lg p-3 text-center">
+                      <div className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                      <div className="text-white/50 text-[10px] leading-tight mt-0.5">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold border-0">
+                    View Live Platform <ExternalLink className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CASE STUDIES ────────────────────────── */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-[#0b1f33]">
         <div className="container">
           <div className="space-y-12">
             {caseStudies.map((study, index) => {
@@ -82,7 +160,7 @@ export default function CaseStudies() {
               const isEven = index % 2 === 0;
 
               return (
-                <Card key={study.id} className="border-0 shadow-sm overflow-hidden hover:shadow-lg transition-shadow">
+                <Card key={study.id} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
                   <div className={`grid md:grid-cols-2 gap-0`}>
                     {/* Image */}
                     <div className={`relative h-64 md:h-auto ${isEven ? "md:order-2" : "md:order-1"}`}>
@@ -138,14 +216,14 @@ export default function CaseStudies() {
       </section>
 
       {/* ── CTA ────────────────────────── */}
-      <section className="py-16 bg-gradient-to-br from-[oklch(0.15_0.04_280)] to-[oklch(0.18_0.05_290)]">
+      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#061726]">
         <div className="container text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
           <p className="text-white/75 text-lg mb-8 max-w-2xl mx-auto">
             Let DAQS help you unlock the potential of your data and achieve measurable business results.
           </p>
           <Link href="/contact" asChild>
-            <Button size="lg" className="daqs-gold-gradient text-foreground font-semibold border-0">
+            <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
               Start Your Project <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>

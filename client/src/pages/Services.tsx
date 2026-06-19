@@ -233,16 +233,16 @@ export default function Services() {
       </section>
 
       {/* Service Categories */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-gradient-to-b from-[#071428] to-[#0b1f33]">
         <div className="container">
           <Tabs defaultValue="data-analysis" className="w-full">
-            <TabsList className="flex flex-wrap h-auto gap-2 bg-muted p-2 rounded-xl mb-10 justify-start">
+            <TabsList className="flex flex-wrap h-auto gap-2 bg-white/5 border border-white/10 p-2 rounded-xl mb-10 justify-start">
               {serviceCategories.map((cat) => (
                 <TabsTrigger
                   key={cat.id}
                   value={cat.id}
                   id={cat.id}
-                  className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg px-4 py-2"
+                  className="flex items-center gap-2 text-white/70 data-[state=active]:bg-blue-500 data-[state=active]:text-white rounded-lg px-4 py-2"
                 >
                   <cat.icon className="w-4 h-4" />
                   {cat.label}
@@ -281,7 +281,7 @@ export default function Services() {
                   {/* Services Grid */}
                   <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4">
                     {cat.services.map((service, i) => (
-                      <Card key={i} className="border border-border hover:border-primary/30 hover:shadow-md transition-all group">
+                      <Card key={i} className="border border-transparent hover:border-blue-400/40 shadow-lg hover:shadow-xl transition-all group">
                         <CardContent className="p-5">
                           <div className="flex items-start gap-3">
                             <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
@@ -304,11 +304,11 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 bg-muted/40">
+      <section className="py-16 bg-[#0b1f33]">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-3" style={{ fontFamily: "var(--font-serif)" }}>Our Engagement Process</h2>
-            <p className="text-muted-foreground">A structured approach ensuring quality outcomes every time</p>
+            <h2 className="text-3xl font-bold text-white mb-3" style={{ fontFamily: "var(--font-serif)" }}>Our Engagement Process</h2>
+            <p className="text-white/60">A structured approach ensuring quality outcomes every time</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -318,13 +318,13 @@ export default function Services() {
               { step: "04", icon: Users, title: "Handover & Support", desc: "Comprehensive documentation, training, and ongoing support to ensure lasting impact and knowledge transfer." },
             ].map((step) => (
               <div key={step.step} className="relative">
-                <div className="bg-background rounded-xl p-6 border border-border hover:shadow-md transition-shadow h-full">
-                  <div className="text-4xl font-bold text-primary/15 mb-3" style={{ fontFamily: "var(--font-serif)" }}>{step.step}</div>
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                    <step.icon className="w-5 h-5 text-primary" />
+                <div className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-blue-400/40 hover:bg-white/[0.07] transition-all h-full">
+                  <div className="text-4xl font-bold text-sky-300/20 mb-3" style={{ fontFamily: "var(--font-serif)" }}>{step.step}</div>
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/15 flex items-center justify-center mb-3">
+                    <step.icon className="w-5 h-5 text-sky-300" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
+                  <h3 className="font-bold text-white mb-2">{step.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -333,7 +333,7 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 daqs-gradient">
+      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#061726]">
         <div className="container text-center">
           <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Ready to Get Started?
@@ -342,7 +342,7 @@ export default function Services() {
             Contact us today for a free initial consultation and let us show you how DAQS can transform your organisation.
           </p>
           <Link href="/contact" asChild>
-            <Button size="lg" className="daqs-gold-gradient text-foreground font-semibold border-0">
+            <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
               Contact Us Today <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
