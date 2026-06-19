@@ -1,30 +1,45 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, TrendingUp, BarChart3, PieChart, ExternalLink, HeartPulse, GraduationCap } from "lucide-react";
+import {
+  ArrowRight, TrendingUp, BarChart3, PieChart, ExternalLink, HeartPulse, GraduationCap,
+  Brain, AlertTriangle, Building2, LayoutDashboard, UploadCloud, ShieldCheck,
+} from "lucide-react";
 import { Link } from "wouter";
 
 const liveProjects = [
   {
     name: "SmartCare AI",
     tagline: "Intelligent Hospital Management Platform",
-    desc: "A unified, real-time platform giving clinicians, nurses, and administrators a single AI-powered view of every patient — from admission to discharge.",
+    desc: "SmartCare AI gives clinicians, nurses, and administrators a single, real-time view of every patient — from admission to discharge — powered by AI clinical intelligence.",
     url: "https://smartcare-systems.netlify.app/",
     icon: HeartPulse,
-    tags: ["Healthcare", "AI/ML", "Real-Time Dashboards"],
+    capabilities: [
+      { icon: LayoutDashboard, title: "Real-Time Patient Dashboard", desc: "Live, ward-by-ward view of every active patient's vitals and status." },
+      { icon: Brain, title: "AI-Powered Risk Scoring", desc: "XGBoost models continuously flag patient deterioration before it becomes critical." },
+      { icon: AlertTriangle, title: "Critical Alert System", desc: "Instant notifications when vitals breach safe thresholds, with recommended actions." },
+      { icon: Building2, title: "Bed Capacity Management", desc: "Real-time occupancy tracking across all 186 beds for smarter resource planning." },
+    ],
+    badges: ["POPIA Compliant", "256-bit Encryption", "HPCSA Aligned", "99.9% Uptime SLA"],
     stats: [
       { value: "94%", label: "AI Model Accuracy" },
-      { value: "186", label: "Bed Capacity Tracked" },
-      { value: "99.9%", label: "Uptime SLA" },
+      { value: "186", label: "Beds Tracked" },
+      { value: "24/7", label: "Live Monitoring" },
     ],
   },
   {
     name: "DUT Student Success",
     tagline: "Academic Risk & Analytics Platform",
-    desc: "Gives lecturers, advisors, and administrators a single unified view of every student — from enrolment to graduation — powered by real-time academic intelligence.",
+    desc: "DUT Student Success AI gives lecturers, advisors, and administrators a single, unified view of every student — from enrolment to graduation — powered by real-time academic intelligence.",
     url: "https://dut-student-success-dashboard.netlify.app/",
     icon: GraduationCap,
-    tags: ["Education", "Predictive Analytics", "Risk Scoring"],
+    capabilities: [
+      { icon: LayoutDashboard, title: "Unified Student Dashboard", desc: "A single live view of every student's academic journey and risk status." },
+      { icon: Brain, title: "AI Risk Scoring", desc: "XGBoost models generate a quantified risk probability for every student in real time." },
+      { icon: AlertTriangle, title: "Critical Intervention Alerts", desc: "Immediate flags for students who need urgent advisor intervention." },
+      { icon: UploadCloud, title: "Bulk Data Ingestion", desc: "Institutions upload enrolment and academic records directly to keep analytics current." },
+    ],
+    badges: ["POPIA Compliant", "256-bit Encryption", "DHET Aligned", "99.9% Uptime SLA"],
     stats: [
       { value: "67k", label: "Students Monitored" },
       { value: "94%", label: "AI Model Accuracy" },
@@ -114,11 +129,12 @@ export default function CaseStudies() {
               Real products, in production today. See the platforms for yourself — no demo video, just the live thing.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-6">
             {liveProjects.map((project) => (
-              <div key={project.name} className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 hover:border-blue-400/40 transition-all">
+              <div key={project.name} className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 hover:border-blue-400/40 transition-all flex flex-col">
+                {/* Header */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center shrink-0">
                     <project.icon className="w-6 h-6 text-sky-300" />
                   </div>
                   <div>
@@ -126,13 +142,35 @@ export default function CaseStudies() {
                     <p className="text-white/50 text-xs">{project.tagline}</p>
                   </div>
                 </div>
-                <p className="text-white/70 text-sm leading-relaxed mb-5">{project.desc}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="bg-white/5 border border-white/10 text-white/70 text-xs px-2.5 py-1 rounded-full">{tag}</span>
+                <p className="text-white/70 text-sm leading-relaxed mb-6">{project.desc}</p>
+
+                {/* Key capabilities */}
+                <div className="text-white/40 text-[11px] font-semibold uppercase tracking-wider mb-3">Key Capabilities</div>
+                <div className="grid sm:grid-cols-2 gap-3 mb-6">
+                  {project.capabilities.map((cap) => (
+                    <div key={cap.title} className="flex items-start gap-2.5 bg-white/[0.03] rounded-lg p-3">
+                      <div className="w-7 h-7 rounded-md bg-blue-500/15 flex items-center justify-center shrink-0 mt-0.5">
+                        <cap.icon className="w-3.5 h-3.5 text-sky-300" />
+                      </div>
+                      <div>
+                        <div className="text-white text-xs font-semibold mb-0.5">{cap.title}</div>
+                        <div className="text-white/55 text-[11px] leading-snug">{cap.desc}</div>
+                      </div>
+                    </div>
                   ))}
                 </div>
-                <div className="grid grid-cols-3 gap-2 mb-6">
+
+                {/* Trust badges */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.badges.map((badge) => (
+                    <span key={badge} className="flex items-center gap-1 bg-white/5 border border-white/10 text-white/60 text-[11px] px-2.5 py-1 rounded-full">
+                      <ShieldCheck className="w-3 h-3 text-emerald-400" /> {badge}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-2 mb-6 mt-auto">
                   {project.stats.map((s) => (
                     <div key={s.label} className="bg-white/5 rounded-lg p-3 text-center">
                       <div className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
@@ -140,6 +178,7 @@ export default function CaseStudies() {
                     </div>
                   ))}
                 </div>
+
                 <a href={project.url} target="_blank" rel="noopener noreferrer">
                   <Button className="w-full rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold border-0">
                     View Live Platform <ExternalLink className="w-4 h-4 ml-2" />
