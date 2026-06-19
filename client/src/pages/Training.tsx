@@ -6,8 +6,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Brain, Calculator, BarChart3, BookOpen, Clock, Users,
   Award, CheckCircle, ArrowRight, Star, GraduationCap,
-  Laptop, Calendar, TrendingUp, Cpu, LineChart
+  Laptop, Calendar, TrendingUp, Cpu, LineChart, Sparkles, Activity,
 } from "lucide-react";
+
+const trainingStats = [
+  { value: "10+", label: "Years Combined Experience" },
+  { value: "200+", label: "Clients Served" },
+  { value: "50+", label: "Training Programs" },
+  { value: "98%", label: "Client Satisfaction" },
+];
 
 const categories = [
   {
@@ -235,48 +242,96 @@ export default function Training() {
   return (
     <div className="min-h-screen" style={sectionStyle}>
       {/* Hero */}
-      <section className="relative min-h-[400px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
-        <div className="absolute inset-0 opacity-20" style={{
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
+        <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'url("https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/training-page-bg-GKeRVAPZdMURsLs4ULHQQT.webp")',
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
-        
-        <div className="container relative z-10 text-center">
-          <Badge
-            className="mb-4"
-            style={{
-              backgroundColor: "var(--section-training-accent)",
-              color: "var(--section-training-accent-foreground)",
-              borderColor: "transparent",
-            }}
-          >
-            Training & Education
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
-            Build World-Class Skills with DAQS
-          </h1>
-          <p className="text-white/75 text-lg max-w-2xl mx-auto mb-8">
-            Expert-led training programs in data science, machine learning, AI, quantitative finance, and accounting — designed for professionals at every level.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            {[
-              { icon: Laptop, label: "Online & In-Person" },
-              { icon: Users, label: "Individual & Corporate" },
-              { icon: Award, label: "Certificate of Completion" },
-              { icon: GraduationCap, label: "Expert Instructors" },
-            ].map((item) => (
-              <div key={item.label} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white text-sm">
-                <item.icon className="w-4 h-4 text-[oklch(0.72_0.14_75)]" /> {item.label}
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/15 rounded-full blur-3xl" />
+
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> Training & Education
+              </Badge>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
+                Build World-Class{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-accent bg-clip-text text-transparent">
+                  Skills with DAQS
+                </span>
+              </h1>
+              <p className="text-white/70 text-lg max-w-xl mb-8 leading-relaxed">
+                Expert-led training programs in data science, machine learning, AI, quantitative finance, and accounting — designed for professionals at every level.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-8">
+                <a href="#courses">
+                  <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
+                    Browse Programs <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+                <Link href="/contact" asChild>
+                  <Button size="lg" variant="outline" className="rounded-full border-white/30 text-white hover:bg-white/10 hover:text-white">
+                    Request Corporate Training
+                  </Button>
+                </Link>
               </div>
-            ))}
+              <div className="flex flex-wrap gap-3">
+                {[
+                  { icon: Laptop, label: "Online & In-Person" },
+                  { icon: Users, label: "Individual & Corporate" },
+                  { icon: Award, label: "Certificate of Completion" },
+                  { icon: GraduationCap, label: "Expert Instructors" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-1.5 text-white/80 text-xs font-medium bg-white/5 border border-white/15 rounded-full px-3.5 py-1.5">
+                    <item.icon className="w-3.5 h-3.5 text-sky-300" /> {item.label}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative hidden lg:block">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-2xl p-5">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
+                  <span className="ml-2 text-white/50 text-xs">DAQS Academy · Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {trainingStats.map((s) => (
+                    <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
+                      <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                      <div className="text-white/55 text-xs mt-1">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-emerald-600 text-xs font-semibold mb-1">
+                  <Activity className="w-3.5 h-3.5" /> NEW COHORT
+                </div>
+                <div className="text-foreground text-sm font-semibold">Enrolment Open</div>
+                <div className="text-muted-foreground text-xs">Online & in-person seats available</div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-primary text-xs font-semibold mb-1">
+                  <Award className="w-3.5 h-3.5" /> CERTIFIED
+                </div>
+                <div className="text-foreground text-sm font-semibold">Industry-Recognised</div>
+                <div className="text-muted-foreground text-xs">Certificate of completion included</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Courses */}
-      <section className="py-16 bg-background">
+      <section id="courses" className="py-16 bg-background">
         <div className="container">
           <Tabs defaultValue="data-science" className="w-full">
             <TabsList className="flex flex-wrap h-auto gap-2 bg-muted p-2 rounded-xl mb-10 justify-start">

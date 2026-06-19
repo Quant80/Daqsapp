@@ -2,8 +2,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Calendar, User, Search, ChevronRight } from "lucide-react";
+import { ArrowRight, Calendar, User, Search, ChevronRight, Sparkles, TrendingUp, FileText } from "lucide-react";
 import { Link } from "wouter";
+
+const blogStats = [
+  { value: "10+", label: "Years Combined Experience" },
+  { value: "200+", label: "Clients Served" },
+  { value: "50+", label: "Training Programs" },
+  { value: "98%", label: "Client Satisfaction" },
+];
 
 const blogPosts = [
   {
@@ -73,32 +80,78 @@ export default function Blog() {
   return (
     <div className="min-h-screen" style={sectionStyle}>
       {/* ── HERO ────────────────────────── */}
-      <section className="relative min-h-[400px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
-        <div className="absolute inset-0 opacity-20" style={{
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
+        <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/15 rounded-full blur-3xl" />
 
         <div className="container relative z-10">
-          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-serif)" }}>
-            Insights & Trends
-          </h1>
-          <p className="text-white/75 text-xl max-w-2xl mb-8">
-            Stay updated with the latest developments in data analytics, AI, machine learning, and quantitative finance.
-          </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> DAQS Insights
+              </Badge>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
+                Insights &{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-accent bg-clip-text text-transparent">
+                  Trends
+                </span>
+              </h1>
+              <p className="text-white/70 text-lg max-w-xl mb-8 leading-relaxed">
+                Stay updated with the latest developments in data analytics, AI, machine learning, and quantitative finance.
+              </p>
 
-          {/* Search */}
-          <div className="relative max-w-md">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
-            <input
-              type="text"
-              placeholder="Search articles..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-[oklch(0.72_0.14_75)] transition-colors"
-            />
+              {/* Search */}
+              <div className="relative max-w-md">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
+                <input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-sky-300 transition-colors"
+                />
+              </div>
+            </div>
+
+            <div className="relative hidden lg:block">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-2xl p-5">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
+                  <span className="ml-2 text-white/50 text-xs">DAQS Insights · Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {blogStats.map((s) => (
+                    <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
+                      <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                      <div className="text-white/55 text-xs mt-1">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-emerald-600 text-xs font-semibold mb-1">
+                  <TrendingUp className="w-3.5 h-3.5" /> TRENDING
+                </div>
+                <div className="text-foreground text-sm font-semibold">AI in Financial Services</div>
+                <div className="text-muted-foreground text-xs">Most-read article this month</div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-primary text-xs font-semibold mb-1">
+                  <FileText className="w-3.5 h-3.5" /> NEW POST
+                </div>
+                <div className="text-foreground text-sm font-semibold">Weekly Insights</div>
+                <div className="text-muted-foreground text-xs">Fresh analysis, every week</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

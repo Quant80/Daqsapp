@@ -13,8 +13,16 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { toast } from "sonner";
 import {
   FileText, Download, Upload, Plus, Search, BookOpen,
-  FileBarChart, GraduationCap, Briefcase, Loader2, ExternalLink, Calendar
+  FileBarChart, GraduationCap, Briefcase, Loader2, ExternalLink, Calendar,
+  Sparkles, ShieldCheck, ArrowRight,
 } from "lucide-react";
+
+const docStats = [
+  { value: "10+", label: "Years Combined Experience" },
+  { value: "200+", label: "Clients Served" },
+  { value: "50+", label: "Training Programs" },
+  { value: "98%", label: "Client Satisfaction" },
+];
 
 const categoryConfig: Record<string, { label: string; icon: React.ElementType; color: string }> = {
   whitepaper: { label: "Whitepaper", icon: BookOpen, color: "bg-blue-100 text-blue-700 border-blue-200" },
@@ -279,36 +287,79 @@ export default function Documents() {
   return (
     <div className="min-h-screen" style={sectionStyle}>
       {/* Hero */}
-      <section className="relative min-h-[400px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
-        <div className="absolute inset-0 opacity-20" style={{
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
+        <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-business-analytics-Gvyzr6kAwiaQvBKrqDNhbj.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/15 rounded-full blur-3xl" />
 
-        <div className="container relative z-10 text-center">
-          <Badge
-            className="mb-4"
-            style={{
-              backgroundColor: "var(--section-docs-accent)",
-              color: "var(--section-docs-accent-foreground)",
-              borderColor: "transparent",
-            }}
-          >
-            Document Library
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
-            Research, Whitepapers & Resources
-          </h1>
-          <p className="text-white/75 text-lg max-w-2xl mx-auto">
-            Access our curated library of whitepapers, case studies, research papers, and training materials.
-          </p>
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> Document Library
+              </Badge>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
+                Research, Whitepapers{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-accent bg-clip-text text-transparent">
+                  & Resources
+                </span>
+              </h1>
+              <p className="text-white/70 text-lg max-w-xl mb-8 leading-relaxed">
+                Access our curated library of whitepapers, case studies, research papers, and training materials.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a href="#library">
+                  <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
+                    Browse Library <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            <div className="relative hidden lg:block">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-2xl p-5">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
+                  <span className="ml-2 text-white/50 text-xs">DAQS Library · Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {docStats.map((s) => (
+                    <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
+                      <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                      <div className="text-white/55 text-xs mt-1">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-emerald-600 text-xs font-semibold mb-1">
+                  <ShieldCheck className="w-3.5 h-3.5" /> SECURE
+                </div>
+                <div className="text-foreground text-sm font-semibold">Verified Downloads</div>
+                <div className="text-muted-foreground text-xs">Every document reviewed by our team</div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-primary text-xs font-semibold mb-1">
+                  <BookOpen className="w-3.5 h-3.5" /> LIBRARY
+                </div>
+                <div className="text-foreground text-sm font-semibold">Whitepapers & Case Studies</div>
+                <div className="text-muted-foreground text-xs">Updated as new research lands</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Documents */}
-      <section className="py-16 bg-background">
+      <section id="library" className="py-16 bg-background">
         <div className="container">
           {/* Controls */}
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-8">

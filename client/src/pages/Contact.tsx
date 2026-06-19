@@ -10,8 +10,15 @@ import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import {
   Phone, Mail, Globe, MapPin, Clock, CheckCircle,
-  Send, Loader2, MessageSquare, ArrowRight
+  Send, Loader2, MessageSquare, ArrowRight, Sparkles, Zap,
 } from "lucide-react";
+
+const contactStats = [
+  { value: "10+", label: "Years Combined Experience" },
+  { value: "200+", label: "Clients Served" },
+  { value: "24h", label: "Avg. Response Time" },
+  { value: "98%", label: "Client Satisfaction" },
+];
 
 const services = [
   "Data Analysis & Business Intelligence",
@@ -79,36 +86,84 @@ export default function Contact() {
       "--primary-foreground": "var(--section-docs-accent-foreground)",
     } as React.CSSProperties}>
       {/* Hero */}
-      <section className="relative min-h-[400px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
-        <div className="absolute inset-0 opacity-20" style={{
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
+        <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: "url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/15 rounded-full blur-3xl" />
 
-        <div className="container relative z-10 text-center">
-          <Badge
-            className="mb-4"
-            style={{
-              backgroundColor: "var(--section-docs-accent)",
-              color: "var(--section-docs-accent-foreground)",
-              borderColor: "transparent",
-            }}
-          >
-            Contact Us
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
-            Let's Start a Conversation
-          </h1>
-          <p className="text-white/75 text-lg max-w-2xl mx-auto">
-            Whether you have a project in mind, need expert advice, or want to explore our training programs — we're here to help.
-          </p>
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> Contact Us
+              </Badge>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
+                Let's Start a{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-accent bg-clip-text text-transparent">
+                  Conversation
+                </span>
+              </h1>
+              <p className="text-white/70 text-lg max-w-xl mb-8 leading-relaxed">
+                Whether you have a project in mind, need expert advice, or want to explore our training programs — we're here to help.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a href="#contact-form">
+                  <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
+                    Send a Message <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+                <a href="tel:+27603431561">
+                  <Button size="lg" variant="outline" className="rounded-full border-white/30 text-white hover:bg-white/10 hover:text-white">
+                    Call Us
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            <div className="relative hidden lg:block">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-2xl p-5">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
+                  <span className="ml-2 text-white/50 text-xs">DAQS Contact · Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {contactStats.map((s) => (
+                    <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
+                      <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                      <div className="text-white/55 text-xs mt-1">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-emerald-600 text-xs font-semibold mb-1">
+                  <Zap className="w-3.5 h-3.5" /> FAST RESPONSE
+                </div>
+                <div className="text-foreground text-sm font-semibold">Within 24 Hours</div>
+                <div className="text-muted-foreground text-xs">Every enquiry, reviewed personally</div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-primary text-xs font-semibold mb-1">
+                  <MessageSquare className="w-3.5 h-3.5" /> FREE
+                </div>
+                <div className="text-foreground text-sm font-semibold">Initial Consultation</div>
+                <div className="text-muted-foreground text-xs">No obligation, no pressure</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Contact Content */}
-      <section className="py-16 bg-background">
+      <section id="contact-form" className="py-16 bg-background">
         <div className="container">
           <div className="grid lg:grid-cols-3 gap-10">
             {/* Contact Info */}

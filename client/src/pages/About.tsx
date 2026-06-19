@@ -5,8 +5,15 @@ import { Badge } from "@/components/ui/badge";
 import {
   Award, GraduationCap, Briefcase, CheckCircle, ArrowRight,
   Mail, Phone, Linkedin, Star, BookOpen, Brain, Calculator,
-  BarChart3, TrendingUp, Shield
+  BarChart3, TrendingUp, Shield, Sparkles, ShieldCheck, Users,
 } from "lucide-react";
+
+const stats = [
+  { value: "10+", label: "Years Combined Experience" },
+  { value: "200+", label: "Clients Served" },
+  { value: "50+", label: "Training Programs" },
+  { value: "98%", label: "Client Satisfaction" },
+];
 
 const team = [
   {
@@ -77,24 +84,86 @@ export default function About() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-[350px] bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden pt-32 pb-16">
-        <div className="absolute inset-0 opacity-20" style={{
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
+        <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'url("https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/about-page-bg-cwrPVwksorUU7LQJPqUUxa.webp")',
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.85)] via-[oklch(0.12_0.03_260/0.75)] to-[oklch(0.18_0.05_290/0.85)]" />
-        
-        <div className="container relative z-10 text-center">
-          <Badge className="mb-4 bg-[oklch(0.72_0.14_75/0.2)] text-[oklch(0.82_0.12_80)] border-[oklch(0.72_0.14_75/0.3)]">
-            About DAQS
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
-            Who We Are
-          </h1>
-          <p className="text-white/75 text-lg max-w-2xl mx-auto">
-            A team of world-class data scientists, financial engineers, and accounting professionals united by a passion for turning data into decisions.
-          </p>
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/15 rounded-full blur-3xl" />
+
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> About DAQS
+              </Badge>
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
+                Who We{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-accent bg-clip-text text-transparent">
+                  Are
+                </span>
+              </h1>
+              <p className="text-white/70 text-lg max-w-xl mb-8 leading-relaxed">
+                A team of world-class data scientists, financial engineers, and accounting professionals united by a passion for turning data into decisions.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-8">
+                <a href="#team">
+                  <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
+                    Meet the Team <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </a>
+                <Link href="/contact" asChild>
+                  <Button size="lg" variant="outline" className="rounded-full border-white/30 text-white hover:bg-white/10 hover:text-white">
+                    Get in Touch
+                  </Button>
+                </Link>
+              </div>
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                {["10+ Years Experience", "PhD-Level Expertise", "200+ Clients Served"].map((badge) => (
+                  <div key={badge} className="flex items-center gap-2 text-white/70 text-sm">
+                    <CheckCircle className="w-4 h-4 text-emerald-400" /> {badge}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative hidden lg:block">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-2xl p-5">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
+                  <span className="ml-2 text-white/50 text-xs">DAQS Team · Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {stats.map((s) => (
+                    <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
+                      <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                      <div className="text-white/55 text-xs mt-1">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-emerald-600 text-xs font-semibold mb-1">
+                  <ShieldCheck className="w-3.5 h-3.5" /> CREDENTIALS VERIFIED
+                </div>
+                <div className="text-foreground text-sm font-semibold">BSc · MSc · PhD</div>
+                <div className="text-muted-foreground text-xs">Academic rigour across both founders</div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-primary text-xs font-semibold mb-1">
+                  <Users className="w-3.5 h-3.5" /> FOUNDED BY
+                </div>
+                <div className="text-foreground text-sm font-semibold">2 Industry Experts</div>
+                <div className="text-muted-foreground text-xs">Data science meets financial acumen</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

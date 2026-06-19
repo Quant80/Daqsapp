@@ -17,13 +17,6 @@ const stats = [
   { value: "98%", label: "Client Satisfaction", icon: Star },
 ];
 
-// hero section images based on user-provided examples
-const heroImages = [
-  "https://images.unsplash.com/photo-1677442d019cecf8d13b98acaa2b1e38?auto=format&fit=crop&w=800&q=60",
-  "https://images.unsplash.com/photo-1666375365289-23547f3410e3?auto=format&fit=crop&w=800&q=60",
-  "https://images.unsplash.com/photo-1620712014215-7b16ead56fd6?auto=format&fit=crop&w=800&q=60",
-];
-
 const services = [
   {
     icon: BarChart3,
@@ -122,15 +115,6 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 export default function Home() {
-  const [currentHero, setCurrentHero] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentHero((i) => (i + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
@@ -201,16 +185,40 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Rotating AI imagery */}
-            <div className="hidden lg:flex items-center justify-center">
-              <img
-                src={heroImages[currentHero]}
-                alt="AI and robotics"
-                className="rounded-xl shadow-lg w-full max-w-md h-auto"
-                onError={(e) => {
-                  e.currentTarget.src = heroImages[(currentHero + 1) % heroImages.length];
-                }}
-              />
+            {/* Right: Dashboard mockup */}
+            <div className="relative hidden lg:block">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-2xl p-5">
+                <div className="flex items-center gap-2 mb-5">
+                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
+                  <span className="ml-2 text-white/50 text-xs">DAQS Insights · Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {stats.map((s) => (
+                    <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
+                      <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                      <div className="text-white/55 text-xs mt-1">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-emerald-600 text-xs font-semibold mb-1">
+                  <Star className="w-3.5 h-3.5" /> LIVE INSIGHT
+                </div>
+                <div className="text-foreground text-sm font-semibold">Portfolio Optimisation</div>
+                <div className="text-muted-foreground text-xs">25% improvement in returns delivered</div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
+                <div className="flex items-center gap-2 text-primary text-xs font-semibold mb-1">
+                  <Award className="w-3.5 h-3.5" /> TRUSTED BY
+                </div>
+                <div className="text-foreground text-sm font-semibold">200+ Organisations</div>
+                <div className="text-muted-foreground text-xs">Across finance, retail, and public sector</div>
+              </div>
             </div>
           </div>
         </div>
