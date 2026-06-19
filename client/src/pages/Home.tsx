@@ -252,15 +252,15 @@ export default function Home() {
         {/* Bottom wave */}
         <div className="absolute bottom-0 left-0 right-0 leading-none">
           <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full block">
-            <path d="M0 80L60 66.7C120 53.3 240 26.7 360 20C480 13.3 600 26.7 720 33.3C840 40 960 40 1080 33.3C1200 26.7 1320 13.3 1380 6.7L1440 0V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z" fill="oklch(0.98 0.005 240)" />
+            <path d="M0 80L60 66.7C120 53.3 240 26.7 360 20C480 13.3 600 26.7 720 33.3C840 40 960 40 1080 33.3C1200 26.7 1320 13.3 1380 6.7L1440 0V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z" fill="#f1f5f9" />
           </svg>
         </div>
       </section>
 
       {/* ── SERVICES ─────────────────────────────────────────── */}
-      <section className="relative py-20 bg-background overflow-hidden">
-        <div className="absolute top-0 right-0 w-[28rem] h-[28rem] bg-primary/[0.04] rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[24rem] h-[24rem] bg-accent/[0.04] rounded-full blur-3xl pointer-events-none" />
+      <section className="relative py-20 bg-gradient-to-b from-slate-100 via-blue-50/60 to-slate-100 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[28rem] h-[28rem] bg-primary/[0.06] rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[24rem] h-[24rem] bg-accent/[0.08] rounded-full blur-3xl pointer-events-none" />
         <div className="container relative z-10">
           <div className="text-center mb-14">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 gap-1.5">
@@ -276,7 +276,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <Link key={service.title} href={service.href} className="h-full">
-                <Card className="h-full border border-border/60 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300 group cursor-pointer daqs-card-hover overflow-hidden bg-card">
+                <Card className="h-full border border-white/60 shadow-[0_8px_30px_rgba(15,23,42,0.08)] hover:shadow-[0_8px_30px_rgba(15,23,42,0.14)] hover:border-primary/30 transition-all duration-300 group cursor-pointer overflow-hidden bg-white/70 backdrop-blur-xl">
                   <CardContent className="p-6">
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform`}>
                       <service.icon className="w-6 h-6 text-white" />
@@ -304,7 +304,7 @@ export default function Home() {
       </section>
 
       {/* ── MISSION ─────────────────────────────────────────── */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-gradient-to-b from-slate-100 to-blue-50/60">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -342,7 +342,7 @@ export default function Home() {
                   { deg: "PhD", desc: "Data Science (in progress)", icon: Award },
                   { deg: "MCA", desc: "Microsoft Certified Associate", icon: Shield },
                 ].map((item) => (
-                  <div key={item.deg} className="bg-card rounded-xl p-5 border border-border/60 hover:border-primary/30 hover:shadow-md transition-all">
+                  <div key={item.deg} className="bg-white/70 backdrop-blur-xl rounded-xl p-5 border border-white/60 shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:border-primary/30 hover:shadow-[0_8px_30px_rgba(15,23,42,0.12)] transition-all">
                     <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
                       <item.icon className="w-4 h-4 text-primary" />
                     </div>
@@ -357,7 +357,7 @@ export default function Home() {
       </section>
 
       {/* ── INDUSTRIES ─────────────────────────────────────── */}
-      <section className="py-16 bg-muted/40">
+      <section className="py-16 bg-gradient-to-b from-blue-50/60 to-slate-200/70">
         <div className="container">
           <div className="text-center mb-10">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Who We Serve</Badge>
@@ -368,7 +368,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {industries.map((ind) => (
-              <div key={ind.label} className="bg-card rounded-xl p-5 text-center border border-border/60 hover:border-primary/30 hover:shadow-lg hover:-translate-y-0.5 transition-all group">
+              <div key={ind.label} className="bg-white/70 backdrop-blur-xl rounded-xl p-5 text-center border border-white/60 shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:border-primary/30 hover:shadow-[0_8px_30px_rgba(15,23,42,0.12)] hover:-translate-y-0.5 transition-all group">
                 <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                   <ind.icon className="w-5 h-5 text-primary" />
                 </div>

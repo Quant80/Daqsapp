@@ -47,8 +47,8 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative py-20 bg-background overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[36rem] h-[20rem] bg-primary/[0.04] rounded-full blur-3xl pointer-events-none" />
+    <section className="relative py-20 bg-gradient-to-b from-slate-200/70 to-slate-100 overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[36rem] h-[20rem] bg-primary/[0.06] rounded-full blur-3xl pointer-events-none" />
       <div className="container relative z-10">
         <div className="text-center mb-14">
           <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 gap-1.5">
@@ -64,7 +64,7 @@ export default function TestimonialsSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial) => (
-            <Card key={testimonial.id} className="border border-border/60 shadow-sm hover:shadow-xl hover:border-primary/20 hover:-translate-y-1 transition-all duration-300">
+            <Card key={testimonial.id} className="border border-white/60 bg-white/70 backdrop-blur-xl shadow-[0_8px_30px_rgba(15,23,42,0.06)] hover:shadow-[0_8px_30px_rgba(15,23,42,0.14)] hover:border-primary/20 hover:-translate-y-1 transition-all duration-300">
               <CardContent className="p-6">
                 <Quote className="w-6 h-6 text-primary/20 mb-3" />
 
