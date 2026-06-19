@@ -42,10 +42,14 @@ const contactRouter = router({
       const companyText = input.company ? `\nCompany: ${input.company}` : "";
       const phoneText = input.phone ? `\nPhone: ${input.phone}` : "";
 
-      await notifyOwner({
-        title: `New Contact Form Submission from ${input.name}`,
-        content: `Name: ${input.name}\nEmail: ${input.email}${phoneText}${companyText}${serviceText}\n\nMessage:\n${input.message}`,
-      });
+      try {
+        await notifyOwner({
+          title: `New Contact Form Submission from ${input.name}`,
+          content: `Name: ${input.name}\nEmail: ${input.email}${phoneText}${companyText}${serviceText}\n\nMessage:\n${input.message}`,
+        });
+      } catch (error) {
+        console.error("[Contact] notifyOwner failed:", error);
+      }
 
       return { success: true };
     }),
@@ -97,10 +101,14 @@ const documentsRouter = router({
         uploadedBy: ctx.user.openId,
       });
 
-      await notifyOwner({
-        title: `New Document Uploaded: ${input.title}`,
-        content: `A new document has been uploaded to the DAQS document library.\n\nTitle: ${input.title}\nCategory: ${input.category}\nFile: ${input.fileName}\nUploaded by: ${ctx.user.name || ctx.user.openId}`,
-      });
+      try {
+        await notifyOwner({
+          title: `New Document Uploaded: ${input.title}`,
+          content: `A new document has been uploaded to the DAQS document library.\n\nTitle: ${input.title}\nCategory: ${input.category}\nFile: ${input.fileName}\nUploaded by: ${ctx.user.name || ctx.user.openId}`,
+        });
+      } catch (error) {
+        console.error("[Documents] notifyOwner failed:", error);
+      }
 
       return { success: true };
     }),
