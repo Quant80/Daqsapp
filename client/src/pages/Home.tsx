@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   BarChart3, Brain, Calculator, TrendingUp, BookOpen, Shield,
   ArrowRight, CheckCircle, ChevronRight, Star, Users, Award, Globe,
-  Database, Cpu, PieChart, Briefcase, GraduationCap, LineChart
+  Database, Cpu, PieChart, Briefcase, GraduationCap, LineChart, Sparkles
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -137,7 +137,7 @@ export default function Home() {
       <section className="relative min-h-screen bg-gradient-to-br from-[oklch(0.15_0.04_280)] via-[oklch(0.12_0.03_260)] to-[oklch(0.18_0.05_290)] overflow-hidden">
         {/* Background image with overlay */}
         <div
-          className="absolute inset-0 opacity-45"
+          className="absolute inset-0 opacity-55"
           style={{
             backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp')",
             backgroundSize: "cover",
@@ -146,7 +146,7 @@ export default function Home() {
           }}
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.15_0.04_280/0.7)] via-[oklch(0.12_0.03_260/0.55)] to-[oklch(0.18_0.05_290/0.7)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061726]/65 via-[#0b2540]/45 to-[#0c1f33]/65" />
         {/* Decorative grid */}
         <div
           className="absolute inset-0 opacity-5"
@@ -163,36 +163,38 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Text */}
             <div>
-              <Badge className="mb-6 bg-[oklch(0.72_0.14_75/0.2)] text-[oklch(0.82_0.12_80)] border-[oklch(0.72_0.14_75/0.3)] hover:bg-[oklch(0.72_0.14_75/0.3)]">
-              {/* <Star className="w-3 h-3 mr-1" /> Microsoft Certified Data Scientists */}
+              <Badge className="mb-6 bg-sky-400/15 text-sky-300 border-sky-400/30 hover:bg-sky-400/25 gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" /> AI-Powered Data Intelligence
               </Badge>
               <h1
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 Transforming Data into{" "}
-                <span className="daqs-text-gradient">Strategic Intelligence</span>
+                <span className="bg-gradient-to-r from-sky-300 via-blue-400 to-sky-200 bg-clip-text text-transparent">
+                  Strategic Intelligence
+                </span>
               </h1>
               <p className="text-white/75 text-lg leading-relaxed mb-8 max-w-xl">
                 DAQS delivers world-class expertise in data analytics, machine learning, AI, quantitative finance, and accounting — empowering organisations to make smarter, faster decisions.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/services" asChild>
-                  <Button size="lg" className="daqs-gold-gradient text-foreground font-semibold border-0 shadow-lg hover:opacity-90 transition-opacity">
-                    Explore Services <ArrowRight className="w-4 h-4 ml-2" />
+                <Link href="/contact" asChild>
+                  <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
+                    Book Consultation
                   </Button>
                 </Link>
-                <Link href="/contact" asChild>
-                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                    Book Consultation
+                <Link href="/services" asChild>
+                  <Button size="lg" variant="outline" className="rounded-full border-white/30 text-white hover:bg-white/10 hover:text-white">
+                    Explore Services <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>
               </div>
               {/* Trust badges */}
-              <div className="flex flex-wrap gap-4 mt-10">
+              <div className="flex flex-wrap gap-3 mt-10">
                 {["Microsoft Certified", "PhD-Level Expertise", "10+ Years Experience"].map((badge) => (
-                  <div key={badge} className="flex items-center gap-2 text-white/70 text-sm">
-                    <CheckCircle className="w-4 h-4 text-[oklch(0.72_0.14_75)]" />
+                  <div key={badge} className="flex items-center gap-1.5 text-white/80 text-xs font-medium bg-white/5 border border-white/15 rounded-full px-3.5 py-1.5">
+                    <CheckCircle className="w-3.5 h-3.5 text-sky-300" />
                     {badge}
                   </div>
                 ))}
@@ -253,45 +255,24 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, idx) => {
-              const serviceImages = [
-                "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/service-data-analytics.png",
-                "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/service-machine-learning.png",
-                "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/service-investment-analysis.png",
-                "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/service-accounting.png",
-              ];
-              const hasImage = idx < 4;
-              return (
-                <Link key={service.title} href={service.href} className="h-full">
-                  <Card className="h-full border-0 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer daqs-card-hover overflow-hidden">
-                    {hasImage && (
-                      <div className="relative h-40 bg-gradient-to-br from-[oklch(0.15_0.04_280)] to-[oklch(0.12_0.03_260)] overflow-hidden">
-                        <img
-                          src={serviceImages[idx]}
-                          alt={service.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.15_0.04_280/0.7)] to-transparent" />
-                      </div>
-                    )}
-                    <CardContent className={`${hasImage ? "p-5" : "p-6"}`}>
-                      {!hasImage && (
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform`}>
-                          <service.icon className="w-6 h-6 text-white" />
-                        </div>
-                      )}
-                      <h3 className="font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.desc}</p>
-                      <div className="flex items-center text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                        Learn more <ChevronRight className="w-4 h-4 ml-1" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              );
-            })}
+            {services.map((service) => (
+              <Link key={service.title} href={service.href} className="h-full">
+                <Card className="h-full border-0 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer daqs-card-hover overflow-hidden">
+                  <CardContent className="p-6">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform`}>
+                      <service.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">{service.desc}</p>
+                    <div className="flex items-center text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      Learn more <ChevronRight className="w-4 h-4 ml-1" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
           <div className="text-center mt-10">
             <Link href="/services" asChild>
