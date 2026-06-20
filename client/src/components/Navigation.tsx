@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   NavigationMenu,
@@ -13,7 +15,22 @@ import {
 import {
   Menu, ChevronDown, BarChart3, Brain, Calculator, BookOpen, Video, FileText, Phone,
   Mail, Linkedin, Twitter, Facebook, Youtube, Clock, ArrowRight,
+  Home as HomeIcon, LayoutGrid, Users, GraduationCap, Newspaper, TrendingUp,
+  Send, Loader2,
 } from "lucide-react";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
+
+const quickLinks = [
+  { label: "Home", href: "/", icon: HomeIcon },
+  { label: "Services", href: "/services", icon: LayoutGrid },
+  { label: "About", href: "/about", icon: Users },
+  { label: "Training", href: "/training", icon: GraduationCap },
+  { label: "Blog", href: "/blog", icon: Newspaper },
+  { label: "Case Studies", href: "/case-studies", icon: TrendingUp },
+  { label: "Media Hub", href: "/media", icon: Video },
+  { label: "Documents", href: "/documents", icon: FileText },
+];
 
 const services = [
   { label: "Data Analysis", href: "/services#data-analysis", icon: BarChart3, desc: "Advanced statistical analysis and data insights" },
@@ -37,7 +54,25 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [quickOpen, setQuickOpen] = useState(false);
+  const [quickForm, setQuickForm] = useState({ name: "", email: "", message: "" });
   const [location] = useLocation();
+
+  const quickSubmit = trpc.contact.submit.useMutation({
+    onSuccess: () => {
+      toast.success("Message sent - we'll be in touch within 24 hours.");
+      setQuickForm({ name: "", email: "", message: "" });
+    },
+    onError: (err: { message: string }) => toast.error(err.message || "Submission failed. Please try again."),
+  });
+
+  const handleQuickSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!quickForm.name || !quickForm.email || !quickForm.message) {
+      toast.error("Please fill in your name, email, and message.");
+      return;
+    }
+    quickSubmit.mutate(quickForm);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -58,93 +93,141 @@ export default function Navigation() {
     >
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Quick Access hamburger - top-left corner */}
-          <Sheet open={quickOpen} onOpenChange={setQuickOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Quick access menu"
-                className={`shrink-0 mr-1 ${scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"}`}
-              >
-                <Menu className="w-5 h-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-80 p-0">
-              <div className="daqs-gradient p-6">
-                <div className="flex items-center justify-between">
+          {/* Quick Access hamburger - far left corner */}
+          <div className="flex items-center shrink-0">
+            <Sheet open={quickOpen} onOpenChange={setQuickOpen}>
+              <SheetTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Quick access menu"
+                  className={`shrink-0 ${scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"}`}
+                >
+                  <Menu className="w-6 h-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[85vw] sm:w-[420px] sm:max-w-[420px] p-0 overflow-y-auto">
+                <div className="daqs-gradient p-6 sticky top-0 z-10">
+                  <div className="text-white font-bold text-lg" style={{ fontFamily: "var(--font-serif)" }}>Quick Access</div>
+                  <div className="text-white/70 text-xs">Jump to any part of the site, or reach our team</div>
+                </div>
+
+                <div className="p-5 space-y-6">
+                  {/* Quick Links */}
                   <div>
-                    <div className="text-white font-bold text-lg" style={{ fontFamily: "var(--font-serif)" }}>Quick Access</div>
-                    <div className="text-white/70 text-xs">Reach DAQS in one tap</div>
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Quick Links</div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {quickLinks.map((item) => (
+                        <Link key={item.href} href={item.href} onClick={() => setQuickOpen(false)}>
+                          <div className={`flex items-center gap-2 p-3 rounded-lg border transition-colors ${
+                            isActive(item.href)
+                              ? "border-primary/40 bg-primary/10 text-primary"
+                              : "border-border hover:border-primary/30 hover:bg-muted/40 text-foreground"
+                          }`}>
+                            <item.icon className="w-4 h-4 shrink-0" />
+                            <span className="text-sm font-medium">{item.label}</span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="p-5 space-y-5">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-lg px-3 py-2">
-                  <Clock className="w-4 h-4 text-primary shrink-0" />
-                  We typically respond within 24 hours
-                </div>
+                  <Link href="/contact" onClick={() => setQuickOpen(false)}>
+                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                      Get a Consultation <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
 
-                <div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Talk to Our Team</div>
-                  <div className="space-y-3">
-                    <a href="tel:+27603431561" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
-                      <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                        <Phone className="w-4 h-4 text-primary" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-semibold text-foreground">Trymore Ncube</div>
-                        <div className="text-xs text-muted-foreground">+27 60 343 1561</div>
-                      </div>
-                    </a>
-                    <a href="tel:+263773278724" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
-                      <div className="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                        <Phone className="w-4 h-4 text-secondary" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-semibold text-foreground">Albert Ncube</div>
-                        <div className="text-xs text-muted-foreground">+263 77 327 8724</div>
-                      </div>
-                    </a>
-                    <a href="mailto:Trymore.N@daqs.co.za" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
-                      <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                        <Mail className="w-4 h-4 text-primary" />
-                      </div>
-                      <div className="text-sm text-foreground truncate">Trymore.N@daqs.co.za</div>
-                    </a>
+                  <div>
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Follow DAQS</div>
+                    <div className="flex gap-2">
+                      {[
+                        { icon: Linkedin, label: "LinkedIn" },
+                        { icon: Twitter, label: "Twitter" },
+                        { icon: Facebook, label: "Facebook" },
+                        { icon: Youtube, label: "YouTube" },
+                      ].map(({ icon: Icon, label }) => (
+                        <a
+                          key={label}
+                          href="#"
+                          aria-label={label}
+                          className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                        >
+                          <Icon className="w-4 h-4" />
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                <div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Follow DAQS</div>
-                  <div className="flex gap-2">
-                    {[
-                      { icon: Linkedin, label: "LinkedIn" },
-                      { icon: Twitter, label: "Twitter" },
-                      { icon: Facebook, label: "Facebook" },
-                      { icon: Youtube, label: "YouTube" },
-                    ].map(({ icon: Icon, label }) => (
-                      <a
-                        key={label}
-                        href="#"
-                        aria-label={label}
-                        className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
-                      >
-                        <Icon className="w-4 h-4" />
+                  <div className="border-t border-border pt-5">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-lg px-3 py-2 mb-4">
+                      <Clock className="w-4 h-4 text-primary shrink-0" />
+                      We typically respond within 24 hours
+                    </div>
+
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Talk to Our Team</div>
+                    <div className="space-y-3">
+                      <a href="tel:+27603431561" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
+                        <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                          <Phone className="w-4 h-4 text-primary" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-foreground">Trymore Ncube</div>
+                          <div className="text-xs text-muted-foreground">+27 60 343 1561</div>
+                        </div>
                       </a>
-                    ))}
+                      <a href="tel:+263773278724" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
+                        <div className="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                          <Phone className="w-4 h-4 text-secondary" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-foreground">Albert Ncube</div>
+                          <div className="text-xs text-muted-foreground">+263 77 327 8724</div>
+                        </div>
+                      </a>
+                      <a href="mailto:Trymore.N@daqs.co.za" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
+                        <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                          <Mail className="w-4 h-4 text-primary" />
+                        </div>
+                        <div className="text-sm text-foreground truncate">Trymore.N@daqs.co.za</div>
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Mini contact form */}
+                  <div className="border-t border-border pt-5">
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Send a Quick Message</div>
+                    <form onSubmit={handleQuickSubmit} className="space-y-3">
+                      <Input
+                        placeholder="Your name"
+                        value={quickForm.name}
+                        onChange={(e) => setQuickForm({ ...quickForm, name: e.target.value })}
+                      />
+                      <Input
+                        type="email"
+                        placeholder="Your email"
+                        value={quickForm.email}
+                        onChange={(e) => setQuickForm({ ...quickForm, email: e.target.value })}
+                      />
+                      <Textarea
+                        placeholder="Your message..."
+                        rows={3}
+                        value={quickForm.message}
+                        onChange={(e) => setQuickForm({ ...quickForm, message: e.target.value })}
+                      />
+                      <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" disabled={quickSubmit.isPending}>
+                        {quickSubmit.isPending ? (
+                          <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending...</>
+                        ) : (
+                          <><Send className="w-4 h-4 mr-2" /> Send Message</>
+                        )}
+                      </Button>
+                    </form>
                   </div>
                 </div>
-
-                <Link href="/contact" onClick={() => setQuickOpen(false)}>
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    Get a Consultation <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
 
           {/* Logo - Large and prominent at top left */}
           <Link href="/" className="flex items-center gap-3 group shrink-0">
