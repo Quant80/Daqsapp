@@ -96,8 +96,8 @@ export default function Navigation() {
         <div className="flex items-center h-16 lg:h-20">
           {/* Logo + divider + Quick Access hamburger, grouped tight at the far left */}
           <div className="flex items-center shrink-0 gap-2 lg:gap-3">
-          <Link href="/" className="flex items-center shrink-0 pr-4 lg:pr-6 border-r border-white/20">
-            <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-11 lg:h-14 w-auto" />
+          <Link href="/" className="flex items-center justify-center shrink-0 h-16 lg:h-20 w-[89px] lg:w-[117px] border-r border-white/20 overflow-hidden">
+            <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-full w-full object-cover" />
           </Link>
 
             <Sheet open={quickOpen} onOpenChange={setQuickOpen}>
