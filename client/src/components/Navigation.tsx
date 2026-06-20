@@ -49,7 +49,7 @@ export default function Navigation() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-card/95 backdrop-blur-md shadow-lg border-b border-border"
-          : "bg-transparent border-b border-white/40"
+          : "bg-transparent border-b-2 border-white/80"
       }`}
     >
       <div className="container">
@@ -77,7 +77,7 @@ export default function Navigation() {
                   <NavigationMenuItem key={link.href}>
                     <Link href={link.href}>
                       <NavigationMenuLink
-                        className={`px-4 py-2 rounded-md text-sm font-medium transition-colors nav-link-underline ${
+                        className={`px-4 py-2 rounded-md text-sm font-medium transition-colors nav-link-underline bg-transparent hover:bg-transparent focus:bg-transparent ${
                           isActive(link.href)
                             ? scrolled ? "text-primary" : "text-sky-400"
                             : scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-sky-300"
@@ -128,7 +128,7 @@ export default function Navigation() {
                   <NavigationMenuItem key={link.href}>
                     <Link href={link.href}>
                       <NavigationMenuLink
-                        className={`px-4 py-2 rounded-md text-sm font-medium transition-colors nav-link-underline ${
+                        className={`px-4 py-2 rounded-md text-sm font-medium transition-colors nav-link-underline bg-transparent hover:bg-transparent focus:bg-transparent ${
                           isActive(link.href)
                             ? scrolled ? "text-primary" : "text-sky-400"
                             : scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-sky-300"
