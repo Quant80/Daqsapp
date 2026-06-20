@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Navigation from "./components/Navigation";
+import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import Home from "./pages/Home";
@@ -42,13 +43,14 @@ function App() {
         <TooltipProvider>
           <Toaster position="top-right" richColors />
           <div className="relative flex flex-col min-h-screen">
-            {/* Vertical accent line, aligned with the divider next to the nav logo, running the full height of every page */}
-            <div className="absolute inset-y-0 left-[89px] lg:left-[117px] w-px bg-white/15 z-40 pointer-events-none" />
             <Navigation />
-            <main className="flex-1">
-              <Router />
-            </main>
-            <Footer />
+            <Sidebar />
+            <div className="flex flex-col flex-1 md:pl-56">
+              <main className="flex-1">
+                <Router />
+              </main>
+              <Footer />
+            </div>
           </div>
           <Chatbot />
         </TooltipProvider>

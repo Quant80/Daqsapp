@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Brain, Calculator, BarChart3, BookOpen, Clock, Users,
   Award, CheckCircle, ArrowRight, Star, GraduationCap,
-  Laptop, Calendar, TrendingUp, Cpu, LineChart, Sparkles, Activity,
+  Laptop, Calendar, TrendingUp, Cpu, LineChart, Activity,
 } from "lucide-react";
 import bgGold from "@/assets/daqs-bg-gold.png";
 
@@ -251,7 +251,7 @@ export default function Training() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" /> Training & Education
+                Training & Education
               </Badge>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
                 Build World-Class{" "}

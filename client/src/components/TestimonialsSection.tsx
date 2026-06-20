@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Star, Quote, Sparkles } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -51,7 +51,7 @@ export default function TestimonialsSection() {
       <div className="container relative z-10">
         <div className="text-center mb-14">
           <Badge className="mb-4 bg-sky-400/15 text-sky-300 border-sky-400/30 gap-1.5">
-            <Sparkles className="w-3.5 h-3.5" /> Client Feedback
+            Client Feedback
           </Badge>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             What Our Clients Say
