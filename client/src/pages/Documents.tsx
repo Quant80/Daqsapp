@@ -14,7 +14,7 @@ import { toast } from "sonner";
 import {
   FileText, Download, Upload, Plus, Search, BookOpen,
   FileBarChart, GraduationCap, Briefcase, Loader2, ExternalLink, Calendar,
-  Sparkles, ShieldCheck, ArrowRight,
+  ShieldCheck, ArrowRight,
 } from "lucide-react";
 import bgSignage from "@/assets/daqs-bg-signage.png";
 
@@ -296,7 +296,7 @@ export default function Documents() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" /> Document Library
+                Document Library
               </Badge>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
                 Research, Whitepapers{" "}

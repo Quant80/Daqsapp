@@ -10,7 +10,7 @@ import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import {
   Phone, Mail, Globe, MapPin, Clock, CheckCircle,
-  Send, Loader2, MessageSquare, ArrowRight, Sparkles, Zap,
+  Send, Loader2, MessageSquare, ArrowRight, Zap,
 } from "lucide-react";
 
 const contactStats = [
@@ -96,7 +96,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" /> Contact Us
+                Contact Us
               </Badge>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
                 Let's Start a{" "}

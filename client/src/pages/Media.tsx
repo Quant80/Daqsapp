@@ -14,7 +14,7 @@ import { toast } from "sonner";
 import {
   Youtube, Facebook, Video, Play, Plus, ExternalLink,
   Mic, BookOpen, Presentation, MoreHorizontal, Loader2,
-  Sparkles, ArrowRight,
+  ArrowRight,
 } from "lucide-react";
 import bgNeon from "@/assets/daqs-bg-neon.png";
 
@@ -273,7 +273,7 @@ export default function Media() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" /> Media Hub
+                Media Hub
               </Badge>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
                 Podcasts, Webinars &{" "}

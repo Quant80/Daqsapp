@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   Award, GraduationCap, Briefcase, CheckCircle, ArrowRight,
   Mail, Phone, Linkedin, Star, BookOpen, Brain, Calculator,
-  BarChart3, TrendingUp, Shield, Sparkles, ShieldCheck, Users,
+  BarChart3, TrendingUp, Shield, ShieldCheck, Users,
 } from "lucide-react";
 
 const stats = [
@@ -97,7 +97,7 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" /> About DAQS
+                About DAQS
               </Badge>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
                 Who We{" "}

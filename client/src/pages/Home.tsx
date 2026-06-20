@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   BarChart3, Brain, Calculator, TrendingUp, BookOpen, Shield,
   ArrowRight, CheckCircle, ChevronRight, Star, Users, Award, Globe,
-  Database, Cpu, PieChart, Briefcase, GraduationCap, LineChart, Sparkles
+  Database, Cpu, PieChart, Briefcase, GraduationCap, LineChart
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -152,7 +152,7 @@ export default function Home() {
             {/* Left: Text */}
             <div>
               <Badge className="mb-6 bg-sky-400/15 text-sky-300 border-sky-400/30 hover:bg-sky-400/25 gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" /> AI-Powered Data Intelligence
+                AI-Powered Data Intelligence
               </Badge>
               <h1
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
@@ -284,7 +284,7 @@ export default function Home() {
         <div className="container relative z-10">
           <div className="text-center mb-14">
             <Badge className="mb-4 bg-accent/15 text-accent border-accent/30 gap-1.5">
-              <Sparkles className="w-3.5 h-3.5" /> Our Expertise
+              Our Expertise
             </Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
               Comprehensive Solutions for the Modern Enterprise

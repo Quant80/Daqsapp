@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Calendar, User, Search, ChevronRight, Sparkles, TrendingUp, FileText } from "lucide-react";
+import { ArrowRight, Calendar, User, Search, ChevronRight, TrendingUp, FileText } from "lucide-react";
 import { Link } from "wouter";
 import bgMountain from "@/assets/daqs-bg-mountain.png";
 
@@ -89,7 +89,7 @@ export default function Blog() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" /> DAQS Insights
+                DAQS Insights
               </Badge>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
                 Insights &{" "}

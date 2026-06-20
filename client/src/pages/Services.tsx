@@ -7,7 +7,7 @@ import {
   BarChart3, Brain, Calculator, Cpu,
   LineChart, ArrowRight, CheckCircle, Zap,
   BookOpen, FileText, Target, Users,
-  Sparkles, Activity, ShieldCheck, Award, GraduationCap, Star,
+  Activity, ShieldCheck, Award, GraduationCap, Star,
 } from "lucide-react";
 import { useEffect } from "react";
 
@@ -143,7 +143,7 @@ export default function Services() {
             {/* Copy */}
             <div>
               <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
-                <Sparkles className="w-3.5 h-3.5" /> Our Services
+                Our Services
               </Badge>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-5 leading-[1.1]" style={{ fontFamily: "var(--font-serif)" }}>
                 Expert Solutions{" "}
