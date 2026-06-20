@@ -75,7 +75,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#1e3a5f] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp')",
           backgroundSize: "cover",

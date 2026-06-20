@@ -49,7 +49,7 @@ export default function Navigation() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-card/95 backdrop-blur-md shadow-lg border-b border-border"
-          : "bg-transparent"
+          : "bg-transparent border-b border-white/15"
       }`}
     >
       <div className="container">
@@ -79,8 +79,8 @@ export default function Navigation() {
                       <NavigationMenuLink
                         className={`px-4 py-2 rounded-md text-sm font-medium transition-colors nav-link-underline ${
                           isActive(link.href)
-                            ? scrolled ? "text-primary" : "text-yellow-300"
-                            : scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
+                            ? scrolled ? "text-primary" : "text-sky-400"
+                            : scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-sky-300"
                         }`}
                       >
                         {link.label}
@@ -94,8 +94,8 @@ export default function Navigation() {
                   <NavigationMenuTrigger
                     className={`px-4 py-2 text-sm font-medium transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent ${
                       isActive("/services")
-                        ? scrolled ? "text-primary" : "text-yellow-300"
-                        : scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
+                        ? scrolled ? "text-primary" : "text-sky-400"
+                        : scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-sky-300"
                     }`}
                   >
                     Services
@@ -130,8 +130,8 @@ export default function Navigation() {
                       <NavigationMenuLink
                         className={`px-4 py-2 rounded-md text-sm font-medium transition-colors nav-link-underline ${
                           isActive(link.href)
-                            ? scrolled ? "text-primary" : "text-yellow-300"
-                            : scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-white"
+                            ? scrolled ? "text-primary" : "text-sky-400"
+                            : scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-sky-300"
                         }`}
                       >
                         {link.label}

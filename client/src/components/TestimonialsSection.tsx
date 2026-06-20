@@ -46,7 +46,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative py-20 bg-[#061726] overflow-hidden">
+    <section className="relative py-20 bg-[#1e3a5f] overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[36rem] h-[20rem] bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
       <div className="container relative z-10">
         <div className="text-center mb-14">
