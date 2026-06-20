@@ -101,7 +101,7 @@ export default function CaseStudies() {
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
       <section className="relative min-h-[400px] bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] overflow-hidden pt-32 pb-16">
-        <div className="absolute inset-0 opacity-30" style={{
+        <div className="absolute inset-0 opacity-40" style={{
           backgroundImage: `url('${bgBillboard}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -119,8 +119,13 @@ export default function CaseStudies() {
       </section>
 
       {/* ── FEATURED LIVE PROJECTS ────────────────────────── */}
-      <section className="py-16 bg-[#071428]">
-        <div className="container">
+      <section className="relative py-16 bg-[#071428] overflow-hidden">
+        <div className="absolute inset-0 opacity-35" style={{
+          backgroundImage: `url('${bgBillboard}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10">
           <div className="text-center mb-12">
             <div className="text-sky-300 text-xs font-semibold tracking-widest uppercase mb-3">Featured Work</div>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3" style={{ fontFamily: "var(--font-serif)" }}>
@@ -192,8 +197,13 @@ export default function CaseStudies() {
       </section>
 
       {/* ── CASE STUDIES ────────────────────────── */}
-      <section className="py-16 bg-[#0b1f33]">
-        <div className="container">
+      <section className="relative py-16 bg-[#0b1f33] overflow-hidden">
+        <div className="absolute inset-0 opacity-35" style={{
+          backgroundImage: `url('${bgBillboard}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10">
           <div className="space-y-12">
             {caseStudies.map((study, index) => {
               const Icon = study.icon;
@@ -256,8 +266,13 @@ export default function CaseStudies() {
       </section>
 
       {/* ── CTA ────────────────────────── */}
-      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#061726]">
-        <div className="container text-center">
+      <section className="relative py-16 bg-gradient-to-br from-[#0b2540] to-[#061726] overflow-hidden">
+        <div className="absolute inset-0 opacity-30" style={{
+          backgroundImage: `url('${bgBillboard}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
           <p className="text-white/75 text-lg mb-8 max-w-2xl mx-auto">
             Let DAQS help you unlock the potential of your data and achieve measurable business results.

@@ -93,14 +93,13 @@ export default function Navigation() {
       }`}
     >
       <div className="w-full pr-4 sm:pr-6 lg:pr-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo - flush against the far left edge of the viewport, no padding/margin before it */}
-          <Link href="/" className="flex items-center shrink-0 mr-4 lg:mr-6 pr-4 lg:pr-6 border-r border-white/20">
+        <div className="flex items-center h-16 lg:h-20">
+          {/* Logo + divider + Quick Access hamburger, grouped tight at the far left */}
+          <div className="flex items-center shrink-0 gap-2 lg:gap-3">
+          <Link href="/" className="flex items-center shrink-0 pr-4 lg:pr-6 border-r border-white/20">
             <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-11 lg:h-14 w-auto" />
           </Link>
 
-          {/* Quick Access hamburger - to the right of the logo */}
-          <div className="flex items-center shrink-0">
             <Sheet open={quickOpen} onOpenChange={setQuickOpen}>
               <SheetTrigger asChild>
                 <Button
@@ -235,10 +234,10 @@ export default function Navigation() {
             </Sheet>
           </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            <NavigationMenu>
-              <NavigationMenuList>
+          {/* Desktop Nav - fills remaining space, links spread evenly across it */}
+          <nav className="hidden lg:flex items-center flex-1 px-6">
+            <NavigationMenu className="w-full max-w-none justify-start">
+              <NavigationMenuList className="w-full justify-between gap-0">
                 {navLinks.slice(0, 1).map((link) => (
                   <NavigationMenuItem key={link.href}>
                     <Link href={link.href}>
@@ -310,7 +309,7 @@ export default function Navigation() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <Link href="/contact">
               <Button
                 size="sm"
@@ -327,7 +326,7 @@ export default function Navigation() {
               <Button
                 variant="ghost"
                 size="icon"
-                className={`lg:hidden ${scrolled ? "text-foreground" : "text-white"}`}
+                className={`lg:hidden ml-auto ${scrolled ? "text-foreground" : "text-white"}`}
               >
                 <Menu className="w-6 h-6" />
               </Button>
