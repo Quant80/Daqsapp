@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import daqsLogo from "@/assets/daqs-logo.png";
+import daqsLogo from "@/assets/daqs-logo-yellow.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -94,8 +94,13 @@ export default function Navigation() {
     >
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Quick Access hamburger - far left corner */}
-          <div className="flex items-center shrink-0 mr-4 lg:mr-6 pr-4 lg:pr-6 border-r border-white/20">
+          {/* Logo - far left corner */}
+          <Link href="/" className="flex items-center shrink-0 mr-4 lg:mr-6 pr-4 lg:pr-6 border-r border-white/20">
+            <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-11 lg:h-14 w-auto" />
+          </Link>
+
+          {/* Quick Access hamburger - to the right of the logo */}
+          <div className="flex items-center shrink-0">
             <Sheet open={quickOpen} onOpenChange={setQuickOpen}>
               <SheetTrigger asChild>
                 <Button
@@ -229,11 +234,6 @@ export default function Navigation() {
               </SheetContent>
             </Sheet>
           </div>
-
-          {/* Logo - Large and prominent at top left */}
-          <Link href="/" className="flex items-center shrink-0">
-            <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-11 lg:h-14 w-auto" />
-          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">

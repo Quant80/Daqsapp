@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Phone, Mail, Globe, Linkedin, Twitter, Facebook, Youtube, MapPin, ArrowRight } from "lucide-react";
-import daqsLogo from "@/assets/daqs-logo.png";
+import daqsLogo from "@/assets/daqs-logo-yellow.png";
 
 export default function Footer() {
   return (
