@@ -92,10 +92,10 @@ export default function Navigation() {
           : "bg-transparent border-b-2 border-white/80"
       }`}
     >
-      <div className="container">
+      <div className="w-full pr-4 sm:pr-6 lg:pr-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo - flush against the far left edge of the viewport */}
-          <Link href="/" className="flex items-center shrink-0 -ml-4 sm:-ml-6 lg:-ml-8 mr-4 lg:mr-6 pr-4 lg:pr-6 border-r border-white/20">
+          {/* Logo - flush against the far left edge of the viewport, no padding/margin before it */}
+          <Link href="/" className="flex items-center shrink-0 mr-4 lg:mr-6 pr-4 lg:pr-6 border-r border-white/20">
             <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-11 lg:h-14 w-auto" />
           </Link>
 

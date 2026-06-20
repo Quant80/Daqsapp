@@ -8,6 +8,11 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import bgMountain from "@/assets/daqs-bg-mountain.png";
+import bgGold from "@/assets/daqs-bg-gold.png";
+import bgBillboard from "@/assets/daqs-bg-billboard.png";
+import bgSignage from "@/assets/daqs-bg-signage.png";
+import bgNeon from "@/assets/daqs-bg-neon.png";
 
 const stats = [
   { value: "10+", label: "Years Combined Experience", icon: Award },
@@ -122,7 +127,7 @@ export default function Home() {
         <div
           className="absolute inset-0 opacity-55"
           style={{
-            backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp')",
+            backgroundImage: `url('${bgMountain}')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
@@ -226,6 +231,15 @@ export default function Home() {
       {/* ── STATS ─────────────────────────────────────────────── */}
       <section className="relative bg-[#071428] py-16 overflow-hidden">
         <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url('${bgGold}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="absolute inset-0 bg-[#071428]/80" />
+        <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
@@ -258,6 +272,15 @@ export default function Home() {
 
       {/* ── SERVICES ─────────────────────────────────────────── */}
       <section className="relative py-20 bg-[#0b2540] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url('${bgBillboard}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="absolute inset-0 bg-[#0b2540]/80" />
         <div className="absolute top-0 right-0 w-[28rem] h-[28rem] bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[24rem] h-[24rem] bg-accent/10 rounded-full blur-3xl pointer-events-none" />
         <div className="container relative z-10">
@@ -301,8 +324,17 @@ export default function Home() {
       </section>
 
       {/* ── MISSION ─────────────────────────────────────────── */}
-      <section className="py-20 bg-[#061726]">
-        <div className="container">
+      <section className="relative py-20 bg-[#061726] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url('${bgSignage}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="absolute inset-0 bg-[#061726]/80" />
+        <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <Badge className="mb-4 bg-sky-400/15 text-sky-300 border-sky-400/30">Our Mission</Badge>
@@ -354,8 +386,17 @@ export default function Home() {
       </section>
 
       {/* ── INDUSTRIES ─────────────────────────────────────── */}
-      <section className="py-16 bg-[#0c1f33]">
-        <div className="container">
+      <section className="relative py-16 bg-[#0c1f33] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url('${bgNeon}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="absolute inset-0 bg-[#0c1f33]/80" />
+        <div className="container relative z-10">
           <div className="text-center mb-10">
             <Badge className="mb-4 bg-accent/15 text-accent border-accent/30">Who We Serve</Badge>
             <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3" style={{ fontFamily: "var(--font-serif)" }}>
@@ -378,6 +419,14 @@ export default function Home() {
 
       {/* ── CTA ─────────────────────────────────────────────── */}
       <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-blue-700">
+        <div
+          className="absolute inset-0 opacity-15"
+          style={{
+            backgroundImage: `url('${bgMountain}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
         <div className="absolute inset-0 hero-pattern" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="container relative z-10 text-center">
