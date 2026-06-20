@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Database, Brain, Cpu, Bot, Rocket, ChevronDown } from "lucide-react";
+import { Database, Brain, Cpu, Bot, Rocket } from "lucide-react";
 
 const sections = [
   {
@@ -46,41 +46,31 @@ const sections = [
 ];
 
 export default function Sidebar() {
-  const [open, setOpen] = useState<Set<string>>(new Set());
+  const [active, setActive] = useState<string | null>(null);
 
-  const toggle = (id: string) => {
-    setOpen((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  };
+  const toggle = (id: string) => setActive((prev) => (prev === id ? null : id));
 
   return (
-    <aside className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-56 flex-col bg-[#040c16] border-r border-white/10 z-30 overflow-y-auto">
-      <div className="px-4 pt-5 pb-2 text-xs font-semibold text-white/40 uppercase tracking-wider">
-        Quick Links
-      </div>
-      <nav className="flex-1 px-2 pb-4">
+    <aside className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[89px] lg:w-[117px] flex-col border-r border-white/15 z-30">
+      <nav className="flex-1 px-1 pt-3 pb-4">
         {sections.map((section) => {
-          const isOpen = open.has(section.id);
+          const isOpen = active === section.id;
           return (
-            <div key={section.id} className="mb-1">
+            <div key={section.id} className="relative mb-1">
               <button
                 type="button"
                 onClick={() => toggle(section.id)}
                 aria-expanded={isOpen}
-                className="w-full flex items-center gap-2.5 px-2.5 py-2.5 rounded-lg text-sm font-medium text-white/85 hover:bg-white/5 transition-colors"
+                className={`w-full flex flex-col items-center gap-1 px-1 py-2.5 rounded-lg transition-colors ${isOpen ? "bg-white/10" : "hover:bg-white/5"}`}
               >
                 <section.icon className="w-4 h-4 shrink-0 text-white/60" />
-                <span className="flex-1 text-left">{section.label}</span>
-                <ChevronDown className={`w-3.5 h-3.5 shrink-0 text-white/40 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                <span className="text-[10px] leading-tight text-center text-white/80 font-medium break-words">{section.label}</span>
               </button>
               {isOpen && (
-                <div className="pl-9 pr-2 py-1 space-y-1.5">
+                <div className="absolute left-full top-0 ml-1 w-52 rounded-lg border border-white/10 bg-[#0b2540] shadow-xl p-3 space-y-2 z-40">
+                  <div className="text-xs font-semibold text-white/70 mb-1">{section.label}</div>
                   {section.links.map((link) => (
-                    <Link key={link.label} href={link.href}>
+                    <Link key={link.label} href={link.href} onClick={() => setActive(null)}>
                       <div className="text-xs text-[#58a6ff] hover:text-[#79c0ff] hover:underline leading-snug py-0.5 cursor-pointer">
                         {link.label}
                       </div>
@@ -93,18 +83,14 @@ export default function Sidebar() {
         })}
 
         {/* N³ Smart Solutions - coming soon, not expandable */}
-        <div className="mb-1">
-          <div className="w-full flex items-center gap-2.5 px-2.5 py-2.5 rounded-lg text-sm font-medium text-white/50">
-            <Rocket className="w-4 h-4 shrink-0 text-white/40" />
-            <span className="flex-1 text-left">
-              N<sup>3</sup> Smart Solutions
-            </span>
-          </div>
-          <div className="pl-9 pr-2">
-            <span className="inline-block text-[10px] font-semibold uppercase tracking-wider text-[#58a6ff]/70 bg-[#58a6ff]/10 border border-[#58a6ff]/20 rounded-full px-2 py-0.5">
-              Coming Soon
-            </span>
-          </div>
+        <div className="flex flex-col items-center gap-1 px-1 py-2.5 rounded-lg">
+          <Rocket className="w-4 h-4 shrink-0 text-white/40" />
+          <span className="text-[10px] leading-tight text-center text-white/50 font-medium">
+            N<sup>3</sup> Smart Solutions
+          </span>
+          <span className="inline-block text-[8px] font-semibold uppercase tracking-wider text-[#58a6ff]/70 bg-[#58a6ff]/10 border border-[#58a6ff]/20 rounded-full px-1.5 py-0.5 mt-0.5">
+            Coming Soon
+          </span>
         </div>
       </nav>
     </aside>

@@ -5,6 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Calendar, User, Search, ChevronRight, TrendingUp, FileText } from "lucide-react";
 import { Link } from "wouter";
 import bgMountain from "@/assets/daqs-bg-mountain.png";
+import bgGold from "@/assets/daqs-bg-gold.png";
+import bgBillboard from "@/assets/daqs-bg-billboard.png";
+import bgSignage from "@/assets/daqs-bg-signage.png";
 
 const blogStats = [
   { value: "10+", label: "Years Combined Experience" },
@@ -22,7 +25,7 @@ const blogPosts = [
     category: "AI & Finance",
     author: "Trymore Ncube",
     date: "2026-02-20",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp",
+    imageUrl: bgGold,
     content: "Artificial intelligence is revolutionizing the financial services industry. From algorithmic trading to fraud detection, AI systems are becoming increasingly sophisticated and essential. In this comprehensive guide, we explore the latest trends, challenges, and opportunities in AI-driven finance.",
   },
   {
@@ -33,7 +36,7 @@ const blogPosts = [
     category: "Machine Learning",
     author: "Trymore Ncube",
     date: "2026-02-15",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-business-analytics-Gvyzr6kAwiaQvBKrqDNhbj.webp",
+    imageUrl: bgBillboard,
     content: "Building production-grade machine learning systems requires more than just data science knowledge. This article covers best practices for model development, validation, deployment, and monitoring.",
   },
   {
@@ -44,7 +47,7 @@ const blogPosts = [
     category: "Quantitative Solutions",
     author: "Albert Ncube",
     date: "2026-02-10",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-business-analytics-Gvyzr6kAwiaQvBKrqDNhbj.webp",
+    imageUrl: bgMountain,
     content: "Quantitative analysis combines mathematics, statistics, and programming to solve complex financial problems. Learn how DAQS applies these techniques to deliver measurable results for clients.",
   },
   {
@@ -55,7 +58,7 @@ const blogPosts = [
     category: "Deep Learning",
     author: "Trymore Ncube",
     date: "2026-02-05",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp",
+    imageUrl: bgSignage,
     content: "Time series forecasting is critical for business planning and financial analysis. Discover how LSTM, Transformer, and other deep learning architectures can capture complex temporal patterns.",
   },
 ];
@@ -153,7 +156,7 @@ export default function Blog() {
       </section>
 
       {/* ── FILTERS ────────────────────────── */}
-      <section className="bg-white/50 backdrop-blur-sm border-b border-border py-8">
+      <section className="bg-[#0b2540] border-b border-white/10 py-8">
         <div className="container">
           <div className="flex flex-wrap gap-3">
             {categories.map((cat) => (
@@ -163,7 +166,7 @@ export default function Blog() {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   selectedCategory === cat
                     ? "bg-primary text-primary-foreground"
-                    : "bg-white border border-border text-foreground hover:border-primary"
+                    : "bg-white/5 border border-white/20 text-white/80 hover:border-primary hover:text-white"
                 }`}
               >
                 {cat}

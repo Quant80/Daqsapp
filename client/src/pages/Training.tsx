@@ -9,6 +9,18 @@ import {
   Laptop, Calendar, TrendingUp, Cpu, LineChart, Activity,
 } from "lucide-react";
 import bgGold from "@/assets/daqs-bg-gold.png";
+import bgBillboard from "@/assets/daqs-bg-billboard.png";
+import bgMountain from "@/assets/daqs-bg-mountain.png";
+import bgSignage from "@/assets/daqs-bg-signage.png";
+import bgNeon from "@/assets/daqs-bg-neon.png";
+
+const categoryImages: Record<string, string> = {
+  "data-science": bgGold,
+  "ml-ai": bgBillboard,
+  quant: bgMountain,
+  accounting: bgSignage,
+  robotics: bgNeon,
+};
 
 const trainingStats = [
   { value: "10+", label: "Years Combined Experience" },
@@ -352,7 +364,14 @@ export default function Training() {
               <TabsContent key={cat.id} value={cat.id} className="mt-0">
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                   {cat.courses.map((course) => (
-                    <Card key={course.title} className="border border-border hover:shadow-lg transition-all group flex flex-col">
+                    <Card key={course.title} className="border border-border hover:shadow-lg transition-all group flex flex-col overflow-hidden">
+                      <div className="-mt-6 -mx-6 mb-4 h-32 overflow-hidden">
+                        <img
+                          src={categoryImages[cat.id]}
+                          alt={cat.label}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
                       <CardHeader className="pb-3">
                         <div className="flex items-start justify-between gap-3 mb-2">
                           <Badge className={`text-xs border ${levelColors[course.level]}`}>{course.level}</Badge>

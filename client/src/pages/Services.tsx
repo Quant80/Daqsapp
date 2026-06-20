@@ -10,6 +10,7 @@ import {
   Activity, ShieldCheck, Award, GraduationCap, Star,
 } from "lucide-react";
 import { useEffect } from "react";
+import bgBillboard from "@/assets/daqs-bg-billboard.png";
 
 const stats = [
   { value: "10+", label: "Years Combined Experience", icon: Award },
@@ -130,8 +131,8 @@ export default function Services() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: 'url("https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/services-page-bg-9Aek7aTnKkmS7mx76ScEES.webp")',
+        <div className="absolute inset-0 opacity-40" style={{
+          backgroundImage: `url('${bgBillboard}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
