@@ -65,11 +65,6 @@ export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const sectionStyle = {
-    "--primary": "var(--section-blog-accent)",
-    "--primary-foreground": "var(--section-blog-accent-foreground)",
-  } as React.CSSProperties;
-
   const filteredPosts = blogPosts.filter((post) => {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -78,7 +73,7 @@ export default function Blog() {
   });
 
   return (
-    <div className="min-h-screen" style={sectionStyle}>
+    <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
         <div className="absolute inset-0 opacity-10" style={{
@@ -242,7 +237,7 @@ export default function Blog() {
               placeholder="Enter your email"
               className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-[oklch(0.72_0.14_75)]"
             />
-            <Button className="daqs-gold-gradient text-foreground font-semibold border-0">
+            <Button className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold border-0">
               Subscribe
             </Button>
           </div>

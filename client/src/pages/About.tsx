@@ -309,7 +309,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 daqs-gradient">
+      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#061726]">
         <div className="container text-center">
           <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Work With Our Expert Team
@@ -318,7 +318,7 @@ export default function About() {
             Reach out today to discuss how DAQS can support your organisation's data and financial goals.
           </p>
           <Link href="/contact" asChild>
-            <Button size="lg" className="daqs-gold-gradient text-foreground font-semibold border-0">
+            <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
               Get in Touch <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>

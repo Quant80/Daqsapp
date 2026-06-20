@@ -251,18 +251,13 @@ export default function Media() {
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
 
-  const sectionStyle = {
-    "--primary": "var(--section-media-accent)",
-    "--primary-foreground": "var(--section-media-accent-foreground)",
-  } as React.CSSProperties;
-
   const { data: mediaData, refetch } = trpc.media.list.useQuery();
   const allMedia = [...sampleMedia, ...(mediaData || [])];
 
   const categories = ["all", "podcast", "tutorial", "webinar", "talk", "other"];
 
   return (
-    <div className="min-h-screen" style={sectionStyle}>
+    <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
         <div className="absolute inset-0 opacity-10" style={{

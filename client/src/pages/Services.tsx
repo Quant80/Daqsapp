@@ -156,7 +156,7 @@ export default function Services() {
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 <Link href="/contact" asChild>
-                  <Button size="lg" className="daqs-gold-gradient text-foreground font-semibold border-0">
+                  <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
                     Get a Consultation <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </Link>

@@ -234,13 +234,8 @@ const levelColors: Record<string, string> = {
 };
 
 export default function Training() {
-  const sectionStyle = {
-    "--primary": "var(--section-training-accent)",
-    "--primary-foreground": "var(--section-training-accent-foreground)",
-  } as React.CSSProperties;
-
   return (
-    <div className="min-h-screen" style={sectionStyle}>
+    <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
         <div className="absolute inset-0 opacity-10" style={{
@@ -460,7 +455,7 @@ export default function Training() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 daqs-gradient">
+      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#061726]">
         <div className="container text-center">
           <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Invest in Your Team's Future
@@ -469,7 +464,7 @@ export default function Training() {
             Contact us to discuss your training needs and receive a customised program proposal.
           </p>
           <Link href="/contact" asChild>
-            <Button size="lg" className="daqs-gold-gradient text-foreground font-semibold border-0">
+            <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
               Enquire About Training <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>

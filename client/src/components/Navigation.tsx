@@ -48,7 +48,7 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-border"
+          ? "bg-card/95 backdrop-blur-md shadow-lg border-b border-border"
           : "bg-transparent"
       }`}
     >
@@ -148,7 +148,7 @@ export default function Navigation() {
             <Link href="/contact">
               <Button
                 size="sm"
-                className="daqs-gold-gradient text-foreground font-semibold hover:opacity-90 transition-opacity shadow-md border-0"
+                className="rounded-full bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors shadow-md border-0"
               >
                 Get a Consultation
               </Button>
@@ -226,7 +226,7 @@ export default function Navigation() {
                 </Link>
                 <div className="pt-4">
                   <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                    <Button className="w-full daqs-gold-gradient text-foreground font-semibold border-0">
+                    <Button className="w-full rounded-full bg-blue-500 text-white font-semibold hover:bg-blue-600 border-0">
                       Get a Consultation
                     </Button>
                   </Link>

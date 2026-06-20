@@ -81,10 +81,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen" style={{
-      "--primary": "var(--section-docs-accent)",
-      "--primary-foreground": "var(--section-docs-accent-foreground)",
-    } as React.CSSProperties}>
+    <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
         <div className="absolute inset-0 opacity-10" style={{

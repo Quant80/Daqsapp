@@ -261,11 +261,6 @@ function UploadDialog({ onSuccess }: { onSuccess: () => void }) {
 export default function Documents() {
   const { user } = useAuth();
 
-  // apply primary color override for this section
-  const sectionStyle = {
-    "--primary": "var(--section-docs-accent)",
-    "--primary-foreground": "var(--section-docs-accent-foreground)",
-  } as React.CSSProperties;
   const isAdmin = user?.role === "admin";
   const [search, setSearch] = useState("");
 
@@ -285,7 +280,7 @@ export default function Documents() {
   const categories = ["all", ...Object.keys(categoryConfig)];
 
   return (
-    <div className="min-h-screen" style={sectionStyle}>
+    <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
         <div className="absolute inset-0 opacity-10" style={{
