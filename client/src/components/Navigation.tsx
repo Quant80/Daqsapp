@@ -10,7 +10,10 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Menu, X, ChevronDown, BarChart3, Brain, Calculator, BookOpen, Video, FileText, Phone } from "lucide-react";
+import {
+  Menu, ChevronDown, BarChart3, Brain, Calculator, BookOpen, Video, FileText, Phone,
+  Mail, Linkedin, Twitter, Facebook, Youtube, Clock, ArrowRight,
+} from "lucide-react";
 
 const services = [
   { label: "Data Analysis", href: "/services#data-analysis", icon: BarChart3, desc: "Advanced statistical analysis and data insights" },
@@ -33,6 +36,7 @@ const navLinks = [
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [quickOpen, setQuickOpen] = useState(false);
   const [location] = useLocation();
 
   useEffect(() => {
@@ -54,6 +58,94 @@ export default function Navigation() {
     >
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
+          {/* Quick Access hamburger - top-left corner */}
+          <Sheet open={quickOpen} onOpenChange={setQuickOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Quick access menu"
+                className={`shrink-0 mr-1 ${scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"}`}
+              >
+                <Menu className="w-5 h-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-80 p-0">
+              <div className="daqs-gradient p-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-white font-bold text-lg" style={{ fontFamily: "var(--font-serif)" }}>Quick Access</div>
+                    <div className="text-white/70 text-xs">Reach DAQS in one tap</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-5 space-y-5">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-lg px-3 py-2">
+                  <Clock className="w-4 h-4 text-primary shrink-0" />
+                  We typically respond within 24 hours
+                </div>
+
+                <div>
+                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Talk to Our Team</div>
+                  <div className="space-y-3">
+                    <a href="tel:+27603431561" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
+                      <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <Phone className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">Trymore Ncube</div>
+                        <div className="text-xs text-muted-foreground">+27 60 343 1561</div>
+                      </div>
+                    </a>
+                    <a href="tel:+263773278724" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
+                      <div className="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                        <Phone className="w-4 h-4 text-secondary" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-foreground">Albert Ncube</div>
+                        <div className="text-xs text-muted-foreground">+263 77 327 8724</div>
+                      </div>
+                    </a>
+                    <a href="mailto:Trymore.N@daqs.co.za" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
+                      <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <Mail className="w-4 h-4 text-primary" />
+                      </div>
+                      <div className="text-sm text-foreground truncate">Trymore.N@daqs.co.za</div>
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Follow DAQS</div>
+                  <div className="flex gap-2">
+                    {[
+                      { icon: Linkedin, label: "LinkedIn" },
+                      { icon: Twitter, label: "Twitter" },
+                      { icon: Facebook, label: "Facebook" },
+                      { icon: Youtube, label: "YouTube" },
+                    ].map(({ icon: Icon, label }) => (
+                      <a
+                        key={label}
+                        href="#"
+                        aria-label={label}
+                        className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                      >
+                        <Icon className="w-4 h-4" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+
+                <Link href="/contact" onClick={() => setQuickOpen(false)}>
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                    Get a Consultation <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
+              </div>
+            </SheetContent>
+          </Sheet>
+
           {/* Logo - Large and prominent at top left */}
           <Link href="/" className="flex items-center gap-3 group shrink-0">
             <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center font-bold text-xl text-white" style={{ fontFamily: "var(--font-serif)" }}>
@@ -92,7 +184,7 @@ export default function Navigation() {
                 {/* Services Dropdown */}
                 <NavigationMenuItem>
                   <NavigationMenuTrigger
-                    className={`px-4 py-2 text-sm font-medium transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent ${
+                    className={`px-4 py-2 text-sm font-medium transition-colors bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent data-[state=open]:hover:bg-transparent data-[state=open]:focus:bg-transparent data-[state=open]:text-sky-400 ${
                       isActive("/services")
                         ? scrolled ? "text-primary" : "text-sky-400"
                         : scrolled ? "text-foreground hover:text-primary" : "text-white/90 hover:text-sky-300"
@@ -178,14 +270,6 @@ export default function Navigation() {
                       <div className="text-white/70 text-xs">Data Analytics & Quantitative Solutions</div>
                     </div>
                   </div>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="text-white hover:bg-white/10"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    <X className="w-5 h-5" />
-                  </Button>
                 </div>
               </div>
               <nav className="p-4 space-y-1">
