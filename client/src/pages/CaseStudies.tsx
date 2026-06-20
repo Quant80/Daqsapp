@@ -6,6 +6,7 @@ import {
   Brain, AlertTriangle, Building2, LayoutDashboard, UploadCloud, ShieldCheck,
 } from "lucide-react";
 import { Link } from "wouter";
+import bgBillboard from "@/assets/daqs-bg-billboard.png";
 
 const liveProjects = [
   {
@@ -101,7 +102,7 @@ export default function CaseStudies() {
       {/* ── HERO ────────────────────────── */}
       <section className="relative min-h-[400px] bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0 opacity-30" style={{
-          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-business-analytics-Gvyzr6kAwiaQvBKrqDNhbj.webp')",
+          backgroundImage: `url('${bgBillboard}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
