@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Database, Brain, Cpu, Bot, Rocket } from "lucide-react";
 
 const sections = [
   {
     id: "data-science",
     label: "Data Science",
-    icon: Database,
     links: [
       { label: "Foundations of Data Science", href: "/training#courses" },
       { label: "Advanced Data Analytics", href: "/training#courses" },
@@ -16,7 +14,6 @@ const sections = [
   {
     id: "machine-learning",
     label: "Machine Learning",
-    icon: Brain,
     links: [
       { label: "Supervised & Unsupervised Learning", href: "/training#courses" },
       { label: "Model Evaluation & Validation", href: "/training#courses" },
@@ -26,7 +23,6 @@ const sections = [
   {
     id: "deep-learning",
     label: "Deep Learning",
-    icon: Cpu,
     links: [
       { label: "Neural Networks & CNNs", href: "/training#courses" },
       { label: "Recurrent Networks & Transformers", href: "/training#courses" },
@@ -34,12 +30,10 @@ const sections = [
     ],
   },
   {
-    id: "ai",
-    label: "AI",
-    icon: Bot,
+    id: "agentic-ai",
+    label: "Agentic AI",
     links: [
       { label: "Generative AI", href: "/training#courses" },
-      { label: "Agentic AI", href: "/training#courses" },
       { label: "Orchestration", href: "/training#courses" },
     ],
   },
@@ -61,9 +55,8 @@ export default function Sidebar() {
                 type="button"
                 onClick={() => toggle(section.id)}
                 aria-expanded={isOpen}
-                className={`w-full flex flex-col items-center gap-1 px-1 py-2.5 rounded-lg transition-colors ${isOpen ? "bg-white/10" : "hover:bg-white/5"}`}
+                className={`w-full flex items-center justify-center px-1 py-2.5 rounded-lg transition-colors ${isOpen ? "bg-white/10" : "hover:bg-white/5"}`}
               >
-                <section.icon className="w-4 h-4 shrink-0 text-white/60" />
                 <span className="text-[10px] leading-tight text-center text-white/80 font-medium break-words">{section.label}</span>
               </button>
               {isOpen && (
@@ -84,7 +77,6 @@ export default function Sidebar() {
 
         {/* N³ Smart Solutions - coming soon, not expandable */}
         <div className="flex flex-col items-center gap-1 px-1 py-2.5 rounded-lg">
-          <Rocket className="w-4 h-4 shrink-0 text-white/40" />
           <span className="text-[10px] leading-tight text-center text-white/50 font-medium">
             N<sup>3</sup> Smart Solutions
           </span>
