@@ -129,7 +129,7 @@ export default function Home() {
           }}
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/65 via-[#0b2540]/45 to-[#0c1f33]/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061726]/65 via-[#0b2540]/45 to-[#0c1f33]/65" />
         {/* Decorative grid */}
         <div
           className="absolute inset-0 opacity-5"
@@ -224,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* ── STATS ─────────────────────────────────────────────── */}
-      <section className="relative bg-[#1e3a5f] py-16 overflow-hidden">
+      <section className="relative bg-[#071428] py-16 overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -301,7 +301,7 @@ export default function Home() {
       </section>
 
       {/* ── MISSION ─────────────────────────────────────────── */}
-      <section className="py-20 bg-[#1e3a5f]">
+      <section className="py-20 bg-[#061726]">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -377,7 +377,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA ─────────────────────────────────────────────── */}
-      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#1e3a5f] via-[#0b2540] to-blue-700">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-blue-700">
         <div className="absolute inset-0 hero-pattern" />
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="container relative z-10 text-center">

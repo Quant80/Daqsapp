@@ -129,7 +129,7 @@ export default function Services() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#1e3a5f] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'url("https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/services-page-bg-9Aek7aTnKkmS7mx76ScEES.webp")',
           backgroundSize: "cover",
@@ -215,7 +215,7 @@ export default function Services() {
       </section>
 
       {/* Stats strip */}
-      <section className="bg-[#1e3a5f] py-14 border-y border-white/5">
+      <section className="bg-[#071428] py-14 border-y border-white/5">
         <div className="container text-center">
           <div className="text-accent text-xs font-semibold tracking-widest uppercase mb-3">What We Deliver</div>
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-10" style={{ fontFamily: "var(--font-serif)" }}>
@@ -233,7 +233,7 @@ export default function Services() {
       </section>
 
       {/* Service Categories */}
-      <section className="py-16 bg-gradient-to-b from-[#1e3a5f] to-[#0b1f33]">
+      <section className="py-16 bg-gradient-to-b from-[#071428] to-[#0b1f33]">
         <div className="container">
           <Tabs defaultValue="data-analysis" className="w-full">
             <TabsList className="flex flex-wrap h-auto gap-2 bg-white/5 border border-white/10 p-2 rounded-xl mb-10 justify-start">
@@ -333,7 +333,7 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#1e3a5f]">
+      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#061726]">
         <div className="container text-center">
           <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Ready to Get Started?

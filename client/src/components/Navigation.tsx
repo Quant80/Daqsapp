@@ -49,7 +49,7 @@ export default function Navigation() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-card/95 backdrop-blur-md shadow-lg border-b border-border"
-          : "bg-transparent border-b border-white/15"
+          : "bg-transparent border-b border-white/40"
       }`}
     >
       <div className="container">

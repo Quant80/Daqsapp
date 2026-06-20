@@ -99,13 +99,13 @@ export default function CaseStudies() {
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
-      <section className="relative min-h-[400px] bg-gradient-to-br from-[#1e3a5f] via-[#0b2540] to-[#0c1f33] overflow-hidden pt-32 pb-16">
+      <section className="relative min-h-[400px] bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0 opacity-30" style={{
           backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-business-analytics-Gvyzr6kAwiaQvBKrqDNhbj.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/65 via-[#0b2540]/45 to-[#0c1f33]/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#061726]/65 via-[#0b2540]/45 to-[#0c1f33]/65" />
 
         <div className="container relative z-10">
           <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-serif)" }}>
@@ -118,7 +118,7 @@ export default function CaseStudies() {
       </section>
 
       {/* ── FEATURED LIVE PROJECTS ────────────────────────── */}
-      <section className="py-16 bg-[#1e3a5f]">
+      <section className="py-16 bg-[#071428]">
         <div className="container">
           <div className="text-center mb-12">
             <div className="text-sky-300 text-xs font-semibold tracking-widest uppercase mb-3">Featured Work</div>
@@ -255,7 +255,7 @@ export default function CaseStudies() {
       </section>
 
       {/* ── CTA ────────────────────────── */}
-      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#1e3a5f]">
+      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#061726]">
         <div className="container text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
           <p className="text-white/75 text-lg mb-8 max-w-2xl mx-auto">
