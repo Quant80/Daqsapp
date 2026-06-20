@@ -7,6 +7,10 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
+import bgGold from "@/assets/daqs-bg-gold.png";
+import bgMountain from "@/assets/daqs-bg-mountain.png";
+import bgSignage from "@/assets/daqs-bg-signage.png";
+import bgNeon from "@/assets/daqs-bg-neon.png";
 
 const liveProjects = [
   {
@@ -57,7 +61,7 @@ const caseStudies = [
     challenge: "A major investment firm struggled with portfolio optimization, losing competitive advantage due to manual analysis processes.",
     solution: "DAQS implemented machine learning models to analyze market trends, correlations, and risk factors in real-time, enabling data-driven portfolio decisions.",
     results: "25% improvement in portfolio returns, 40% reduction in analysis time, enhanced risk management capabilities.",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-business-analytics-Gvyzr6kAwiaQvBKrqDNhbj.webp",
+    imageUrl: bgGold,
     clientName: "Global Investment Partners",
     icon: TrendingUp,
   },
@@ -68,7 +72,7 @@ const caseStudies = [
     challenge: "A banking institution faced increasing fraud losses and needed a more sophisticated detection system beyond rule-based approaches.",
     solution: "DAQS developed a deep learning model trained on historical transaction data to identify fraudulent patterns with high accuracy.",
     results: "92% fraud detection rate, 60% reduction in false positives, saved millions in fraud losses annually.",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp",
+    imageUrl: bgNeon,
     clientName: "Premier Bank Corporation",
     icon: BarChart3,
   },
@@ -79,7 +83,7 @@ const caseStudies = [
     challenge: "An e-commerce company struggled with inventory management and revenue forecasting, leading to stockouts and excess inventory.",
     solution: "DAQS built time series forecasting models incorporating seasonality, trends, and external factors for accurate demand prediction.",
     results: "35% improvement in forecast accuracy, 20% reduction in inventory costs, 15% increase in revenue.",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-business-analytics-Gvyzr6kAwiaQvBKrqDNhbj.webp",
+    imageUrl: bgMountain,
     clientName: "Digital Commerce Solutions",
     icon: PieChart,
   },
@@ -90,7 +94,7 @@ const caseStudies = [
     challenge: "A pension fund manager needed comprehensive analysis and optimization of asset allocation across multiple investment vehicles.",
     solution: "DAQS conducted quantitative analysis using modern portfolio theory and risk modeling to optimize asset allocation.",
     results: "18% improvement in risk-adjusted returns, enhanced compliance reporting, better stakeholder communication.",
-    imageUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp",
+    imageUrl: bgSignage,
     clientName: "National Pension Fund",
     icon: TrendingUp,
   },

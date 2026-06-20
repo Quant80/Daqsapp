@@ -12,6 +12,7 @@ import {
   Phone, Mail, Globe, MapPin, Clock, CheckCircle,
   Send, Loader2, MessageSquare, ArrowRight, Zap,
 } from "lucide-react";
+import bgMountain from "@/assets/daqs-bg-mountain.png";
 
 const contactStats = [
   { value: "10+", label: "Years Combined Experience" },
@@ -84,8 +85,8 @@ export default function Contact() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80')",
+        <div className="absolute inset-0 opacity-40" style={{
+          backgroundImage: `url('${bgMountain}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />

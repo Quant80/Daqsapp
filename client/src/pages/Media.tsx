@@ -17,6 +17,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 import bgNeon from "@/assets/daqs-bg-neon.png";
+import bgGold from "@/assets/daqs-bg-gold.png";
+import bgBillboard from "@/assets/daqs-bg-billboard.png";
+import bgMountain from "@/assets/daqs-bg-mountain.png";
+import bgSignage from "@/assets/daqs-bg-signage.png";
+
+const mediaThumbnails = [bgGold, bgBillboard, bgMountain, bgSignage, bgNeon];
 
 const mediaStats = [
   { value: "10+", label: "Years Combined Experience" },
@@ -117,7 +123,12 @@ function VideoCard({ item }: { item: typeof sampleMedia[0] }) {
             allowFullScreen
           />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5 cursor-pointer" onClick={() => setPlaying(true)}>
+          <div
+            className="absolute inset-0 flex items-center justify-center cursor-pointer bg-cover bg-center"
+            style={{ backgroundImage: `url('${mediaThumbnails[item.id % mediaThumbnails.length]}')` }}
+            onClick={() => setPlaying(true)}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-black/40" />
             <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
               <Play className="w-7 h-7 text-white ml-1" />
             </div>
