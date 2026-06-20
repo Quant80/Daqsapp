@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  Award, GraduationCap, Briefcase, CheckCircle, ArrowRight,
+  Award, Briefcase, CheckCircle, ArrowRight,
   Mail, Phone, Linkedin, Star, BookOpen, Brain, Calculator,
   BarChart3, TrendingUp, Shield, ShieldCheck, Users,
 } from "lucide-react";
@@ -27,13 +27,6 @@ const team = [
     email: "Trymore.N@daqs.co.za",
     bio: "Trymore Ncube is a highly accomplished data scientist, financial engineer, and AI specialist with a distinguished academic and professional background. As co-founder and CEO of DAQS, he leads the firm's data science, machine learning, and quantitative solutions practice.",
     bio2: "Currently pursuing a PhD in Data Science, Trymore combines deep theoretical knowledge with practical industry experience to deliver transformative analytical solutions. He is a certified Microsoft Data Scientist Associate and has extensive experience applying advanced AI and ML techniques across finance, healthcare, and enterprise sectors.",
-    credentials: [
-      { label: "BSc Mathematics", institution: "Undergraduate Degree", icon: GraduationCap },
-      { label: "MSc Financial Engineering", institution: "Postgraduate Degree", icon: TrendingUp },
-      { label: "MSc Machine Learning & AI", institution: "Postgraduate Degree", icon: Brain },
-      { label: "PhD Data Science", institution: "Doctoral Candidate (Current)", icon: Star },
-      { label: "Microsoft Certified Data Scientist Associate", institution: "Professional Certification", icon: Award },
-    ],
     expertise: [
       "Advanced Machine Learning & Deep Learning",
       "Financial Engineering & Derivatives Pricing",
@@ -56,10 +49,6 @@ const team = [
     email: "A.ncube@daqs.co.za",
     bio: "Albert Ncube is a seasoned accounting and finance professional with extensive expertise in financial management, auditing, pension administration, and investment advisory. As co-founder and CEO of DAQS, he leads the firm's accounting, finance, and investment services division.",
     bio2: "With both a BSc and MSc in Accounting, Albert brings rigorous academic training and years of practical experience to every client engagement. His deep understanding of financial reporting standards, tax legislation, and investment principles makes him an invaluable advisor to businesses and individuals alike.",
-    credentials: [
-      { label: "BSc Accounting", institution: "Undergraduate Degree", icon: GraduationCap },
-      { label: "MSc Accounting", institution: "Postgraduate Degree", icon: Award },
-    ],
     expertise: [
       "Financial Accounting & Reporting (IFRS/GAAP)",
       "Auditing & Assurance Services",
@@ -227,21 +216,6 @@ export default function About() {
                         </div>
                       ))}
                     </div>
-                  </div>
-
-                  {/* Credentials */}
-                  <div className="mt-4 space-y-2">
-                    {member.credentials.map((cred) => (
-                      <div key={cred.label} className="flex items-center gap-3 bg-background rounded-lg p-3 border border-border">
-                        <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center shrink-0">
-                          <cred.icon className="w-4 h-4 text-primary" />
-                        </div>
-                        <div>
-                          <div className="text-sm font-semibold text-foreground">{cred.label}</div>
-                          <div className="text-xs text-muted-foreground">{cred.institution}</div>
-                        </div>
-                      </div>
-                    ))}
                   </div>
                 </div>
 
