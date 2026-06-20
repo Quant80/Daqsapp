@@ -284,7 +284,7 @@ export default function Documents() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
-        <div className="absolute inset-0 opacity-25" style={{
+        <div className="absolute inset-0 opacity-40" style={{
           backgroundImage: `url('${bgSignage}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -355,8 +355,13 @@ export default function Documents() {
       </section>
 
       {/* Documents */}
-      <section id="library" className="py-16 bg-background">
-        <div className="container">
+      <section id="library" className="relative py-16 bg-background overflow-hidden">
+        <div className="absolute inset-0 opacity-35" style={{
+          backgroundImage: `url('${bgSignage}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10">
           {/* Controls */}
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between mb-8">
             <div className="relative flex-1 max-w-md">
@@ -425,8 +430,13 @@ export default function Documents() {
       </section>
 
       {/* Request Document */}
-      <section className="py-16 bg-muted/40">
-        <div className="container text-center">
+      <section className="relative py-16 bg-muted/40 overflow-hidden">
+        <div className="absolute inset-0 opacity-25" style={{
+          backgroundImage: `url('${bgSignage}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10 text-center">
           <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "var(--font-serif)" }}>
             Looking for Something Specific?
           </h2>

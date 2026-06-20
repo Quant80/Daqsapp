@@ -239,7 +239,7 @@ export default function Training() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
-        <div className="absolute inset-0 opacity-25" style={{
+        <div className="absolute inset-0 opacity-40" style={{
           backgroundImage: `url('${bgGold}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -327,8 +327,13 @@ export default function Training() {
       </section>
 
       {/* Courses */}
-      <section id="courses" className="py-16 bg-background">
-        <div className="container">
+      <section id="courses" className="relative py-16 bg-background overflow-hidden">
+        <div className="absolute inset-0 opacity-35" style={{
+          backgroundImage: `url('${bgGold}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10">
           <Tabs defaultValue="data-science" className="w-full">
             <TabsList className="flex flex-wrap h-auto gap-2 bg-muted p-2 rounded-xl mb-10 justify-start">
               {categories.map((cat) => (
@@ -403,8 +408,13 @@ export default function Training() {
       </section>
 
       {/* Corporate Training */}
-      <section className="py-16 bg-muted/40">
-        <div className="container">
+      <section className="relative py-16 bg-muted/40 overflow-hidden">
+        <div className="absolute inset-0 opacity-25" style={{
+          backgroundImage: `url('${bgGold}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="mb-4 bg-secondary/20 text-secondary-foreground border-secondary/30">Corporate Training</Badge>
@@ -456,8 +466,13 @@ export default function Training() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#061726]">
-        <div className="container text-center">
+      <section className="relative py-16 bg-gradient-to-br from-[#0b2540] to-[#061726] overflow-hidden">
+        <div className="absolute inset-0 opacity-30" style={{
+          backgroundImage: `url('${bgGold}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10 text-center">
           <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Invest in Your Team's Future
           </h2>

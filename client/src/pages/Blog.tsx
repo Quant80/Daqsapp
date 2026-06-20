@@ -77,7 +77,7 @@ export default function Blog() {
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
-        <div className="absolute inset-0 opacity-25" style={{
+        <div className="absolute inset-0 opacity-40" style={{
           backgroundImage: `url('${bgMountain}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -174,8 +174,13 @@ export default function Blog() {
       </section>
 
       {/* ── BLOG POSTS ────────────────────────── */}
-      <section className="py-16 bg-background">
-        <div className="container">
+      <section className="relative py-16 bg-background overflow-hidden">
+        <div className="absolute inset-0 opacity-35" style={{
+          backgroundImage: `url('${bgMountain}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10">
           {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-muted-foreground text-lg">No articles found. Try adjusting your search or filters.</p>
@@ -226,8 +231,13 @@ export default function Blog() {
       </section>
 
       {/* ── CTA ────────────────────────── */}
-      <section className="py-16 bg-gradient-to-br from-[oklch(0.15_0.04_280)] to-[oklch(0.18_0.05_290)]">
-        <div className="container text-center">
+      <section className="relative py-16 bg-gradient-to-br from-[oklch(0.15_0.04_280)] to-[oklch(0.18_0.05_290)] overflow-hidden">
+        <div className="absolute inset-0 opacity-30" style={{
+          backgroundImage: `url('${bgMountain}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Subscribe to Our Newsletter</h2>
           <p className="text-white/75 text-lg mb-8 max-w-2xl mx-auto">
             Get the latest insights on data analytics, AI trends, and quantitative solutions delivered to your inbox.

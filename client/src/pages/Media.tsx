@@ -261,7 +261,7 @@ export default function Media() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
-        <div className="absolute inset-0 opacity-25" style={{
+        <div className="absolute inset-0 opacity-40" style={{
           backgroundImage: `url('${bgNeon}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -344,8 +344,13 @@ export default function Media() {
       </section>
 
       {/* Media Grid */}
-      <section id="media-grid" className="py-16 bg-background">
-        <div className="container">
+      <section id="media-grid" className="relative py-16 bg-background overflow-hidden">
+        <div className="absolute inset-0 opacity-35" style={{
+          backgroundImage: `url('${bgNeon}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: "var(--font-serif)" }}>All Content</h2>
@@ -401,8 +406,13 @@ export default function Media() {
       </section>
 
       {/* Submit Content CTA */}
-      <section className="py-16 bg-muted/40">
-        <div className="container text-center">
+      <section className="relative py-16 bg-muted/40 overflow-hidden">
+        <div className="absolute inset-0 opacity-25" style={{
+          backgroundImage: `url('${bgNeon}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }} />
+        <div className="container relative z-10 text-center">
           <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "var(--font-serif)" }}>
             Want to Collaborate?
           </h2>
