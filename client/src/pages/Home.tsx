@@ -361,22 +361,6 @@ export default function Home() {
                   To be the leading data analytics and quantitative solutions firm in Africa and beyond, driving innovation through the power of data, AI, and financial intelligence.
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { deg: "BSc", desc: "Mathematics & Accounting foundations", icon: GraduationCap },
-                  { deg: "MSc", desc: "Financial Engineering & ML/AI", icon: Brain },
-                  { deg: "PhD", desc: "Data Science (in progress)", icon: Award },
-                  { deg: "MCA", desc: "Microsoft Certified Associate", icon: Shield },
-                ].map((item) => (
-                  <div key={item.deg} className="rounded-xl border border-white/10 bg-white/[0.04] p-5 hover:border-blue-400/40 hover:bg-white/[0.07] transition-all">
-                    <div className="w-9 h-9 rounded-lg bg-blue-500/15 flex items-center justify-center mb-3">
-                      <item.icon className="w-4 h-4 text-sky-300" />
-                    </div>
-                    <div className="text-xl font-bold text-white mb-1" style={{ fontFamily: "var(--font-serif)" }}>{item.deg}</div>
-                    <div className="text-sm text-white/55">{item.desc}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
