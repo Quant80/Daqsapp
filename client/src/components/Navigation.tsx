@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import daqsLogo from "@/assets/daqs-logo-yellow.png";
+import daqsLogo from "@/assets/daqs-logo-d.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -94,8 +94,8 @@ export default function Navigation() {
     >
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo - far left corner */}
-          <Link href="/" className="flex items-center shrink-0 mr-4 lg:mr-6 pr-4 lg:pr-6 border-r border-white/20">
+          {/* Logo - flush against the far left edge of the viewport */}
+          <Link href="/" className="flex items-center shrink-0 -ml-4 sm:-ml-6 lg:-ml-8 mr-4 lg:mr-6 pr-4 lg:pr-6 border-r border-white/20">
             <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-11 lg:h-14 w-auto" />
           </Link>
 
