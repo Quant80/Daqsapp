@@ -8,6 +8,7 @@ import {
   Award, CheckCircle, ArrowRight, Star, GraduationCap,
   Laptop, Calendar, TrendingUp, Cpu, LineChart, Sparkles, Activity,
 } from "lucide-react";
+import bgGold from "@/assets/daqs-bg-gold.png";
 
 const trainingStats = [
   { value: "10+", label: "Years Combined Experience" },
@@ -238,8 +239,8 @@ export default function Training() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: 'url("https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/training-page-bg-GKeRVAPZdMURsLs4ULHQQT.webp")',
+        <div className="absolute inset-0 opacity-25" style={{
+          backgroundImage: `url('${bgGold}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />

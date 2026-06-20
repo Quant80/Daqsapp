@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Calendar, User, Search, ChevronRight, Sparkles, TrendingUp, FileText } from "lucide-react";
 import { Link } from "wouter";
+import bgMountain from "@/assets/daqs-bg-mountain.png";
 
 const blogStats = [
   { value: "10+", label: "Years Combined Experience" },
@@ -76,8 +77,8 @@ export default function Blog() {
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-ai-analytics-R4UxxJ4tfpB8KAQpfHBsRh.webp')",
+        <div className="absolute inset-0 opacity-25" style={{
+          backgroundImage: `url('${bgMountain}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />

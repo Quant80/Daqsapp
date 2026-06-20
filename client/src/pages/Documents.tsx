@@ -16,6 +16,7 @@ import {
   FileBarChart, GraduationCap, Briefcase, Loader2, ExternalLink, Calendar,
   Sparkles, ShieldCheck, ArrowRight,
 } from "lucide-react";
+import bgSignage from "@/assets/daqs-bg-signage.png";
 
 const docStats = [
   { value: "10+", label: "Years Combined Experience" },
@@ -283,8 +284,8 @@ export default function Documents() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: "url('https://d2xsxph8kpxj0f.cloudfront.net/310519663388520255/oBpzHXffbabrEHDhvgYr92/hero-business-analytics-Gvyzr6kAwiaQvBKrqDNhbj.webp')",
+        <div className="absolute inset-0 opacity-25" style={{
+          backgroundImage: `url('${bgSignage}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }} />
