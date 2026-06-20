@@ -27,7 +27,7 @@ export default function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[oklch(0.72_0.14_75)] transition-colors group"
+                  className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#58a6ff] transition-colors group"
                 >
                   <Icon className="w-4 h-4 text-white/70 group-hover:text-foreground" />
                 </a>
@@ -38,7 +38,7 @@ export default function Footer() {
           {/* Services Column */}
           <div>
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-6 h-0.5 bg-[oklch(0.72_0.14_75)]"></span>
+              <span className="w-6 h-0.5 bg-[#58a6ff]"></span>
               Services
             </h3>
             <ul className="space-y-3">
@@ -52,7 +52,7 @@ export default function Footer() {
                 { label: "Pension Management", href: "/services#accounting" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-white/60 hover:text-[oklch(0.72_0.14_75)] text-sm transition-colors flex items-center gap-2 group">
+                  <Link href={item.href} className="text-white/60 hover:text-[#58a6ff] text-sm transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {item.label}
                   </Link>
@@ -64,7 +64,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-6 h-0.5 bg-[oklch(0.72_0.14_75)]"></span>
+              <span className="w-6 h-0.5 bg-[#58a6ff]"></span>
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -77,7 +77,7 @@ export default function Footer() {
                 { label: "Contact Us", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-white/60 hover:text-[oklch(0.72_0.14_75)] text-sm transition-colors flex items-center gap-2 group">
+                  <Link href={item.href} className="text-white/60 hover:text-[#58a6ff] text-sm transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {item.label}
                   </Link>
@@ -89,33 +89,33 @@ export default function Footer() {
           {/* Contact Column */}
           <div>
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-5 flex items-center gap-2">
-              <span className="w-6 h-0.5 bg-[oklch(0.72_0.14_75)]"></span>
+              <span className="w-6 h-0.5 bg-[#58a6ff]"></span>
               Contact
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[oklch(0.72_0.14_75)] mt-0.5 shrink-0" />
+                <Phone className="w-4 h-4 text-[#58a6ff] mt-0.5 shrink-0" />
                 <div>
                   <div className="text-white/60 text-xs mb-1">Trymore Ncube (CEO)</div>
                   <a href="tel:+27603431561" className="text-white/80 hover:text-white text-sm transition-colors">+27 60 343 1561</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[oklch(0.72_0.14_75)] mt-0.5 shrink-0" />
+                <Phone className="w-4 h-4 text-[#58a6ff] mt-0.5 shrink-0" />
                 <div>
                   <div className="text-white/60 text-xs mb-1">Albert Ncube (CEO)</div>
                   <a href="tel:+263773278724" className="text-white/80 hover:text-white text-sm transition-colors">+263 77 327 8724</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[oklch(0.72_0.14_75)] mt-0.5 shrink-0" />
+                <Mail className="w-4 h-4 text-[#58a6ff] mt-0.5 shrink-0" />
                 <div>
                   <a href="mailto:Trymore.N@daqs.co.za" className="text-white/80 hover:text-white text-sm transition-colors block">Trymore.N@daqs.co.za</a>
                   <a href="mailto:A.ncube@daqs.co.za" className="text-white/80 hover:text-white text-sm transition-colors block mt-1">A.ncube@daqs.co.za</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Globe className="w-4 h-4 text-[oklch(0.72_0.14_75)] mt-0.5 shrink-0" />
+                <Globe className="w-4 h-4 text-[#58a6ff] mt-0.5 shrink-0" />
                 <a href="https://www.daqs.com" className="text-white/80 hover:text-white text-sm transition-colors">www.daqs.com</a>
               </li>
             </ul>
@@ -128,8 +128,8 @@ export default function Footer() {
         <div className="container py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2 text-white/50 text-xs">
-              <Globe className="w-3.5 h-3.5 text-[oklch(0.72_0.14_75)]" />
-              <span>Official domain: <span className="text-[oklch(0.72_0.14_75)] font-medium">www.daqs.com</span> — Register at your preferred domain registrar to go live.</span>
+              <Globe className="w-3.5 h-3.5 text-[#58a6ff]" />
+              <span>Official domain: <span className="text-[#58a6ff] font-medium">www.daqs.com</span></span>
             </div>
             <div className="text-white/40 text-xs">
               © {new Date().getFullYear()} DAQS — Data Analytics & Quantitative Solutions. All rights reserved.
