@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import daqsLogo from "@/assets/daqs-logo.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -94,16 +95,16 @@ export default function Navigation() {
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Quick Access hamburger - far left corner */}
-          <div className="flex items-center shrink-0">
+          <div className="flex items-center shrink-0 mr-4 lg:mr-6 pr-4 lg:pr-6 border-r border-white/20">
             <Sheet open={quickOpen} onOpenChange={setQuickOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
                   size="icon"
                   aria-label="Quick access menu"
-                  className={`shrink-0 ${scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"}`}
+                  className={`shrink-0 !size-11 lg:!size-12 ${scrolled ? "text-foreground hover:bg-muted" : "text-white hover:bg-white/10"}`}
                 >
-                  <Menu className="w-6 h-6" />
+                  <Menu className="size-6 lg:size-7" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="left" className="w-[85vw] sm:w-[420px] sm:max-w-[420px] p-0 overflow-y-auto">
@@ -230,18 +231,8 @@ export default function Navigation() {
           </div>
 
           {/* Logo - Large and prominent at top left */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center font-bold text-xl text-white" style={{ fontFamily: "var(--font-serif)" }}>
-              D
-            </div>
-            <div className="hidden sm:block">
-              <div className={`font-bold text-xl lg:text-2xl leading-tight transition-colors ${scrolled ? "text-foreground" : "text-white"}`} style={{ fontFamily: "var(--font-serif)" }}>
-                DAQS
-              </div>
-              <div className={`text-xs lg:text-sm leading-tight transition-colors ${scrolled ? "text-muted-foreground" : "text-white/80"}`}>
-                Data Analytics & Quantitative Solutions
-              </div>
-            </div>
+          <Link href="/" className="flex items-center shrink-0">
+            <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-11 lg:h-14 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
@@ -343,17 +334,7 @@ export default function Navigation() {
             </SheetTrigger>
             <SheetContent side="right" className="w-80 p-0">
               <div className="daqs-gradient p-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center">
-                      <span className="text-white font-bold" style={{ fontFamily: "var(--font-serif)" }}>D</span>
-                    </div>
-                    <div>
-                      <div className="text-white font-bold" style={{ fontFamily: "var(--font-serif)" }}>DAQS</div>
-                      <div className="text-white/70 text-xs">Data Analytics & Quantitative Solutions</div>
-                    </div>
-                  </div>
-                </div>
+                <img src={daqsLogo} alt="DAQS" className="h-10 w-auto" />
               </div>
               <nav className="p-4 space-y-1">
                 <Link href="/" onClick={() => setMobileOpen(false)}>

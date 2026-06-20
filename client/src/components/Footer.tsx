@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Phone, Mail, Globe, Linkedin, Twitter, Facebook, Youtube, MapPin, ArrowRight } from "lucide-react";
+import daqsLogo from "@/assets/daqs-logo.png";
 
 export default function Footer() {
   return (
@@ -9,14 +10,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg daqs-gradient flex items-center justify-center shadow-md">
-                <span className="text-white font-bold text-lg" style={{ fontFamily: "var(--font-serif)" }}>D</span>
-              </div>
-              <div>
-                <div className="font-bold text-xl text-white" style={{ fontFamily: "var(--font-serif)" }}>DAQS</div>
-                <div className="text-white/60 text-xs">Data Analytics & Quantitative Solutions</div>
-              </div>
+            <div className="mb-4">
+              <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-12 w-auto" />
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
               Data Analytics and Quantitative Solutions — delivering world-class expertise in data science, AI, machine learning, and financial analytics.
