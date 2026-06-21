@@ -209,14 +209,21 @@ const normalizeToolChoice = (
   return toolChoice;
 };
 
+const usingDefaultGateway = () =>
+  !ENV.forgeApiUrl || ENV.forgeApiUrl.trim().length === 0;
+
+// When BUILT_IN_FORGE_API_URL is set, it's used as the full endpoint as-is
+// (e.g. Google's OpenAI-compatible Gemini endpoint, which doesn't follow
+// OpenAI's own /v1/chat/completions path shape). Only the default Manus
+// gateway gets that suffix appended automatically.
 const resolveApiUrl = () =>
-  ENV.forgeApiUrl && ENV.forgeApiUrl.trim().length > 0
-    ? `${ENV.forgeApiUrl.replace(/\/$/, "")}/v1/chat/completions`
-    : "https://forge.manus.im/v1/chat/completions";
+  usingDefaultGateway()
+    ? "https://forge.manus.im/v1/chat/completions"
+    : ENV.forgeApiUrl.trim();
 
 const assertApiKey = () => {
   if (!ENV.forgeApiKey) {
-    throw new Error("OPENAI_API_KEY is not configured");
+    throw new Error("BUILT_IN_FORGE_API_KEY is not configured");
   }
 };
 
@@ -296,9 +303,11 @@ export async function invokeLLM(params: InvokeParams): Promise<InvokeResult> {
     payload.tool_choice = normalizedToolChoice;
   }
 
-  payload.max_tokens = 32768
-  payload.thinking = {
-    "budget_tokens": 128
+  payload.max_tokens = 32768;
+  if (usingDefaultGateway()) {
+    // Manus Forge-specific extension, not part of the OpenAI-compatible
+    // surface other providers (e.g. Google's Gemini endpoint) expect.
+    payload.thinking = { budget_tokens: 128 };
   }
 
   const normalizedResponseFormat = normalizeResponseFormat({
