@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import AIDemoSection from "@/components/AIDemoSection";
 import bgMountain from "@/assets/daqs-bg-mountain.png";
 import bgGold from "@/assets/daqs-bg-gold.png";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
@@ -335,6 +336,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <AIDemoSection />
 
       {/* ── MISSION ─────────────────────────────────────────── */}
       <section className="relative py-20 bg-[#061726] overflow-hidden">
