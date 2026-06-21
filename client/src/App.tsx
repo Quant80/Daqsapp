@@ -47,7 +47,7 @@ function App() {
           <div className="relative flex flex-col min-h-screen">
             <Navigation />
             <Sidebar />
-            <div className="flex flex-col flex-1 md:pl-[200px] lg:pl-[240px]">
+            <div className="flex flex-col flex-1 md:pl-[180px] lg:pl-[215px]">
               <main className="flex-1">
                 <Router />
               </main>

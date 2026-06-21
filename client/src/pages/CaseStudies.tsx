@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   ArrowRight, TrendingUp, BarChart3, PieChart, ExternalLink, HeartPulse, GraduationCap,
   Brain, AlertTriangle, Building2, LayoutDashboard, UploadCloud, ShieldCheck,
+  ChevronDown, LineChart, RefreshCw, Target, FileText, Lock,
 } from "lucide-react";
 import { Link } from "wouter";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
@@ -72,6 +74,12 @@ const caseStudies = [
     imageUrl: bgGold,
     clientName: "Global Investment Partners",
     icon: TrendingUp,
+    capabilities: [
+      { icon: LineChart, title: "Real-Time Market Analysis", desc: "Continuous monitoring of market trends and correlations across asset classes." },
+      { icon: BarChart3, title: "Risk Factor Modelling", desc: "Quantifies portfolio exposure to key risk drivers in real time." },
+      { icon: RefreshCw, title: "Automated Rebalancing Signals", desc: "Flags optimal rebalancing opportunities based on live model output." },
+      { icon: PieChart, title: "Performance Reporting", desc: "Clear dashboards tracking returns against benchmarks." },
+    ],
   },
   {
     id: 2,
@@ -83,6 +91,12 @@ const caseStudies = [
     imageUrl: bgNeon,
     clientName: "Premier Bank Corporation",
     icon: BarChart3,
+    capabilities: [
+      { icon: Brain, title: "Transaction Pattern Analysis", desc: "Deep learning models score every transaction for fraud risk." },
+      { icon: AlertTriangle, title: "Real-Time Alerts", desc: "Flags suspicious activity within seconds of occurrence." },
+      { icon: Target, title: "False Positive Reduction", desc: "Continuously tuned thresholds to minimise legitimate transaction blocks." },
+      { icon: RefreshCw, title: "Historical Pattern Learning", desc: "Models retrained on new fraud patterns as they emerge." },
+    ],
   },
   {
     id: 3,
@@ -94,6 +108,12 @@ const caseStudies = [
     imageUrl: bgMountain,
     clientName: "Digital Commerce Solutions",
     icon: PieChart,
+    capabilities: [
+      { icon: LineChart, title: "Time Series Forecasting", desc: "Predicts demand incorporating seasonality and trend shifts." },
+      { icon: Building2, title: "Inventory Optimisation", desc: "Recommends stock levels to minimise overstock and stockouts." },
+      { icon: Target, title: "Scenario Planning", desc: "Models the impact of promotions and external factors on demand." },
+      { icon: FileText, title: "Automated Reporting", desc: "Weekly forecast accuracy tracking for planning teams." },
+    ],
   },
   {
     id: 4,
@@ -105,10 +125,25 @@ const caseStudies = [
     imageUrl: bgSignage,
     clientName: "National Pension Fund",
     icon: TrendingUp,
+    capabilities: [
+      { icon: PieChart, title: "Asset Allocation Modelling", desc: "Optimises allocation using modern portfolio theory." },
+      { icon: TrendingUp, title: "Risk-Adjusted Return Analysis", desc: "Tracks performance against risk-adjusted benchmarks." },
+      { icon: ShieldCheck, title: "Compliance Reporting", desc: "Automated generation of regulatory and stakeholder reports." },
+      { icon: AlertTriangle, title: "Scenario Stress Testing", desc: "Simulates market shocks against current allocations." },
+    ],
   },
 ];
 
 export default function CaseStudies() {
+  const [openCaps, setOpenCaps] = useState<Set<string>>(new Set());
+  const toggleCaps = (id: string) =>
+    setOpenCaps((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
@@ -154,8 +189,8 @@ export default function CaseStudies() {
                 <Card key={project.name} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
                   <div className="grid md:grid-cols-2 gap-0">
                     {/* Image */}
-                    <div className={`relative h-64 md:h-auto ${isEven ? "md:order-2" : "md:order-1"}`}>
-                      <img src={project.imageUrl} alt={project.name} className="w-full h-full object-cover" />
+                    <div className={`relative h-64 md:h-auto bg-[#071428] ${isEven ? "md:order-2" : "md:order-1"}`}>
+                      <img src={project.imageUrl} alt={project.name} className="w-full h-full object-contain" />
                       <div className="absolute top-6 left-6">
                         <Badge className="bg-primary text-primary-foreground">{project.industry}</Badge>
                       </div>
@@ -192,20 +227,29 @@ export default function CaseStudies() {
                           <p className="text-primary font-semibold text-sm">{project.results}</p>
                         </div>
                         <div>
-                          <h4 className="font-semibold text-foreground mb-2">Capabilities</h4>
-                          <div className="grid sm:grid-cols-2 gap-2">
-                            {project.capabilities.map((cap) => (
-                              <div key={cap.title} className="flex items-start gap-2.5 bg-muted/50 rounded-lg p-2.5">
-                                <div className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                                  <cap.icon className="w-3.5 h-3.5 text-primary" />
+                          <button
+                            type="button"
+                            onClick={() => toggleCaps(`live-${project.name}`)}
+                            className="w-full flex items-center justify-between gap-2 py-1 group"
+                          >
+                            <h4 className="font-semibold text-foreground">Capabilities</h4>
+                            <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform ${openCaps.has(`live-${project.name}`) ? "rotate-180" : ""}`} />
+                          </button>
+                          {openCaps.has(`live-${project.name}`) && (
+                            <div className="grid sm:grid-cols-2 gap-2 mt-2">
+                              {project.capabilities.map((cap) => (
+                                <div key={cap.title} className="flex items-start gap-2.5 bg-muted/50 rounded-lg p-2.5">
+                                  <div className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                                    <cap.icon className="w-3.5 h-3.5 text-primary" />
+                                  </div>
+                                  <div>
+                                    <div className="text-foreground text-xs font-semibold mb-0.5">{cap.title}</div>
+                                    <div className="text-muted-foreground text-[11px] leading-snug">{cap.desc}</div>
+                                  </div>
                                 </div>
-                                <div>
-                                  <div className="text-foreground text-xs font-semibold mb-0.5">{cap.title}</div>
-                                  <div className="text-muted-foreground text-[11px] leading-snug">{cap.desc}</div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
 
@@ -226,12 +270,17 @@ export default function CaseStudies() {
                         ))}
                       </div>
 
-                      <div className="pt-4 border-t border-border">
+                      <div className="pt-4 border-t border-border space-y-3">
                         <a href={project.url} target="_blank" rel="noopener noreferrer">
                           <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                             View Live Platform <ExternalLink className="w-4 h-4 ml-2" />
                           </Button>
                         </a>
+                        <Link href="/contact" asChild>
+                          <Button variant="outline" className="w-full">
+                            Discuss Similar Project <ArrowRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        </Link>
                       </div>
                     </CardContent>
                   </div>
@@ -292,10 +341,38 @@ export default function CaseStudies() {
                           <h4 className="font-semibold text-foreground mb-2">Results</h4>
                           <p className="text-primary font-semibold text-sm">{study.results}</p>
                         </div>
+                        <div>
+                          <button
+                            type="button"
+                            onClick={() => toggleCaps(`study-${study.id}`)}
+                            className="w-full flex items-center justify-between gap-2 py-1 group"
+                          >
+                            <h4 className="font-semibold text-foreground">Capabilities</h4>
+                            <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform ${openCaps.has(`study-${study.id}`) ? "rotate-180" : ""}`} />
+                          </button>
+                          {openCaps.has(`study-${study.id}`) && (
+                            <div className="grid sm:grid-cols-2 gap-2 mt-2">
+                              {study.capabilities.map((cap) => (
+                                <div key={cap.title} className="flex items-start gap-2.5 bg-muted/50 rounded-lg p-2.5">
+                                  <div className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                                    <cap.icon className="w-3.5 h-3.5 text-primary" />
+                                  </div>
+                                  <div>
+                                    <div className="text-foreground text-xs font-semibold mb-0.5">{cap.title}</div>
+                                    <div className="text-muted-foreground text-[11px] leading-snug">{cap.desc}</div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </div>
 
-                      <div className="pt-4 border-t border-border">
-                        <p className="text-xs text-muted-foreground mb-4">Client: <span className="font-semibold text-foreground">{study.clientName}</span></p>
+                      <div className="pt-4 border-t border-border space-y-3">
+                        <p className="text-xs text-muted-foreground">Client: <span className="font-semibold text-foreground">{study.clientName}</span></p>
+                        <Button disabled className="w-full bg-muted text-muted-foreground cursor-not-allowed hover:bg-muted">
+                          <Lock className="w-4 h-4 mr-2" /> Coming Soon
+                        </Button>
                         <Link href="/contact" asChild>
                           <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                             Discuss Similar Project <ArrowRight className="w-4 h-4 ml-2" />

@@ -7,6 +7,7 @@ const sections = [
     id: "data-science",
     label: "Data Science",
     icon: Database,
+    color: "text-pink-400",
     links: [
       { label: "Foundations of Data Science", href: "/training#courses" },
       { label: "Advanced Data Analytics", href: "/training#courses" },
@@ -17,6 +18,7 @@ const sections = [
     id: "machine-learning",
     label: "Machine Learning",
     icon: Brain,
+    color: "text-purple-400",
     links: [
       { label: "Supervised & Unsupervised Learning", href: "/training#courses" },
       { label: "Model Evaluation & Validation", href: "/training#courses" },
@@ -27,6 +29,7 @@ const sections = [
     id: "deep-learning",
     label: "Deep Learning",
     icon: Cpu,
+    color: "text-indigo-400",
     links: [
       { label: "Neural Networks & CNNs", href: "/training#courses" },
       { label: "Recurrent Networks & Transformers", href: "/training#courses" },
@@ -37,6 +40,7 @@ const sections = [
     id: "agentic-ai",
     label: "Agentic AI",
     icon: Bot,
+    color: "text-sky-400",
     links: [
       { label: "Generative AI", href: "/training#courses" },
       { label: "Orchestration", href: "/training#courses" },
@@ -50,7 +54,7 @@ export default function Sidebar() {
   const toggle = (id: string) => setActive((prev) => (prev === id ? null : id));
 
   return (
-    <aside className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[200px] lg:w-[240px] flex-col border-r border-white/15 z-30">
+    <aside className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[180px] lg:w-[215px] flex-col border-r border-white/15 z-30">
       <nav className="flex-1 px-2 pt-3 pb-4">
         {sections.map((section) => {
           const isOpen = active === section.id;
@@ -62,7 +66,7 @@ export default function Sidebar() {
                 aria-expanded={isOpen}
                 className={`w-full flex items-center gap-2 px-2 py-2.5 rounded-lg transition-colors ${isOpen ? "bg-white/10" : "hover:bg-white/5"}`}
               >
-                <section.icon className="w-4 h-4 shrink-0 text-white/60" />
+                <section.icon className={`w-4 h-4 shrink-0 ${section.color}`} />
                 <span className="flex-1 text-left text-sm font-medium text-white/85 leading-tight">{section.label}</span>
                 <ChevronDown className={`w-3.5 h-3.5 shrink-0 text-white/40 transition-transform ${isOpen ? "rotate-180" : ""}`} />
               </button>
