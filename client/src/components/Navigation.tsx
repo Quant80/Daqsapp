@@ -29,7 +29,7 @@ const quickLinks = [
   { label: "About", href: "/about", icon: Users },
   { label: "Training", href: "/training", icon: GraduationCap },
   { label: "Blog", href: "/blog", icon: Newspaper },
-  { label: "Case Studies", href: "/case-studies", icon: TrendingUp },
+  { label: "Projects", href: "/projects", icon: TrendingUp },
   { label: "Media Hub", href: "/media", icon: Video },
   { label: "Documents", href: "/documents", icon: FileText },
 ];
@@ -46,7 +46,7 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Training", href: "/training" },
   { label: "Blog", href: "/blog" },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Projects", href: "/projects" },
   { label: "Media Hub", href: "/media" },
   { label: "Assessment", href: "/assessment" },
   { label: "Documents", href: "/documents" },
@@ -97,7 +97,7 @@ export default function Navigation() {
       <div className="w-full pr-4 sm:pr-6 lg:pr-8">
         <div className="flex items-center h-16 lg:h-20">
           {/* Logo + Quick Access hamburger, grouped tight at the far left; divider sits after the hamburger */}
-          <div className="flex items-center shrink-0 gap-2 lg:gap-3 pr-2 lg:pr-3 border-r border-white/20">
+          <div className="flex items-center shrink-0 gap-2 lg:gap-3 pr-[59px] lg:pr-[63px] border-r border-white/20">
           <Link href="/" className="flex items-center justify-center shrink-0 h-16 lg:h-20 w-[89px] lg:w-[117px] overflow-hidden">
             <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-full w-full object-cover" />
           </Link>
@@ -361,6 +361,11 @@ export default function Navigation() {
                 <Link href="/media" onClick={() => setMobileOpen(false)}>
                   <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/media") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
                     <Video className="w-4 h-4" /> Media Hub
+                  </div>
+                </Link>
+                <Link href="/projects" onClick={() => setMobileOpen(false)}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/projects") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                    <TrendingUp className="w-4 h-4" /> Projects
                   </div>
                 </Link>
                 <Link href="/assessment" onClick={() => setMobileOpen(false)}>
