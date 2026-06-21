@@ -18,6 +18,7 @@ import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import CaseStudies from "./pages/CaseStudies";
 import Assessment from "./pages/Assessment";
+import LiveDemo from "./pages/LiveDemo";
 
 function Router() {
   return (
@@ -31,6 +32,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/projects" component={CaseStudies} />
       <Route path="/assessment" component={Assessment} />
+      <Route path="/live-demo" component={LiveDemo} />
       <Route path="/contact" component={Contact} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />

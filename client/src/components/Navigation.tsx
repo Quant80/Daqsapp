@@ -24,6 +24,7 @@ import { toast } from "sonner";
 
 const quickLinks = [
   { label: "Home", href: "/", icon: HomeIcon },
+  { label: "Live Demo", href: "/live-demo", icon: Zap },
   { label: "Free Assessment", href: "/assessment", icon: ClipboardCheck },
   { label: "Services", href: "/services", icon: LayoutGrid },
   { label: "About", href: "/about", icon: Users },
@@ -59,13 +60,6 @@ export default function Navigation() {
   const [quickOpen, setQuickOpen] = useState(false);
   const [quickForm, setQuickForm] = useState({ name: "", email: "", message: "" });
   const [location] = useLocation();
-
-  const handleLiveDemoClick = (e: React.MouseEvent) => {
-    if (location === "/") {
-      e.preventDefault();
-      document.getElementById("ai-demo")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   const quickSubmit = trpc.contact.submit.useMutation({
     onSuccess: () => {
@@ -319,7 +313,7 @@ export default function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
-            <Link href="/#ai-demo" onClick={handleLiveDemoClick}>
+            <Link href="/live-demo">
               <span className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${
                 scrolled
                   ? "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100"
@@ -399,13 +393,7 @@ export default function Navigation() {
                     <Phone className="w-4 h-4" /> Contact
                   </div>
                 </Link>
-                <Link
-                  href="/#ai-demo"
-                  onClick={(e) => {
-                    setMobileOpen(false);
-                    handleLiveDemoClick(e);
-                  }}
-                >
+                <Link href="/live-demo" onClick={() => setMobileOpen(false)}>
                   <div className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-emerald-600 hover:bg-emerald-50">
                     <Zap className="w-4 h-4" /> Live Demo
                   </div>

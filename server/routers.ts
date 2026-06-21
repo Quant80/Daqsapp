@@ -280,6 +280,26 @@ const demoRouter = router({
         summary: string;
       };
     }),
+
+  ask: publicProcedure
+    .input(z.object({ question: z.string().min(5).max(500) }))
+    .mutation(async ({ input }) => {
+      const response = await invokeLLM({
+        messages: [
+          {
+            role: "system",
+            content: `You are DAQS's AI Analyst, demonstrating live AI capability to a website visitor. Answer the question in 2-4 sharp, concrete sentences - the kind of insight a data science/AI/quant finance/accounting consultant would give. No filler, no "as an AI" disclaimers. If the question is unrelated to business, data, AI, or finance, briefly redirect to what DAQS does.`,
+          },
+          { role: "user", content: input.question },
+        ],
+      });
+
+      const rawContent = response.choices[0]?.message?.content;
+      const answer = typeof rawContent === "string" ? rawContent : null;
+      if (!answer) throw new Error("The AI didn't return a result. Please try again.");
+
+      return { answer };
+    }),
 });
 
 // ─── App Router ───────────────────────────────────────────────────────────────
