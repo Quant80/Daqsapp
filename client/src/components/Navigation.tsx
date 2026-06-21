@@ -48,6 +48,7 @@ const navLinks = [
   { label: "Blog", href: "/blog" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Media Hub", href: "/media" },
+  { label: "Assessment", href: "/assessment" },
   { label: "Documents", href: "/documents" },
   { label: "Contact", href: "/contact" },
 ];
@@ -360,6 +361,11 @@ export default function Navigation() {
                 <Link href="/media" onClick={() => setMobileOpen(false)}>
                   <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/media") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
                     <Video className="w-4 h-4" /> Media Hub
+                  </div>
+                </Link>
+                <Link href="/assessment" onClick={() => setMobileOpen(false)}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/assessment") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                    <ClipboardCheck className="w-4 h-4" /> Assessment
                   </div>
                 </Link>
                 <Link href="/documents" onClick={() => setMobileOpen(false)}>
