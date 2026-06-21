@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   BarChart3, Brain, Calculator, TrendingUp, BookOpen, Shield,
   ArrowRight, CheckCircle, ChevronRight, Star, Users, Award, Globe,
-  Database, Cpu, PieChart, Briefcase, GraduationCap, LineChart
+  Database, Cpu, PieChart, Briefcase, GraduationCap, LineChart, ClipboardCheck
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -178,6 +178,21 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
+
+              {/* Free Assessment callout */}
+              <Link href="/assessment">
+                <div className="mt-6 flex items-center gap-3 bg-gradient-to-r from-accent/20 to-accent/5 border border-accent/30 rounded-xl px-5 py-3.5 hover:border-accent/50 transition-all cursor-pointer group max-w-md">
+                  <div className="w-9 h-9 rounded-lg bg-accent/20 flex items-center justify-center shrink-0">
+                    <ClipboardCheck className="w-4 h-4 text-accent" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-white text-sm font-semibold">Free AI & Data Readiness Assessment</div>
+                    <div className="text-white/60 text-xs">Get your personalised score in under 2 minutes</div>
+                  </div>
+                  <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-1 transition-transform shrink-0" />
+                </div>
+              </Link>
+
               {/* Trust badges */}
               <div className="flex flex-wrap gap-3 mt-10">
                 {["Microsoft Certified", "PhD-Level Expertise", "10+ Years Experience"].map((badge) => (

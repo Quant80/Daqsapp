@@ -17,13 +17,14 @@ import {
   Menu, ChevronDown, BarChart3, Brain, Calculator, BookOpen, Video, FileText, Phone,
   Mail, Linkedin, Twitter, Facebook, Youtube, Clock, ArrowRight,
   Home as HomeIcon, LayoutGrid, Users, GraduationCap, Newspaper, TrendingUp,
-  Send, Loader2,
+  Send, Loader2, ClipboardCheck,
 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
 const quickLinks = [
   { label: "Home", href: "/", icon: HomeIcon },
+  { label: "Free Assessment", href: "/assessment", icon: ClipboardCheck },
   { label: "Services", href: "/services", icon: LayoutGrid },
   { label: "About", href: "/about", icon: Users },
   { label: "Training", href: "/training", icon: GraduationCap },

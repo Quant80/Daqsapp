@@ -69,6 +69,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
+                { label: "Free Assessment", href: "/assessment" },
                 { label: "About DAQS", href: "/about" },
                 { label: "Our Team", href: "/about#team" },
                 { label: "Training Programs", href: "/training" },
