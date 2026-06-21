@@ -34,8 +34,31 @@ const categoryConfig: Record<string, { label: string; icon: React.ElementType; c
   other: { label: "Other", icon: FileText, color: "bg-gray-100 text-gray-700 border-gray-200" },
 };
 
+interface DocEntry {
+  id: number;
+  title: string;
+  description?: string | null;
+  category: string;
+  fileName: string;
+  fileSize: number;
+  fileUrl: string;
+  createdAt: Date;
+  gated?: boolean;
+}
+
 // Sample placeholder documents
-const sampleDocs = [
+const sampleDocs: DocEntry[] = [
+  {
+    id: 7,
+    title: "2026 AI Adoption Checklist for African Businesses",
+    description: "A practical, step-by-step checklist covering data foundations, strategy, talent, infrastructure, governance, and change management for AI adoption.",
+    category: "whitepaper",
+    fileName: "2026-ai-adoption-checklist.pdf",
+    fileSize: 76338,
+    fileUrl: "/downloads/2026-ai-adoption-checklist.pdf",
+    createdAt: new Date("2026-01-05"),
+    gated: true,
+  },
   {
     id: 1,
     title: "Introduction to Machine Learning in Financial Services",
@@ -103,12 +126,86 @@ function formatFileSize(bytes: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
-function DocumentCard({ doc }: { doc: typeof sampleDocs[0] }) {
-  const config = categoryConfig[doc.category] || categoryConfig.other;
-  const Icon = config.icon;
+function triggerDownload(url: string, fileName: string) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = fileName;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+function EmailGateDialog({ doc, onUnlock }: { doc: DocEntry; onUnlock: () => void }) {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "" });
+
+  const submitLead = trpc.contact.submit.useMutation({
+    onSuccess: () => {
+      setOpen(false);
+      onUnlock();
+      toast.success("Your free copy is downloading now!");
+      triggerDownload(doc.fileUrl, doc.fileName);
+    },
+    onError: (err: { message: string }) => toast.error(err.message || "Something went wrong. Please try again."),
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name || !form.email) {
+      toast.error("Please enter your name and email.");
+      return;
+    }
+    submitLead.mutate({
+      name: form.name,
+      email: form.email,
+      service: "Lead Magnet",
+      message: `Requested free download: ${doc.title}`,
+    });
+  };
 
   return (
-    <Card className="border border-border hover:shadow-md transition-all group">
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button size="sm" className="h-7 text-xs gap-1.5 bg-primary text-primary-foreground hover:bg-primary/90">
+          <Download className="w-3 h-3" /> Get Free Copy
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle>Get Your Free Copy</DialogTitle>
+        </DialogHeader>
+        <p className="text-sm text-muted-foreground -mt-2 mb-2">{doc.title}</p>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <Label htmlFor={`gate-name-${doc.id}`}>Full Name</Label>
+            <Input id={`gate-name-${doc.id}`} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name" />
+          </div>
+          <div>
+            <Label htmlFor={`gate-email-${doc.id}`}>Email Address</Label>
+            <Input id={`gate-email-${doc.id}`} type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@company.com" />
+          </div>
+          <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90" disabled={submitLead.isPending}>
+            {submitLead.isPending ? (
+              <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending...</>
+            ) : (
+              <>Send Me the Checklist <Download className="w-4 h-4 ml-2" /></>
+            )}
+          </Button>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function DocumentCard({ doc, unlocked, onUnlock }: { doc: DocEntry; unlocked: boolean; onUnlock: () => void }) {
+  const config = categoryConfig[doc.category] || categoryConfig.other;
+  const Icon = config.icon;
+  const showGate = doc.gated && !unlocked;
+
+  return (
+    <Card className={`transition-all group ${doc.gated ? "border-2 border-accent/40 shadow-md hover:shadow-lg" : "border border-border hover:shadow-md"}`}>
       <CardContent className="p-5">
         <div className="flex items-start gap-4">
           <div className="w-12 h-14 rounded-lg bg-primary/8 border border-primary/15 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
@@ -116,7 +213,10 @@ function DocumentCard({ doc }: { doc: typeof sampleDocs[0] }) {
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2 mb-1">
-              <Badge className={`text-xs border shrink-0 ${config.color}`}>{config.label}</Badge>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <Badge className={`text-xs border shrink-0 ${config.color}`}>{config.label}</Badge>
+                {doc.gated && <Badge className="text-xs border shrink-0 bg-accent/15 text-accent border-accent/30">Free Download</Badge>}
+              </div>
               <div className="flex items-center gap-1 text-xs text-muted-foreground shrink-0">
                 <Calendar className="w-3 h-3" />
                 {doc.createdAt.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}
@@ -128,11 +228,15 @@ function DocumentCard({ doc }: { doc: typeof sampleDocs[0] }) {
             <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2 mb-3">{doc.description}</p>
             <div className="flex items-center justify-between">
               <span className="text-xs text-muted-foreground">{formatFileSize(doc.fileSize)}</span>
-              <a href={doc.fileUrl} download={doc.fileName} target="_blank" rel="noopener noreferrer">
-                <Button size="sm" variant="outline" className="h-7 text-xs gap-1.5 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
-                  <Download className="w-3 h-3" /> Download
-                </Button>
-              </a>
+              {showGate ? (
+                <EmailGateDialog doc={doc} onUnlock={onUnlock} />
+              ) : (
+                <a href={doc.fileUrl} download={doc.fileName} target="_blank" rel="noopener noreferrer">
+                  <Button size="sm" variant="outline" className="h-7 text-xs gap-1.5 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors">
+                    <Download className="w-3 h-3" /> Download
+                  </Button>
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -264,6 +368,20 @@ export default function Documents() {
 
   const isAdmin = user?.role === "admin";
   const [search, setSearch] = useState("");
+  const [unlockedIds, setUnlockedIds] = useState<Set<number>>(() => {
+    try {
+      return new Set(JSON.parse(localStorage.getItem("daqs_unlocked_docs") || "[]"));
+    } catch {
+      return new Set();
+    }
+  });
+  const unlockDoc = (id: number) => {
+    setUnlockedIds((prev) => {
+      const next = new Set(prev).add(id);
+      localStorage.setItem("daqs_unlocked_docs", JSON.stringify(Array.from(next)));
+      return next;
+    });
+  };
 
   const { data: dbDocs, refetch } = trpc.documents.list.useQuery();
   type DbDoc = NonNullable<typeof dbDocs>[number];
@@ -397,7 +515,7 @@ export default function Documents() {
             <TabsContent value="all" className="mt-0">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {filtered.map((doc) => (
-                  <DocumentCard key={doc.id} doc={doc as typeof sampleDocs[0]} />
+                  <DocumentCard key={doc.id} doc={doc as DocEntry} unlocked={unlockedIds.has(doc.id)} onUnlock={() => unlockDoc(doc.id)} />
                 ))}
                 {filtered.length === 0 && (
                   <div className="col-span-2 text-center py-16 text-muted-foreground">
@@ -414,7 +532,7 @@ export default function Documents() {
                   {filtered
                     .filter((d) => d.category === cat)
                     .map((doc) => (
-                      <DocumentCard key={doc.id} doc={doc as typeof sampleDocs[0]} />
+                      <DocumentCard key={doc.id} doc={doc as DocEntry} unlocked={unlockedIds.has(doc.id)} onUnlock={() => unlockDoc(doc.id)} />
                     ))}
                   {filtered.filter((d) => d.category === cat).length === 0 && (
                     <div className="col-span-2 text-center py-16 text-muted-foreground">
