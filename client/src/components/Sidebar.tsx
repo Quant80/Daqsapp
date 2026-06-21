@@ -50,7 +50,7 @@ export default function Sidebar() {
   const toggle = (id: string) => setActive((prev) => (prev === id ? null : id));
 
   return (
-    <aside className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[149px] lg:w-[189px] flex-col border-r border-white/15 z-30">
+    <aside className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[200px] lg:w-[240px] flex-col border-r border-white/15 z-30">
       <nav className="flex-1 px-2 pt-3 pb-4">
         {sections.map((section) => {
           const isOpen = active === section.id;

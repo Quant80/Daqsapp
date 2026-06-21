@@ -16,7 +16,11 @@ const liveProjects = [
   {
     name: "SmartCare AI",
     tagline: "Intelligent Hospital Management Platform",
-    desc: "SmartCare AI gives clinicians, nurses, and administrators a single, real-time view of every patient — from admission to discharge — powered by AI clinical intelligence.",
+    industry: "Healthcare & AI",
+    challenge: "Hospital staff relied on disconnected charts and manual rounds, making it hard to spot patient deterioration early enough to act.",
+    solution: "DAQS built SmartCare AI — a real-time hospital management platform that unifies every patient's vitals, alerts, and bed status into one live dashboard, powered by AI risk scoring.",
+    results: "94% AI model accuracy in flagging at-risk patients, full visibility across all 186 beds, and 24/7 live monitoring for clinical teams.",
+    imageUrl: bgNeon,
     url: "https://smartcare-systems.netlify.app/",
     icon: HeartPulse,
     capabilities: [
@@ -35,7 +39,11 @@ const liveProjects = [
   {
     name: "DUT Student Success",
     tagline: "Academic Risk & Analytics Platform",
-    desc: "DUT Student Success AI gives lecturers, advisors, and administrators a single, unified view of every student — from enrolment to graduation — powered by real-time academic intelligence.",
+    industry: "Education & Analytics",
+    challenge: "Advisors often only learned a student was struggling once it was too late to intervene, with enrolment and academic records scattered across separate systems.",
+    solution: "DAQS built DUT Student Success AI, unifying enrolment and academic data into a single live dashboard with AI risk scoring that flags students needing support in real time.",
+    results: "94% AI model accuracy across 67,000+ students monitored, with individual risk scores generated in under 3 seconds.",
+    imageUrl: bgSignage,
     url: "https://dut-student-success-dashboard.netlify.app/",
     icon: GraduationCap,
     capabilities: [
@@ -139,63 +147,97 @@ export default function CaseStudies() {
               Real products, in production today. See the platforms for yourself — no demo video, just the live thing.
             </p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-6">
-            {liveProjects.map((project) => (
-              <div key={project.name} className="rounded-2xl border border-white/10 bg-white/[0.04] p-7 hover:border-blue-400/40 transition-all flex flex-col">
-                {/* Header */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-500/15 flex items-center justify-center shrink-0">
-                    <project.icon className="w-6 h-6 text-sky-300" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-white text-lg">{project.name}</h3>
-                    <p className="text-white/50 text-xs">{project.tagline}</p>
-                  </div>
-                </div>
-                <p className="text-white/70 text-sm leading-relaxed mb-6">{project.desc}</p>
-
-                {/* Key capabilities */}
-                <div className="text-white/40 text-[11px] font-semibold uppercase tracking-wider mb-3">Key Capabilities</div>
-                <div className="grid sm:grid-cols-2 gap-3 mb-6">
-                  {project.capabilities.map((cap) => (
-                    <div key={cap.title} className="flex items-start gap-2.5 bg-white/[0.03] rounded-lg p-3">
-                      <div className="w-7 h-7 rounded-md bg-blue-500/15 flex items-center justify-center shrink-0 mt-0.5">
-                        <cap.icon className="w-3.5 h-3.5 text-sky-300" />
+          <div className="space-y-12">
+            {liveProjects.map((project, index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <Card key={project.name} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
+                  <div className="grid md:grid-cols-2 gap-0">
+                    {/* Image */}
+                    <div className={`relative h-64 md:h-auto ${isEven ? "md:order-2" : "md:order-1"}`}>
+                      <img src={project.imageUrl} alt={project.name} className="w-full h-full object-cover" />
+                      <div className="absolute top-6 left-6">
+                        <Badge className="bg-primary text-primary-foreground">{project.industry}</Badge>
                       </div>
-                      <div>
-                        <div className="text-white text-xs font-semibold mb-0.5">{cap.title}</div>
-                        <div className="text-white/55 text-[11px] leading-snug">{cap.desc}</div>
+                      <div className="absolute top-6 right-6">
+                        <Badge className="bg-emerald-500 text-white gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" /> Live
+                        </Badge>
                       </div>
                     </div>
-                  ))}
-                </div>
 
-                {/* Trust badges */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.badges.map((badge) => (
-                    <span key={badge} className="flex items-center gap-1 bg-white/5 border border-white/10 text-white/60 text-[11px] px-2.5 py-1 rounded-full">
-                      <ShieldCheck className="w-3 h-3 text-emerald-400" /> {badge}
-                    </span>
-                  ))}
-                </div>
+                    {/* Content */}
+                    <CardContent className={`p-8 flex flex-col justify-center ${isEven ? "md:order-1" : "md:order-2"}`}>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                          <project.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-xl text-foreground">{project.name}</h3>
+                          <p className="text-muted-foreground text-xs">{project.tagline}</p>
+                        </div>
+                      </div>
 
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-2 mb-6 mt-auto">
-                  {project.stats.map((s) => (
-                    <div key={s.label} className="bg-white/5 rounded-lg p-3 text-center">
-                      <div className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
-                      <div className="text-white/50 text-[10px] leading-tight mt-0.5">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
+                      <div className="space-y-4 mb-6">
+                        <div>
+                          <h4 className="font-semibold text-foreground mb-2">Challenge</h4>
+                          <p className="text-muted-foreground text-sm">{project.challenge}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-foreground mb-2">Solution</h4>
+                          <p className="text-muted-foreground text-sm">{project.solution}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-foreground mb-2">Results</h4>
+                          <p className="text-primary font-semibold text-sm">{project.results}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-foreground mb-2">Capabilities</h4>
+                          <div className="grid sm:grid-cols-2 gap-2">
+                            {project.capabilities.map((cap) => (
+                              <div key={cap.title} className="flex items-start gap-2.5 bg-muted/50 rounded-lg p-2.5">
+                                <div className="w-7 h-7 rounded-md bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                                  <cap.icon className="w-3.5 h-3.5 text-primary" />
+                                </div>
+                                <div>
+                                  <div className="text-foreground text-xs font-semibold mb-0.5">{cap.title}</div>
+                                  <div className="text-muted-foreground text-[11px] leading-snug">{cap.desc}</div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
 
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold border-0">
-                    View Live Platform <ExternalLink className="w-4 h-4 ml-2" />
-                  </Button>
-                </a>
-              </div>
-            ))}
+                      <div className="flex flex-wrap gap-2 mb-5">
+                        {project.badges.map((badge) => (
+                          <span key={badge} className="flex items-center gap-1 bg-muted text-muted-foreground text-[11px] px-2.5 py-1 rounded-full border border-border">
+                            <ShieldCheck className="w-3 h-3 text-emerald-500" /> {badge}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-2 mb-6">
+                        {project.stats.map((s) => (
+                          <div key={s.label} className="bg-muted/50 rounded-lg p-3 text-center">
+                            <div className="text-lg font-bold text-foreground" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                            <div className="text-muted-foreground text-[10px] leading-tight mt-0.5">{s.label}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="pt-4 border-t border-border">
+                        <a href={project.url} target="_blank" rel="noopener noreferrer">
+                          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                            View Live Platform <ExternalLink className="w-4 h-4 ml-2" />
+                          </Button>
+                        </a>
+                      </div>
+                    </CardContent>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>

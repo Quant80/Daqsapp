@@ -29,7 +29,7 @@ function Router() {
       <Route path="/media" component={Media} />
       <Route path="/documents" component={Documents} />
       <Route path="/blog" component={Blog} />
-      <Route path="/case-studies" component={CaseStudies} />
+      <Route path="/projects" component={CaseStudies} />
       <Route path="/assessment" component={Assessment} />
       <Route path="/contact" component={Contact} />
       <Route path="/404" component={NotFound} />
@@ -47,7 +47,7 @@ function App() {
           <div className="relative flex flex-col min-h-screen">
             <Navigation />
             <Sidebar />
-            <div className="flex flex-col flex-1 md:pl-[149px] lg:pl-[189px]">
+            <div className="flex flex-col flex-1 md:pl-[200px] lg:pl-[240px]">
               <main className="flex-1">
                 <Router />
               </main>
