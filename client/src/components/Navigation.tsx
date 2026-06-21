@@ -17,7 +17,7 @@ import {
   Menu, ChevronDown, BarChart3, Brain, Calculator, BookOpen, Video, FileText, Phone,
   Mail, Linkedin, Twitter, Facebook, Youtube, Clock, ArrowRight,
   Home as HomeIcon, LayoutGrid, Users, GraduationCap, Newspaper, TrendingUp,
-  Send, Loader2, ClipboardCheck,
+  Send, Loader2, ClipboardCheck, Zap,
 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
@@ -59,6 +59,13 @@ export default function Navigation() {
   const [quickOpen, setQuickOpen] = useState(false);
   const [quickForm, setQuickForm] = useState({ name: "", email: "", message: "" });
   const [location] = useLocation();
+
+  const handleLiveDemoClick = (e: React.MouseEvent) => {
+    if (location === "/") {
+      e.preventDefault();
+      document.getElementById("ai-demo")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const quickSubmit = trpc.contact.submit.useMutation({
     onSuccess: () => {
@@ -312,6 +319,15 @@ export default function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
+            <Link href="/#ai-demo" onClick={handleLiveDemoClick}>
+              <span className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${
+                scrolled
+                  ? "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100"
+                  : "bg-emerald-400/15 text-emerald-300 border-emerald-400/30 hover:bg-emerald-400/25"
+              }`}>
+                <Zap className="w-3 h-3" /> Live Demo
+              </span>
+            </Link>
             <Link href="/contact">
               <Button
                 size="sm"
@@ -381,6 +397,17 @@ export default function Navigation() {
                 <Link href="/contact" onClick={() => setMobileOpen(false)}>
                   <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/contact") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
                     <Phone className="w-4 h-4" /> Contact
+                  </div>
+                </Link>
+                <Link
+                  href="/#ai-demo"
+                  onClick={(e) => {
+                    setMobileOpen(false);
+                    handleLiveDemoClick(e);
+                  }}
+                >
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-emerald-600 hover:bg-emerald-50">
+                    <Zap className="w-4 h-4" /> Live Demo
                   </div>
                 </Link>
                 <div className="pt-4">

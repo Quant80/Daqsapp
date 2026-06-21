@@ -51,7 +51,7 @@ export default function AIDemoSection() {
   const SentimentIcon = sentimentStyle?.icon;
 
   return (
-    <section className="py-20 bg-[#061726]">
+    <section id="ai-demo" className="py-20 bg-[#061726]">
       <div className="container">
         <div className="text-center mb-12">
           <Badge className="mb-4 bg-emerald-400/15 text-emerald-300 border-emerald-400/30 gap-1.5">

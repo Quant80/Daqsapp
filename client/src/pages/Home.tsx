@@ -120,6 +120,21 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 export default function Home() {
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        setTimeout(() => {
+          const el = document.getElementById(hash);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    };
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
@@ -244,6 +259,8 @@ export default function Home() {
         </div>
       </section>
 
+      <AIDemoSection />
+
       {/* ── STATS ─────────────────────────────────────────────── */}
       <section className="relative bg-[#071428] py-16 overflow-hidden">
         <div
@@ -336,8 +353,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <AIDemoSection />
 
       {/* ── MISSION ─────────────────────────────────────────── */}
       <section className="relative py-20 bg-[#061726] overflow-hidden">
