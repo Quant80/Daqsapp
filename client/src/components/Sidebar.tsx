@@ -1,6 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Database, Brain, Cpu, Bot, Rocket, ChevronDown } from "lucide-react";
+
+const techStack = ["Python", "TensorFlow", "Power BI", "scikit-learn", "AWS", "Microsoft Azure"];
+
+function TechRotator() {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % techStack.length);
+        setVisible(true);
+      }, 300);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="h-8 flex items-center justify-center">
+      <span className={`text-xs font-semibold text-white/70 tracking-wide transition-opacity duration-300 ${visible ? "opacity-100" : "opacity-0"}`}>
+        {techStack[index]}
+      </span>
+    </div>
+  );
+}
 
 const sections = [
   {
@@ -54,8 +80,8 @@ export default function Sidebar() {
   const toggle = (id: string) => setActive((prev) => (prev === id ? null : id));
 
   return (
-    <aside className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[180px] lg:w-[215px] flex-col border-r border-white/15 z-30">
-      <nav className="flex-1 px-2 pt-3 pb-4">
+    <aside className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[180px] lg:w-[215px] flex-col border-r border-white/70 z-30">
+      <nav className="px-2 pt-3 pb-4">
         {sections.map((section) => {
           const isOpen = active === section.id;
           return (
@@ -98,6 +124,13 @@ export default function Sidebar() {
             </span>
           </div>
         </div>
+
+        <div className="-mx-2 mt-3 border-t border-white/70" />
+        <div className="py-3">
+          <div className="text-[9px] font-semibold uppercase tracking-wider text-white/40 text-center mb-1.5">Powered By</div>
+          <TechRotator />
+        </div>
+        <div className="-mx-2 border-t border-white/70" />
       </nav>
     </aside>
   );

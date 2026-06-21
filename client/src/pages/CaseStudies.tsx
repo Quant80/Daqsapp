@@ -46,6 +46,7 @@ const liveProjects = [
     solution: "DAQS built DUT Student Success AI, unifying enrolment and academic data into a single live dashboard with AI risk scoring that flags students needing support in real time.",
     results: "94% AI model accuracy across 67,000+ students monitored, with individual risk scores generated in under 3 seconds.",
     imageUrl: bgSignage,
+    imagePosition: "85% center",
     url: "https://dut-student-success-dashboard.netlify.app/",
     icon: GraduationCap,
     capabilities: [
@@ -189,8 +190,13 @@ export default function CaseStudies() {
                 <Card key={project.name} className="border-0 shadow-xl overflow-hidden hover:shadow-2xl transition-shadow">
                   <div className="grid md:grid-cols-2 gap-0">
                     {/* Image */}
-                    <div className={`relative h-64 md:h-auto bg-[#071428] ${isEven ? "md:order-2" : "md:order-1"}`}>
-                      <img src={project.imageUrl} alt={project.name} className="w-full h-full object-contain" />
+                    <div className={`relative h-64 md:h-auto ${isEven ? "md:order-2" : "md:order-1"}`}>
+                      <img
+                        src={project.imageUrl}
+                        alt={project.name}
+                        className="w-full h-full object-cover"
+                        style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
+                      />
                       <div className="absolute top-6 left-6">
                         <Badge className="bg-primary text-primary-foreground">{project.industry}</Badge>
                       </div>
