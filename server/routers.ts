@@ -233,6 +233,55 @@ const chatbotRouter = router({
     }),
 });
 
+// ─── Live AI Demo Router ───────────────────────────────────────────────────────
+const DEMO_SYSTEM_PROMPT = `You are a business text analysis engine used in a live product demo for DAQS, a data analytics and AI consulting firm. Given a piece of text (customer feedback, an email, a review, a report excerpt), analyze it and return your findings strictly in the provided JSON schema. Be concise and realistic - do not exaggerate risk or sentiment.`;
+
+const demoOutputSchema = {
+  name: "text_analysis",
+  schema: {
+    type: "object",
+    properties: {
+      sentiment: { type: "string", enum: ["positive", "neutral", "negative"] },
+      sentimentScore: { type: "number", description: "0-100 intensity of the detected sentiment" },
+      themes: { type: "array", items: { type: "string" }, description: "2-4 short key themes, each 1-4 words" },
+      riskFlag: { type: "boolean", description: "true if this text suggests a business risk worth a human's attention (e.g. churn, compliance, dissatisfaction)" },
+      riskReason: { type: ["string", "null"], description: "one short sentence explaining the risk, or null if riskFlag is false" },
+      summary: { type: "string", description: "one sentence plain-English summary of the text" },
+    },
+    required: ["sentiment", "sentimentScore", "themes", "riskFlag", "riskReason", "summary"],
+    additionalProperties: false,
+  },
+  strict: true,
+};
+
+const demoRouter = router({
+  analyze: publicProcedure
+    .input(z.object({ text: z.string().min(10).max(1000) }))
+    .mutation(async ({ input }) => {
+      const response = await invokeLLM({
+        messages: [
+          { role: "system", content: DEMO_SYSTEM_PROMPT },
+          { role: "user", content: input.text },
+        ],
+        responseFormat: { type: "json_schema", json_schema: demoOutputSchema },
+      });
+
+      const rawContent = response.choices[0]?.message?.content;
+      const text = typeof rawContent === "string" ? rawContent : null;
+      if (!text) throw new Error("The AI didn't return a result. Please try again.");
+
+      const parsed = JSON.parse(text);
+      return parsed as {
+        sentiment: "positive" | "neutral" | "negative";
+        sentimentScore: number;
+        themes: string[];
+        riskFlag: boolean;
+        riskReason: string | null;
+        summary: string;
+      };
+    }),
+});
+
 // ─── App Router ───────────────────────────────────────────────────────────────
 export const appRouter = router({
   system: systemRouter,
@@ -248,6 +297,7 @@ export const appRouter = router({
   documents: documentsRouter,
   media: mediaRouter,
   chatbot: chatbotRouter,
+  demo: demoRouter,
 });
 
 export type AppRouter = typeof appRouter;
