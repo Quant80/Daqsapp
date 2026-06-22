@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="mb-4">
               <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-12 w-auto" />
             </div>
-            <p className="text-white/70 text-sm leading-relaxed mb-6">
+            <p className="text-white/70 text-xs leading-relaxed mb-6">
               Data Analytics and Quantitative Solutions — delivering world-class expertise in data science, AI, machine learning, and financial analytics.
             </p>
             <div className="flex gap-3">
@@ -52,7 +52,7 @@ export default function Footer() {
                 { label: "Pension Management", href: "/services#accounting" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-white/60 hover:text-[#58a6ff] text-sm transition-colors flex items-center gap-2 group">
+                  <Link href={item.href} className="text-white/60 hover:text-[#58a6ff] text-xs transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {item.label}
                   </Link>
@@ -78,7 +78,7 @@ export default function Footer() {
                 { label: "Contact Us", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-white/60 hover:text-[#58a6ff] text-sm transition-colors flex items-center gap-2 group">
+                  <Link href={item.href} className="text-white/60 hover:text-[#58a6ff] text-xs transition-colors flex items-center gap-2 group">
                     <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {item.label}
                   </Link>
@@ -98,26 +98,26 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-[#58a6ff] mt-0.5 shrink-0" />
                 <div>
                   <div className="text-white/60 text-xs mb-1">Trymore Ncube (CEO)</div>
-                  <a href="tel:+27603431561" className="text-white/80 hover:text-white text-sm transition-colors">+27 60 343 1561</a>
+                  <a href="tel:+27603431561" className="text-white/80 hover:text-white text-xs transition-colors">+27 60 343 1561</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-[#58a6ff] mt-0.5 shrink-0" />
                 <div>
                   <div className="text-white/60 text-xs mb-1">Albert Ncube (CEO)</div>
-                  <a href="tel:+263773278724" className="text-white/80 hover:text-white text-sm transition-colors">+263 77 327 8724</a>
+                  <a href="tel:+263773278724" className="text-white/80 hover:text-white text-xs transition-colors">+263 77 327 8724</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-[#58a6ff] mt-0.5 shrink-0" />
                 <div>
-                  <a href="mailto:Trymore.N@daqs.co.za" className="text-white/80 hover:text-white text-sm transition-colors block">Trymore.N@daqs.co.za</a>
-                  <a href="mailto:A.ncube@daqs.co.za" className="text-white/80 hover:text-white text-sm transition-colors block mt-1">A.ncube@daqs.co.za</a>
+                  <a href="mailto:Trymore.N@daqs.co.za" className="text-white/80 hover:text-white text-xs transition-colors block">Trymore.N@daqs.co.za</a>
+                  <a href="mailto:A.ncube@daqs.co.za" className="text-white/80 hover:text-white text-xs transition-colors block mt-1">A.ncube@daqs.co.za</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Globe className="w-4 h-4 text-[#58a6ff] mt-0.5 shrink-0" />
-                <a href="https://www.daqs.com" className="text-white/80 hover:text-white text-sm transition-colors">www.daqs.com</a>
+                <a href="https://www.daqs.com" className="text-white/80 hover:text-white text-xs transition-colors">www.daqs.com</a>
               </li>
             </ul>
           </div>
@@ -132,7 +132,7 @@ export default function Footer() {
               <Globe className="w-3.5 h-3.5 text-[#58a6ff]" />
               <span>Official domain: <span className="text-[#58a6ff] font-medium">www.daqs.com</span></span>
             </div>
-            <div className="text-white/40 text-xs">
+            <div className="text-[#58a6ff] text-xs">
               © {new Date().getFullYear()} DAQS — Data Analytics & Quantitative Solutions. All rights reserved.
             </div>
           </div>
