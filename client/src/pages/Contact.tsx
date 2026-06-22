@@ -6,13 +6,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import {
   Phone, Mail, Globe, MapPin, Clock, CheckCircle,
-  Send, Loader2, MessageSquare, ArrowRight, Zap,
+  Send, Loader2, MessageSquare, ArrowRight, Zap, Calendar,
 } from "lucide-react";
 import bgMountain from "@/assets/daqs-bg-mountain.png";
+import BookingFlow from "@/components/BookingFlow";
 
 const contactStats = [
   { value: "10+", label: "Years Combined Experience" },
@@ -279,125 +281,139 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              {submitted ? (
-                <Card className="border-0 shadow-lg h-full flex items-center justify-center">
-                  <CardContent className="p-12 text-center">
-                    <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle className="w-10 h-10 text-green-600" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "var(--font-serif)" }}>
-                      Message Sent!
-                    </h3>
-                    <p className="text-muted-foreground mb-6">
-                      Thank you for reaching out. Our team will review your enquiry and respond within 24 hours.
-                    </p>
-                    <Button onClick={() => setSubmitted(false)} className="bg-primary text-primary-foreground hover:bg-primary/90">
-                      Send Another Message
-                    </Button>
-                  </CardContent>
-                </Card>
-              ) : (
-                <Card className="border-0 shadow-lg">
-                  <CardContent className="p-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                        <MessageSquare className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <h2 className="text-xl font-bold text-foreground" style={{ fontFamily: "var(--font-serif)" }}>Send Us a Message</h2>
-                        <p className="text-muted-foreground text-sm">Fill in the form and we'll get back to you promptly</p>
-                      </div>
-                    </div>
+              <Card className="border-0 shadow-lg">
+                <CardContent className="p-8">
+                  <Tabs defaultValue="message" className="w-full">
+                    <TabsList className="grid grid-cols-2 mb-6">
+                      <TabsTrigger value="message" className="gap-2">
+                        <MessageSquare className="w-4 h-4" /> Send a Message
+                      </TabsTrigger>
+                      <TabsTrigger value="booking" className="gap-2">
+                        <Calendar className="w-4 h-4" /> Book a Call
+                      </TabsTrigger>
+                    </TabsList>
 
-                    <form onSubmit={handleSubmit} className="space-y-5">
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        <div>
-                          <Label htmlFor="name">Full Name *</Label>
-                          <Input
-                            id="name"
-                            value={form.name}
-                            onChange={(e) => setForm({ ...form, name: e.target.value })}
-                            placeholder="Your full name"
-                            className="mt-1"
-                          />
+                    <TabsContent value="message" className="mt-0">
+                      {submitted ? (
+                        <div className="text-center py-12">
+                          <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
+                            <CheckCircle className="w-10 h-10 text-green-600" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "var(--font-serif)" }}>
+                            Message Sent!
+                          </h3>
+                          <p className="text-muted-foreground mb-6">
+                            Thank you for reaching out. Our team will review your enquiry and respond within 24 hours.
+                          </p>
+                          <Button onClick={() => setSubmitted(false)} className="bg-primary text-primary-foreground hover:bg-primary/90">
+                            Send Another Message
+                          </Button>
+                        </div>
+                      ) : (
+                        <form onSubmit={handleSubmit} className="space-y-5">
+                          <div className="grid sm:grid-cols-2 gap-4">
+                            <div>
+                              <Label htmlFor="name">Full Name *</Label>
+                              <Input
+                                id="name"
+                                value={form.name}
+                                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                                placeholder="Your full name"
+                                className="mt-1"
+                              />
+                            </div>
+                            <div>
+                              <Label htmlFor="email">Email Address *</Label>
+                              <Input
+                                id="email"
+                                type="email"
+                                value={form.email}
+                                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                                placeholder="your@email.com"
+                                className="mt-1"
+                              />
+                            </div>
+                          </div>
+                          <div className="grid sm:grid-cols-2 gap-4">
+                            <div>
+                              <Label htmlFor="phone">Phone Number</Label>
+                              <Input
+                                id="phone"
+                                value={form.phone}
+                                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                                placeholder="+27 xx xxx xxxx"
+                                className="mt-1"
+                              />
+                            </div>
+                            <div>
+                              <Label htmlFor="company">Company / Organisation</Label>
+                              <Input
+                                id="company"
+                                value={form.company}
+                                onChange={(e) => setForm({ ...form, company: e.target.value })}
+                                placeholder="Your company name"
+                                className="mt-1"
+                              />
+                            </div>
+                          </div>
+                          <div>
+                            <Label>Service of Interest</Label>
+                            <Select value={form.service} onValueChange={(v) => setForm({ ...form, service: v })}>
+                              <SelectTrigger className="mt-1">
+                                <SelectValue placeholder="Select a service..." />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {services.map((s) => (
+                                  <SelectItem key={s} value={s}>{s}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          <div>
+                            <Label htmlFor="message">Message *</Label>
+                            <Textarea
+                              id="message"
+                              value={form.message}
+                              onChange={(e) => setForm({ ...form, message: e.target.value })}
+                              placeholder="Tell us about your project, requirements, or questions..."
+                              rows={5}
+                              className="mt-1"
+                            />
+                          </div>
+                          <Button
+                            type="submit"
+                            size="lg"
+                            className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                            disabled={submitContact.isPending}
+                          >
+                            {submitContact.isPending ? (
+                              <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending...</>
+                            ) : (
+                              <><Send className="w-4 h-4 mr-2" /> Send Message</>
+                            )}
+                          </Button>
+                          <p className="text-xs text-muted-foreground text-center">
+                            By submitting this form, you agree to be contacted by DAQS regarding your enquiry.
+                          </p>
+                        </form>
+                      )}
+                    </TabsContent>
+
+                    <TabsContent value="booking" className="mt-0">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                          <Calendar className="w-5 h-5 text-primary" />
                         </div>
                         <div>
-                          <Label htmlFor="email">Email Address *</Label>
-                          <Input
-                            id="email"
-                            type="email"
-                            value={form.email}
-                            onChange={(e) => setForm({ ...form, email: e.target.value })}
-                            placeholder="your@email.com"
-                            className="mt-1"
-                          />
+                          <h2 className="text-xl font-bold text-foreground" style={{ fontFamily: "var(--font-serif)" }}>Book a Free Consultation</h2>
+                          <p className="text-muted-foreground text-sm">Pick a date and time that works for you</p>
                         </div>
                       </div>
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        <div>
-                          <Label htmlFor="phone">Phone Number</Label>
-                          <Input
-                            id="phone"
-                            value={form.phone}
-                            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                            placeholder="+27 xx xxx xxxx"
-                            className="mt-1"
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="company">Company / Organisation</Label>
-                          <Input
-                            id="company"
-                            value={form.company}
-                            onChange={(e) => setForm({ ...form, company: e.target.value })}
-                            placeholder="Your company name"
-                            className="mt-1"
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <Label>Service of Interest</Label>
-                        <Select value={form.service} onValueChange={(v) => setForm({ ...form, service: v })}>
-                          <SelectTrigger className="mt-1">
-                            <SelectValue placeholder="Select a service..." />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {services.map((s) => (
-                              <SelectItem key={s} value={s}>{s}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div>
-                        <Label htmlFor="message">Message *</Label>
-                        <Textarea
-                          id="message"
-                          value={form.message}
-                          onChange={(e) => setForm({ ...form, message: e.target.value })}
-                          placeholder="Tell us about your project, requirements, or questions..."
-                          rows={5}
-                          className="mt-1"
-                        />
-                      </div>
-                      <Button
-                        type="submit"
-                        size="lg"
-                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                        disabled={submitContact.isPending}
-                      >
-                        {submitContact.isPending ? (
-                          <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> Sending...</>
-                        ) : (
-                          <><Send className="w-4 h-4 mr-2" /> Send Message</>
-                        )}
-                      </Button>
-                      <p className="text-xs text-muted-foreground text-center">
-                        By submitting this form, you agree to be contacted by DAQS regarding your enquiry.
-                      </p>
-                    </form>
-                  </CardContent>
-                </Card>
-              )}
+                      <BookingFlow />
+                    </TabsContent>
+                  </Tabs>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
