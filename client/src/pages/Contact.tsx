@@ -14,6 +14,7 @@ import {
   Send, Loader2, MessageSquare, ArrowRight, Zap, Calendar,
 } from "lucide-react";
 import bgMountain from "@/assets/daqs-bg-mountain.png";
+import trymorePhoto from "@/assets/trymore-ncube.jpeg";
 import BookingFlow from "@/components/BookingFlow";
 
 const contactStats = [
@@ -178,8 +179,8 @@ export default function Contact() {
               <Card className="border border-border hover:shadow-md transition-shadow">
                 <CardContent className="p-5">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-700 to-blue-900 flex items-center justify-center text-white font-bold" style={{ fontFamily: "var(--font-serif)" }}>
-                      TN
+                    <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
+                      <img src={trymorePhoto} alt="Trymore Ncube" className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <div className="font-semibold text-foreground">Trymore Ncube</div>
@@ -193,11 +194,11 @@ export default function Contact() {
                       </div>
                       +27 60 343 1561
                     </a>
-                    <a href="mailto:Trymore.N@daqs.co.za" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
+                    <a href="mailto:Ncube.T@daqstech.com" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                         <Mail className="w-4 h-4 text-primary" />
                       </div>
-                      Trymore.N@daqs.co.za
+                      Ncube.T@daqstech.com
                     </a>
                   </div>
                 </CardContent>
@@ -263,12 +264,12 @@ export default function Contact() {
                     <Mail className="w-4 h-4 text-secondary" /> Official Email Addresses
                   </h3>
                   <p className="text-xs text-muted-foreground mb-3">
-                    Our professional email addresses are hosted on the daqs.co.za domain:
+                    Our professional email addresses:
                   </p>
                   <div className="space-y-2">
                     <div className="bg-background rounded-lg px-3 py-2 border border-border">
                       <div className="text-xs text-muted-foreground">CEO — Data Science</div>
-                      <div className="text-sm font-mono font-medium text-primary">Trymore.N@daqs.co.za</div>
+                      <div className="text-sm font-mono font-medium text-primary">Ncube.T@daqstech.com</div>
                     </div>
                     <div className="bg-background rounded-lg px-3 py-2 border border-border">
                       <div className="text-xs text-muted-foreground">CEO — Accounting</div>
@@ -439,7 +440,7 @@ export default function Contact() {
                   {
                     step: "2",
                     title: "Set Up Email Hosting",
-                    desc: "Use Google Workspace, Microsoft 365, or Zoho Mail to create Trymore.N@daqs.co.za and A.ncube@daqs.co.za as professional email accounts.",
+                    desc: "Use Google Workspace, Microsoft 365, or Zoho Mail to create Ncube.T@daqstech.com and A.ncube@daqs.co.za as professional email accounts.",
                   },
                   {
                     step: "3",

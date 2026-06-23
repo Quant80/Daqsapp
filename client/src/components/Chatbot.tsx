@@ -30,7 +30,7 @@ export default function Chatbot() {
     onError: () => {
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "I'm experiencing a technical issue. Please contact us directly at Trymore.N@daqs.co.za or call +27 60 343 1561." },
+        { role: "assistant", content: "I'm experiencing a technical issue. Please contact us directly at Ncube.T@daqstech.com or call +27 60 343 1561." },
       ]);
     },
   });

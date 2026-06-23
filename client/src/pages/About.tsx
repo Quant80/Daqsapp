@@ -8,6 +8,7 @@ import {
   BarChart3, TrendingUp, Shield, ShieldCheck, Users,
 } from "lucide-react";
 import bgGold from "@/assets/daqs-bg-gold.png";
+import trymorePhoto from "@/assets/trymore-ncube.jpeg";
 
 const stats = [
   { value: "10+", label: "Years Combined Experience" },
@@ -22,9 +23,10 @@ const team = [
     name: "Trymore Ncube",
     role: "CEO & Director",
     initials: "TN",
+    photo: trymorePhoto,
     color: "from-blue-700 to-blue-900",
     phone: "+27 60 343 1561",
-    email: "Trymore.N@daqs.co.za",
+    email: "Ncube.T@daqstech.com",
     bio: "Trymore Ncube is a highly accomplished data scientist, financial engineer, and AI specialist with a distinguished academic and professional background. As co-founder and CEO of DAQS, he leads the firm's data science, machine learning, and quantitative solutions practice.",
     bio2: "Currently pursuing a PhD in Data Science, Trymore combines deep theoretical knowledge with practical industry experience to deliver transformative analytical solutions. He is a certified Microsoft Data Scientist Associate and has extensive experience applying advanced AI and ML techniques across finance, healthcare, and enterprise sectors.",
     expertise: [
@@ -196,8 +198,12 @@ export default function About() {
                 {/* Profile Card */}
                 <div className="lg:col-span-1">
                   <div className={`bg-gradient-to-br ${member.color} rounded-2xl p-8 text-white text-center`}>
-                    <div className="w-24 h-24 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4 ring-4 ring-white/30">
-                      <span className="text-3xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{member.initials}</span>
+                    <div className="w-24 h-24 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4 ring-4 ring-white/30 overflow-hidden">
+                      {"photo" in member && member.photo ? (
+                        <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-3xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{member.initials}</span>
+                      )}
                     </div>
                     <h3 className="text-2xl font-bold mb-1" style={{ fontFamily: "var(--font-serif)" }}>{member.name}</h3>
                     <p className="text-white/70 text-sm mb-6">{member.role}</p>

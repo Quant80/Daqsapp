@@ -193,11 +193,11 @@ export default function Navigation() {
                           <div className="text-xs text-muted-foreground">+263 77 327 8724</div>
                         </div>
                       </a>
-                      <a href="mailto:Trymore.N@daqs.co.za" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
+                      <a href="mailto:Ncube.T@daqstech.com" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
                         <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                           <Mail className="w-4 h-4 text-primary" />
                         </div>
-                        <div className="text-sm text-foreground truncate">Trymore.N@daqs.co.za</div>
+                        <div className="text-sm text-foreground truncate">Ncube.T@daqstech.com</div>
                       </a>
                     </div>
                   </div>
