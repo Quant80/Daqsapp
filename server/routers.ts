@@ -176,7 +176,7 @@ DAQS offers:
   - Short courses on PLCs, ROS, vision systems, and RPA platforms
 
 Our Team:
-- Trymore Ncube (CEO & Director): BSc Mathematics, MSc Financial Engineering, MSc Machine Learning & AI, PhD Data Science (candidate), Microsoft Certified Data Scientist Associate. Contact: +27 60 343 1561, Trymore.N@daqs.co.za
+- Trymore Ncube (CEO & Director): BSc Mathematics, MSc Financial Engineering, MSc Machine Learning & AI, PhD Data Science (candidate), Microsoft Certified Data Scientist Associate. Contact: +27 60 343 1561, Ncube.T@daqstech.com
 - Albert Ncube (CEO & Director): BSc Accounting, MSc Accounting. Specialises in accounting, pensions, and investment advisory. Contact: +263 77 327 8724, A.ncube@daqs.co.za
 
 Website: www.daqs.com
@@ -218,7 +218,7 @@ const chatbotRouter = router({
 
       const response = await invokeLLM({ messages });
       const rawContent = response.choices[0]?.message?.content;
-      const reply = (typeof rawContent === "string" ? rawContent : null) || "I'm sorry, I couldn't process your request. Please contact us directly at Trymore.N@daqs.co.za.";
+      const reply = (typeof rawContent === "string" ? rawContent : null) || "I'm sorry, I couldn't process your request. Please contact us directly at Ncube.T@daqstech.com.";
 
       // Save assistant response
       if (db) {
