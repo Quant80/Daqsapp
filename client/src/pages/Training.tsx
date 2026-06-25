@@ -476,7 +476,7 @@ export default function Training() {
                         <img
                           src={logoSmall}
                           alt={cat.label}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-cover animate-ken-burns animate-neon-pulse"
                         />
                       </div>
                       <CardHeader className="pb-3">
