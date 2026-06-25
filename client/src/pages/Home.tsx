@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import bgMountain from "@/assets/daqs-bg-mountain.png";
 import bgGold from "@/assets/daqs-bg-gold.png";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
@@ -85,39 +86,6 @@ const industries = [
   { label: "Education", icon: GraduationCap },
 ];
 
-function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1500;
-          const steps = 40;
-          const increment = target / steps;
-          let current = 0;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              setCount(target);
-              clearInterval(timer);
-            } else {
-              setCount(Math.floor(current));
-            }
-          }, duration / steps);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-}
 
 export default function Home() {
   return (
