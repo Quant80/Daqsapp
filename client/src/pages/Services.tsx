@@ -11,7 +11,14 @@ import {
 } from "lucide-react";
 import { useEffect } from "react";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
+import bgGold from "@/assets/daqs-bg-gold.png";
+import bgMountain from "@/assets/daqs-bg-mountain.png";
+import bgSignage from "@/assets/daqs-bg-signage.png";
+import bgNeon from "@/assets/daqs-bg-neon.png";
 import logoSmall from "@/assets/logo-small.png";
+import SlideshowBanner from "@/components/SlideshowBanner";
+
+const bannerImages = [logoSmall, bgNeon, bgGold, bgBillboard, bgMountain, bgSignage];
 
 const stats = [
   { value: "10+", label: "Years Combined Experience", icon: Award },
@@ -258,9 +265,7 @@ export default function Services() {
                   {/* Overview */}
                   <div className="lg:col-span-1">
                     <div className={`bg-gradient-to-br ${cat.color} rounded-2xl text-white h-fit sticky top-24 overflow-hidden`}>
-                      <div className="h-40 overflow-hidden">
-                        <img src={logoSmall} alt="DAQS" className="w-full h-full object-cover animate-ken-burns animate-neon-pulse" />
-                      </div>
+                      <SlideshowBanner images={bannerImages} className="h-40" alt="DAQS" />
                       <div className="p-8">
                         <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-serif)" }}>{cat.title}</h2>
                         <p className="text-white/70 text-sm mb-4">{cat.subtitle}</p>
