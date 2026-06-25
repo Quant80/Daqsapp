@@ -205,8 +205,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Dashboard mockup */}
-            <div className="relative hidden lg:block pt-8">
+            {/* Right: Dashboard mockup — 3/4 of column width, right-aligned */}
+            <div className="relative hidden lg:block pt-8 w-3/4 ml-auto">
               {/* LIVE INSIGHT floating chip — sits beside top-right of main card */}
               <div className="absolute top-12 -right-3 bg-white/15 backdrop-blur-xl border border-white/30 rounded-lg shadow-lg p-2 w-40 hidden xl:block z-10">
                 <div className="flex items-center gap-1.5 text-emerald-300 font-semibold mb-0.5" style={{ fontSize: "10px" }}>
