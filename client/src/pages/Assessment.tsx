@@ -11,7 +11,16 @@ import { toast } from "sonner";
 import {
   ArrowRight, ArrowLeft, Loader2, ClipboardCheck,
   BarChart3, Brain, LineChart, Calculator, Lock, RotateCcw,
+  Award, Users, GraduationCap, Star,
 } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
+
+const heroStats = [
+  { value: 10, suffix: "+", label: "Years Combined Experience", icon: Award },
+  { value: 200, suffix: "+", label: "Clients Served", icon: Users },
+  { value: 50, suffix: "+", label: "Training Programs", icon: GraduationCap },
+  { value: 98, suffix: "%", label: "Client Satisfaction", icon: Star },
+];
 import bgGold from "@/assets/daqs-bg-gold.png";
 
 type Track = "data-science" | "ml-ai" | "quant" | "accounting";
@@ -208,19 +217,47 @@ export default function Assessment() {
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
         <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/15 rounded-full blur-3xl" />
 
-        <div className="container relative z-10 text-center">
-          <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5 mx-auto">
-            Free Assessment
-          </Badge>
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-            What's Your{" "}
-            <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-accent bg-clip-text text-transparent">
-              AI & Data Readiness Score?
-            </span>
-          </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Answer 6 quick questions and get a personalised readiness score plus a tailored training & consulting roadmap — in under 2 minutes.
-          </p>
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left: heading */}
+            <div>
+              <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
+                Free Assessment
+              </Badge>
+              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
+                What's Your{" "}
+                <span className="bg-gradient-to-r from-sky-300 via-blue-300 to-accent bg-clip-text text-transparent">
+                  AI & Data Readiness Score?
+                </span>
+              </h1>
+              <p className="text-white/70 text-lg max-w-xl">
+                Answer 6 quick questions and get a personalised readiness score plus a tailored training & consulting roadmap — in under 2 minutes.
+              </p>
+            </div>
+
+            {/* Right: glass stats card */}
+            <div className="relative hidden lg:block pt-4 w-3/4 ml-auto">
+              <div className="rounded-2xl border border-white/25 bg-white/10 backdrop-blur-xl shadow-2xl p-3">
+                <div className="flex items-center gap-1.5 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-red-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-yellow-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-green-400/80" />
+                  <span className="ml-1.5 text-white/65" style={{ fontSize: "10px" }}>DAQS Insights · Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {heroStats.map((s) => (
+                    <div key={s.label} className="rounded-xl bg-white/10 border border-white/20 p-2.5">
+                      <s.icon className="w-3.5 h-3.5 text-sky-300 mb-1 opacity-90" />
+                      <div className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>
+                        <AnimatedCounter target={s.value} suffix={s.suffix} />
+                      </div>
+                      <div className="text-white/75 leading-tight mt-0.5" style={{ fontSize: "10px" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

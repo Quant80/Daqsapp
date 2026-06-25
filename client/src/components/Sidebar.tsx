@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "wouter";
 import { Database, Brain, Cpu, Bot, Rocket, ChevronDown, Code2 } from "lucide-react";
 
@@ -63,7 +63,10 @@ export default function Sidebar() {
   const toggle = (id: string) => setActive((prev) => (prev === id ? null : id));
 
   return (
-    <aside className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[180px] lg:w-[215px] flex-col border-r border-white/15 bg-[#0b1e35]/25 backdrop-blur-2xl z-30">
+    <aside
+      className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[180px] lg:w-[215px] flex-col border-r border-white z-30"
+      style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(28px)", WebkitBackdropFilter: "blur(28px)" } as React.CSSProperties}
+    >
       <nav className="px-2 pt-3 pb-4">
         {sections.map((section) => {
           const isOpen = active === section.id;

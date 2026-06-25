@@ -5,8 +5,16 @@ import { Badge } from "@/components/ui/badge";
 import {
   ArrowRight, TrendingUp, BarChart3, PieChart, ExternalLink, HeartPulse, GraduationCap,
   Brain, AlertTriangle, Building2, LayoutDashboard, UploadCloud, ShieldCheck,
-  ChevronDown, LineChart, RefreshCw, Target, FileText, Lock,
+  ChevronDown, LineChart, RefreshCw, Target, FileText, Lock, Award, Users, Star,
 } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
+
+const heroStats = [
+  { value: 10, suffix: "+", label: "Years Combined Experience", icon: Award },
+  { value: 200, suffix: "+", label: "Clients Served", icon: Users },
+  { value: 50, suffix: "+", label: "Training Programs", icon: GraduationCap },
+  { value: 98, suffix: "%", label: "Client Satisfaction", icon: Star },
+];
 import { Link } from "wouter";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
 import bgGold from "@/assets/daqs-bg-gold.png";
@@ -152,7 +160,7 @@ export default function CaseStudies() {
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
-      <section className="relative min-h-[400px] bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] overflow-hidden pt-32 pb-16">
+      <section className="relative min-h-[520px] bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0 opacity-40" style={{
           backgroundImage: `url('${bgBillboard}')`,
           backgroundSize: "cover",
@@ -161,12 +169,40 @@ export default function CaseStudies() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#061726]/65 via-[#0b2540]/45 to-[#0c1f33]/65" />
 
         <div className="container relative z-10">
-          <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-serif)" }}>
-            Success Stories
-          </h1>
-          <p className="text-white/75 text-xl max-w-2xl">
-            Discover how DAQS has delivered measurable results for clients across diverse industries through data-driven solutions.
-          </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left: heading */}
+            <div>
+              <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-serif)" }}>
+                Success Stories
+              </h1>
+              <p className="text-white/75 text-xl max-w-2xl">
+                Discover how DAQS has delivered measurable results for clients across diverse industries through data-driven solutions.
+              </p>
+            </div>
+
+            {/* Right: glass stats card */}
+            <div className="relative hidden lg:block pt-4 w-3/4 ml-auto">
+              <div className="rounded-2xl border border-white/25 bg-white/10 backdrop-blur-xl shadow-2xl p-3">
+                <div className="flex items-center gap-1.5 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-red-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-yellow-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-green-400/80" />
+                  <span className="ml-1.5 text-white/65" style={{ fontSize: "10px" }}>DAQS Insights · Live</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {heroStats.map((s) => (
+                    <div key={s.label} className="rounded-xl bg-white/10 border border-white/20 p-2.5">
+                      <s.icon className="w-3.5 h-3.5 text-sky-300 mb-1 opacity-90" />
+                      <div className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>
+                        <AnimatedCounter target={s.value} suffix={s.suffix} />
+                      </div>
+                      <div className="text-white/75 leading-tight mt-0.5" style={{ fontSize: "10px" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
