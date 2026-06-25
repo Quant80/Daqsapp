@@ -8,7 +8,7 @@ import {
   Brain, Calculator, BarChart3, BookOpen, Clock, Users,
   Award, CheckCircle, ArrowRight, Star, GraduationCap,
   Laptop, Calendar, TrendingUp, Cpu, LineChart, Activity,
-  Code2, Bot, FileText,
+  Code2, Bot, FileText, X, Download,
 } from "lucide-react";
 import bgGold from "@/assets/daqs-bg-gold.png";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
@@ -352,7 +352,7 @@ const levelColors: Record<string, string> = {
 };
 
 export default function Training() {
-  const [openPdf, setOpenPdf] = useState<string | null>(null);
+  const [openPdf, setOpenPdf] = useState<{ title: string; url: string } | null>(null);
 
   return (
     <div className="min-h-screen">
@@ -519,22 +519,14 @@ export default function Training() {
                           <div className="text-sm font-semibold text-primary">{course.price}</div>
                           <div className="flex items-center gap-2">
                             {(course as any).syllabus && (
-                              <>
-                                <Button
-                                  size="sm"
-                                  variant="outline"
-                                  className="border-border text-xs"
-                                  onClick={() => setOpenPdf(openPdf === course.title ? null : course.title)}
-                                >
-                                  <FileText className="w-3 h-3 mr-1" />
-                                  {openPdf === course.title ? "Close" : "View PDF"}
-                                </Button>
-                                <a href={(course as any).syllabus} download>
-                                  <Button size="sm" variant="outline" className="border-border text-xs">
-                                    Download
-                                  </Button>
-                                </a>
-                              </>
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="border-border text-xs"
+                                onClick={() => setOpenPdf({ title: course.title, url: (course as any).syllabus })}
+                              >
+                                <FileText className="w-3 h-3 mr-1" /> View PDF
+                              </Button>
                             )}
                             <Link href="/contact" asChild>
                               <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
@@ -543,16 +535,6 @@ export default function Training() {
                             </Link>
                           </div>
                         </div>
-                        {openPdf === course.title && (course as any).syllabus && (
-                          <div className="mt-3 border-t border-border pt-3">
-                            <iframe
-                              src={`${(course as any).syllabus}#toolbar=1&view=FitH`}
-                              className="w-full rounded-lg border border-border"
-                              style={{ height: "480px" }}
-                              title={`${course.title} Syllabus`}
-                            />
-                          </div>
-                        )}
                       </CardContent>
                     </Card>
                   ))}
@@ -642,6 +624,35 @@ export default function Training() {
           </Link>
         </div>
       </section>
+
+      {/* Full-page PDF overlay */}
+      {openPdf && (
+        <div className="fixed inset-0 z-[200] flex flex-col bg-black/95">
+          <div className="flex items-center justify-between px-5 py-3 bg-[#0b2540] border-b border-white/10 shrink-0">
+            <span className="text-white font-semibold text-sm truncate mr-4">{openPdf.title} — Syllabus</span>
+            <div className="flex items-center gap-2 shrink-0">
+              <a href={openPdf.url} download>
+                <Button size="sm" variant="outline" className="border-white/30 text-white hover:bg-white/10 text-xs">
+                  <Download className="w-3.5 h-3.5 mr-1" /> Download
+                </Button>
+              </a>
+              <Button
+                size="sm"
+                variant="ghost"
+                className="text-white hover:bg-white/10 gap-1.5 text-xs"
+                onClick={() => setOpenPdf(null)}
+              >
+                <X className="w-4 h-4" /> Close
+              </Button>
+            </div>
+          </div>
+          <iframe
+            src={`${openPdf.url}#toolbar=1&view=FitH`}
+            className="flex-1 w-full"
+            title={openPdf.title}
+          />
+        </div>
+      )}
     </div>
   );
 }
