@@ -185,38 +185,38 @@ export default function Services() {
             </div>
 
             {/* Dashboard mockup */}
-            <div className="relative hidden lg:block">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-2xl p-5">
-                <div className="flex items-center gap-2 mb-5">
-                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
-                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
-                  <span className="ml-2 text-white/50 text-xs">DAQS Insights · Live</span>
+            <div className="relative hidden lg:block pt-8 w-3/4 ml-auto">
+              <div className="rounded-2xl border border-white/25 bg-white/10 backdrop-blur-xl shadow-2xl p-3">
+                <div className="flex items-center gap-1.5 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-red-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-yellow-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-green-400/80" />
+                  <span className="ml-1.5 text-white/65 text-[10px]">DAQS Insights · Live</span>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2">
                   {stats.map((s) => (
-                    <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
-                      <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
-                      <div className="text-white/55 text-xs mt-1">{s.label}</div>
+                    <div key={s.label} className="rounded-xl bg-white/10 border border-white/20 p-2.5">
+                      <div className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
+                      <div className="text-white/75 text-[10px] leading-tight mt-0.5">{s.label}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
-                <div className="flex items-center gap-2 text-emerald-600 text-xs font-semibold mb-1">
+              <div className="absolute top-12 -right-3 bg-white/15 backdrop-blur-xl border border-white/30 rounded-lg shadow-lg p-2 w-40 hidden xl:block z-10">
+                <div className="flex items-center gap-1.5 text-emerald-300 text-[10px] font-semibold mb-0.5">
                   <Activity className="w-3.5 h-3.5" /> LIVE INSIGHT
                 </div>
-                <div className="text-foreground text-sm font-semibold">Churn Risk Model</div>
-                <div className="text-muted-foreground text-xs">Accuracy improved to 96.2%</div>
+                <div className="text-white text-[11px] font-semibold leading-tight">Churn Risk Model</div>
+                <div className="text-white/70 text-[10px] leading-tight mt-0.5">Accuracy improved to 96.2%</div>
               </div>
 
-              <div className="absolute -bottom-8 -left-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
-                <div className="flex items-center gap-2 text-primary text-xs font-semibold mb-1">
+              <div className="absolute bottom-4 -left-3 bg-white/15 backdrop-blur-xl border border-white/30 rounded-lg shadow-lg p-2 w-40 hidden xl:block z-10">
+                <div className="flex items-center gap-1.5 text-sky-300 text-[10px] font-semibold mb-0.5">
                   <ShieldCheck className="w-3.5 h-3.5" /> RISK FLAG
                 </div>
-                <div className="text-foreground text-sm font-semibold">Portfolio Volatility</div>
-                <div className="text-muted-foreground text-xs">Within target range — 4.1% VaR</div>
+                <div className="text-white text-[11px] font-semibold leading-tight">Portfolio Volatility</div>
+                <div className="text-white/70 text-[10px] leading-tight mt-0.5">Within target range — 4.1% VaR</div>
               </div>
             </div>
           </div>
