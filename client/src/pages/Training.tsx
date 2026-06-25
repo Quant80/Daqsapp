@@ -7,6 +7,7 @@ import {
   Brain, Calculator, BarChart3, BookOpen, Clock, Users,
   Award, CheckCircle, ArrowRight, Star, GraduationCap,
   Laptop, Calendar, TrendingUp, Cpu, LineChart, Activity,
+  Code2, Bot, FileText,
 } from "lucide-react";
 import bgGold from "@/assets/daqs-bg-gold.png";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
@@ -15,8 +16,10 @@ import bgSignage from "@/assets/daqs-bg-signage.png";
 import bgNeon from "@/assets/daqs-bg-neon.png";
 
 const categoryImages: Record<string, string> = {
+  "python-intro": bgNeon,
   "data-science": bgGold,
   "ml-ai": bgBillboard,
+  "agentic-ai": bgBillboard,
   quant: bgMountain,
   accounting: bgSignage,
   robotics: bgNeon,
@@ -30,6 +33,37 @@ const trainingStats = [
 ];
 
 const categories = [
+  {
+    id: "python-intro",
+    label: "Intro to Python",
+    icon: Code2,
+    courses: [
+      {
+        title: "Introduction to Python Programming",
+        level: "Beginner",
+        duration: "4 Weeks",
+        format: "Online / In-Person",
+        price: "Contact for Pricing",
+        description: "A hands-on introduction to Python programming designed for beginners. Learn the fundamentals of coding, data types, control flow, functions, and libraries — no prior experience required.",
+        topics: [
+          "Python Setup & Environment",
+          "Variables, Data Types & Operators",
+          "Control Flow (if/else, loops)",
+          "Functions & Modules",
+          "Lists, Dictionaries & Tuples",
+          "Introduction to NumPy & Pandas",
+          "File Handling & Exception Handling",
+          "Object-Oriented Programming Basics",
+        ],
+        outcomes: [
+          "Write Python scripts to automate tasks",
+          "Manipulate and analyse data with Pandas",
+          "Apply OOP principles to structure your code",
+        ],
+        syllabus: "/downloads/DAQS_Python_Syllabus.pdf",
+      },
+    ],
+  },
   {
     id: "data-science",
     label: "Data Science",
@@ -101,6 +135,75 @@ const categories = [
         description: "A strategic workshop designed for executives and senior managers to understand AI capabilities, identify use cases, and lead AI transformation initiatives.",
         topics: ["AI Landscape & Capabilities", "Identifying AI Opportunities", "AI Project Management", "Ethics & Governance", "Building AI Teams", "ROI Measurement"],
         outcomes: ["Develop an AI roadmap", "Evaluate AI vendors and solutions", "Lead organisational AI adoption"],
+      },
+    ],
+  },
+  {
+    id: "agentic-ai",
+    label: "Agentic AI",
+    icon: Bot,
+    courses: [
+      {
+        title: "Introduction to Generative AI",
+        level: "Beginner",
+        duration: "4 Weeks",
+        format: "Online / In-Person",
+        price: "Contact for Pricing",
+        description: "A practical introduction to generative AI covering large language models, prompt engineering, and real-world applications across industries.",
+        topics: [
+          "What is Generative AI?",
+          "Large Language Models (LLMs)",
+          "Prompt Engineering Techniques",
+          "Text-to-Image & Multimodal AI",
+          "AI APIs (OpenAI, Anthropic, Google)",
+          "Building Simple AI Applications",
+        ],
+        outcomes: [
+          "Design effective prompts for AI systems",
+          "Integrate AI APIs into applications",
+          "Identify practical generative AI use cases",
+        ],
+      },
+      {
+        title: "Building AI Agents & Workflows",
+        level: "Intermediate",
+        duration: "6 Weeks",
+        format: "Online / In-Person",
+        price: "Contact for Pricing",
+        description: "Design and build autonomous AI agents capable of reasoning, planning, and executing multi-step tasks using modern orchestration frameworks.",
+        topics: [
+          "Agent Architectures & Reasoning",
+          "LangChain & LlamaIndex Frameworks",
+          "Tool Use & Function Calling",
+          "Memory & Context Management",
+          "Multi-Agent Orchestration",
+          "Deploying Agents in Production",
+        ],
+        outcomes: [
+          "Build end-to-end AI agent pipelines",
+          "Orchestrate multi-agent workflows",
+          "Deploy production-ready AI agents",
+        ],
+      },
+      {
+        title: "Agentic AI for Business Leaders",
+        level: "Executive",
+        duration: "1 Day",
+        format: "Workshop",
+        price: "Contact for Pricing",
+        description: "A strategic workshop for executives on how agentic AI will transform business operations, decision-making, and competitive advantage.",
+        topics: [
+          "Agentic AI Landscape & Capabilities",
+          "Identifying Automation Opportunities",
+          "Ethics, Risk & Governance",
+          "AI Workforce Transformation",
+          "ROI Measurement for AI Projects",
+        ],
+        outcomes: [
+          "Develop an agentic AI strategy",
+          "Lead AI transformation initiatives",
+          "Evaluate AI vendors and platforms",
+        ],
       },
     ],
   },
@@ -346,7 +449,7 @@ export default function Training() {
           backgroundPosition: "center",
         }} />
         <div className="container relative z-10">
-          <Tabs defaultValue="data-science" className="w-full">
+          <Tabs defaultValue="python-intro" className="w-full">
             <TabsList className="flex flex-wrap h-auto gap-2 bg-muted p-2 rounded-xl mb-10 justify-start">
               {categories.map((cat) => (
                 <TabsTrigger
@@ -410,11 +513,20 @@ export default function Training() {
                         </div>
                         <div className="mt-auto pt-3 border-t border-border flex items-center justify-between">
                           <div className="text-sm font-semibold text-primary">{course.price}</div>
-                          <Link href="/contact" asChild>
-                            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                              Enquire <ArrowRight className="w-3 h-3 ml-1" />
-                            </Button>
-                          </Link>
+                          <div className="flex items-center gap-2">
+                            {(course as any).syllabus && (
+                              <a href={(course as any).syllabus} target="_blank" rel="noopener noreferrer">
+                                <Button size="sm" variant="outline" className="border-border text-xs">
+                                  <FileText className="w-3 h-3 mr-1" /> Syllabus
+                                </Button>
+                              </a>
+                            )}
+                            <Link href="/contact" asChild>
+                              <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                                Enquire <ArrowRight className="w-3 h-3 ml-1" />
+                              </Button>
+                            </Link>
+                          </div>
                         </div>
                       </CardContent>
                     </Card>
