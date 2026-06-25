@@ -257,26 +257,28 @@ export default function Services() {
                 <div className="grid lg:grid-cols-3 gap-8">
                   {/* Overview */}
                   <div className="lg:col-span-1">
-                    <div className={`bg-gradient-to-br ${cat.color} rounded-2xl p-8 text-white h-fit sticky top-24`}>
-                      <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center mb-4">
-                        <img src={logoSmall} alt="DAQS" className="w-10 h-10 object-contain" />
+                    <div className={`bg-gradient-to-br ${cat.color} rounded-2xl text-white h-fit sticky top-24 overflow-hidden`}>
+                      <div className="h-40 overflow-hidden">
+                        <img src={logoSmall} alt="DAQS" className="w-full h-full object-cover" />
                       </div>
-                      <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-serif)" }}>{cat.title}</h2>
-                      <p className="text-white/70 text-sm mb-4">{cat.subtitle}</p>
-                      <p className="text-white/80 text-sm leading-relaxed mb-6">{cat.description}</p>
-                      <div className="mb-6">
-                        <div className="text-white/60 text-xs uppercase tracking-wider mb-3">Tools & Technologies</div>
-                        <div className="flex flex-wrap gap-2">
-                          {cat.tools.map((tool) => (
-                            <span key={tool} className="bg-white/15 text-white text-xs px-2.5 py-1 rounded-full">{tool}</span>
-                          ))}
+                      <div className="p-8">
+                        <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-serif)" }}>{cat.title}</h2>
+                        <p className="text-white/70 text-sm mb-4">{cat.subtitle}</p>
+                        <p className="text-white/80 text-sm leading-relaxed mb-6">{cat.description}</p>
+                        <div className="mb-6">
+                          <div className="text-white/60 text-xs uppercase tracking-wider mb-3">Tools & Technologies</div>
+                          <div className="flex flex-wrap gap-2">
+                            {cat.tools.map((tool) => (
+                              <span key={tool} className="bg-white/15 text-white text-xs px-2.5 py-1 rounded-full">{tool}</span>
+                            ))}
+                          </div>
                         </div>
+                        <Link href="/contact" asChild>
+                          <Button className="w-full bg-white text-slate-900 hover:bg-slate-100 font-semibold">
+                            Get a Quote <ArrowRight className="w-4 h-4 ml-2" />
+                          </Button>
+                        </Link>
                       </div>
-                      <Link href="/contact" asChild>
-                        <Button className="w-full bg-white text-slate-900 hover:bg-slate-100 font-semibold">
-                          Get a Quote <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                      </Link>
                     </div>
                   </div>
 
