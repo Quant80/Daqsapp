@@ -41,11 +41,12 @@ const liveProjects = [
     ],
   },
   {
-    name: "DUT Student Success",
+    name: "Student Success Intelligent System",
     tagline: "Academic Risk & Analytics Platform",
     industry: "Education & Analytics",
     challenge: "Advisors often only learned a student was struggling once it was too late to intervene, with enrolment and academic records scattered across separate systems.",
-    solution: "DAQS built DUT Student Success AI, unifying enrolment and academic data into a single live dashboard with AI risk scoring that flags students needing support in real time.",
+    solution: "DAQS built the Student Success Intelligent System, unifying enrolment and academic data into a single live dashboard with AI risk scoring that flags students needing support in real time.",
+    useLogo: true,
     results: "94% AI model accuracy across 67,000+ students monitored, with individual risk scores generated in under 3 seconds.",
     imageUrl: bgSignage,
     imagePosition: "85% center",
@@ -214,11 +215,7 @@ export default function CaseStudies() {
                     <CardContent className={`p-8 flex flex-col justify-center ${isEven ? "md:order-1" : "md:order-2"}`}>
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                          {(project as any).useLogo ? (
-                            <img src={logoSmall} alt="DAQS" className="w-9 h-9 object-contain" />
-                          ) : (
-                            <project.icon className="w-6 h-6 text-primary" />
-                          )}
+                          <img src={logoSmall} alt="DAQS" className="w-9 h-9 object-contain" />
                         </div>
                         <div>
                           <h3 className="font-bold text-xl text-foreground">{project.name}</h3>
@@ -336,11 +333,7 @@ export default function CaseStudies() {
                     <CardContent className={`p-8 flex flex-col justify-center ${isEven ? "md:order-1" : "md:order-2"}`}>
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                          {(study as any).useLogo ? (
-                            <img src={logoSmall} alt="DAQS" className="w-9 h-9 object-contain" />
-                          ) : (
-                            <Icon className="w-6 h-6 text-primary" />
-                          )}
+                          <img src={logoSmall} alt="DAQS" className="w-9 h-9 object-contain" />
                         </div>
                         <h3 className="font-bold text-xl text-foreground">{study.title}</h3>
                       </div>
