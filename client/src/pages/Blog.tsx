@@ -79,7 +79,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] pt-32 pb-20">
+      <section className="relative overflow-hidden min-h-screen bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33]">
         <div className="absolute inset-0 opacity-40" style={{
           backgroundImage: `url('${bgMountain}')`,
           backgroundSize: "cover",
@@ -88,7 +88,7 @@ export default function Blog() {
         <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
         <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/15 rounded-full blur-3xl" />
 
-        <div className="container relative z-10">
+        <div className="container relative z-10 pt-24 pb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">

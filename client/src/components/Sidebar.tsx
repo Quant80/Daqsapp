@@ -78,7 +78,7 @@ export default function Sidebar() {
         } as React.CSSProperties}
       />
       {/* Dark glass overlay */}
-      <div className="absolute inset-0 bg-[#071428]/55" />
+      <div className="absolute inset-0 bg-[#071428]/20" />
       <nav className="px-2 pt-3 pb-4 relative z-10">
         {sections.map((section) => {
           const isOpen = active === section.id;
