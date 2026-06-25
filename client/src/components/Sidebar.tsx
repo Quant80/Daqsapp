@@ -64,8 +64,8 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[180px] lg:w-[215px] flex-col border-r border-white z-30"
-      style={{ background: "rgba(255,255,255,0.05)", backdropFilter: "blur(28px)", WebkitBackdropFilter: "blur(28px)" } as React.CSSProperties}
+      className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[180px] lg:w-[215px] flex-col border-r-2 border-white z-30"
+      style={{ background: "rgba(255,255,255,0.10)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" } as React.CSSProperties}
     >
       <nav className="px-2 pt-3 pb-4">
         {sections.map((section) => {
