@@ -206,49 +206,49 @@ export default function Home() {
             </div>
 
             {/* Right: Dashboard mockup */}
-            <div className="relative hidden lg:block pt-16">
-              {/* LIVE INSIGHT floating card */}
-              <div className="absolute -top-3 -right-4 bg-white/15 backdrop-blur-xl border border-white/30 rounded-xl shadow-xl p-3.5 w-52 hidden xl:block z-10">
-                <div className="flex items-center gap-2 text-emerald-300 text-xs font-semibold mb-1">
-                  <Star className="w-3.5 h-3.5" /> LIVE INSIGHT
+            <div className="relative hidden lg:block pt-8">
+              {/* LIVE INSIGHT floating chip — sits beside top-right of main card */}
+              <div className="absolute top-12 -right-3 bg-white/15 backdrop-blur-xl border border-white/30 rounded-lg shadow-lg p-2 w-40 hidden xl:block z-10">
+                <div className="flex items-center gap-1.5 text-emerald-300 font-semibold mb-0.5" style={{ fontSize: "10px" }}>
+                  <Star className="w-2.5 h-2.5 shrink-0" /> LIVE INSIGHT
                 </div>
-                <div className="text-white text-sm font-semibold">Portfolio Optimisation</div>
-                <div className="text-white/70 text-xs">25% improvement in returns delivered</div>
+                <div className="text-white text-[11px] font-semibold leading-tight">Portfolio Optimisation</div>
+                <div className="text-white/65 leading-tight mt-0.5" style={{ fontSize: "10px" }}>25% improvement in returns</div>
               </div>
 
               {/* Main glass card */}
-              <div className="rounded-2xl border border-white/25 bg-white/10 backdrop-blur-xl shadow-2xl p-4">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
-                  <span className="ml-2 text-white/65 text-xs">DAQS Insights · Live</span>
+              <div className="rounded-2xl border border-white/25 bg-white/10 backdrop-blur-xl shadow-2xl p-3">
+                <div className="flex items-center gap-1.5 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-red-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-yellow-400/80" />
+                  <span className="w-2 h-2 rounded-full bg-green-400/80" />
+                  <span className="ml-1.5 text-white/65" style={{ fontSize: "10px" }}>DAQS Insights · Live</span>
                 </div>
-                <div className="grid grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-2 gap-2">
                   {stats.map((s) => {
                     const num = parseInt(s.value);
                     const suffix = s.value.replace(String(num), "");
                     const Icon = s.icon;
                     return (
-                      <div key={s.label} className="rounded-xl bg-white/10 border border-white/20 p-3.5">
-                        <Icon className="w-4 h-4 text-sky-300 mb-1.5 opacity-90" />
-                        <div className="text-xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>
+                      <div key={s.label} className="rounded-xl bg-white/10 border border-white/20 p-2.5">
+                        <Icon className="w-3.5 h-3.5 text-sky-300 mb-1 opacity-90" />
+                        <div className="text-lg font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>
                           <AnimatedCounter target={num} suffix={suffix} />
                         </div>
-                        <div className="text-white/75 text-xs mt-0.5">{s.label}</div>
+                        <div className="text-white/75 leading-tight mt-0.5" style={{ fontSize: "10px" }}>{s.label}</div>
                       </div>
                     );
                   })}
                 </div>
               </div>
 
-              {/* TRUSTED BY floating card */}
-              <div className="absolute -bottom-3 -left-4 bg-white/15 backdrop-blur-xl border border-white/30 rounded-xl shadow-xl p-3.5 w-52 hidden xl:block z-10">
-                <div className="flex items-center gap-2 text-sky-300 text-xs font-semibold mb-1">
-                  <Award className="w-3.5 h-3.5" /> TRUSTED BY
+              {/* TRUSTED BY floating chip — sits beside bottom-left of main card */}
+              <div className="absolute bottom-4 -left-3 bg-white/15 backdrop-blur-xl border border-white/30 rounded-lg shadow-lg p-2 w-40 hidden xl:block z-10">
+                <div className="flex items-center gap-1.5 text-sky-300 font-semibold mb-0.5" style={{ fontSize: "10px" }}>
+                  <Award className="w-2.5 h-2.5 shrink-0" /> TRUSTED BY
                 </div>
-                <div className="text-white text-sm font-semibold">200+ Organisations</div>
-                <div className="text-white/70 text-xs">Across finance, retail, and public sector</div>
+                <div className="text-white text-[11px] font-semibold leading-tight">200+ Organisations</div>
+                <div className="text-white/65 leading-tight mt-0.5" style={{ fontSize: "10px" }}>Across finance, retail &amp; public sector</div>
               </div>
             </div>
           </div>
