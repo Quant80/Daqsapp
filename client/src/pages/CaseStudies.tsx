@@ -160,7 +160,7 @@ export default function CaseStudies() {
   return (
     <div className="min-h-screen">
       {/* ── HERO ────────────────────────── */}
-      <section className="relative min-h-[520px] bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33] overflow-hidden pt-32 pb-16">
+      <section className="relative overflow-hidden min-h-screen bg-gradient-to-br from-[#061726] via-[#0b2540] to-[#0c1f33]">
         <div className="absolute inset-0 opacity-40" style={{
           backgroundImage: `url('${bgBillboard}')`,
           backgroundSize: "cover",
@@ -168,7 +168,7 @@ export default function CaseStudies() {
         }} />
         <div className="absolute inset-0 bg-gradient-to-r from-[#061726]/65 via-[#0b2540]/45 to-[#0c1f33]/65" />
 
-        <div className="container relative z-10">
+        <div className="container relative z-10 pt-24 pb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left: heading */}
             <div>
