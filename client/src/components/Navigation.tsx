@@ -100,7 +100,7 @@ export default function Navigation() {
         <div className="flex items-center h-16 lg:h-20">
           {/* Logo + Quick Access hamburger, grouped tight at the far left; divider sits after the hamburger */}
           <div className="flex items-center shrink-0 gap-2 lg:gap-3 pr-[39px] lg:pr-[38px] border-r border-white/20">
-          <Link href="/" className="flex items-center justify-center shrink-0 h-16 lg:h-20 w-[89px] lg:w-[117px] overflow-hidden bg-[#071428]">
+          <Link href="/" className="flex items-center justify-center shrink-0 h-16 lg:h-20 w-[89px] lg:w-[117px] overflow-hidden">
             <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-full w-full object-cover" />
           </Link>
 
