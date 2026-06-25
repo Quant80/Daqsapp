@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
+import SlideshowBanner from "@/components/SlideshowBanner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,6 +17,8 @@ import bgMountain from "@/assets/daqs-bg-mountain.png";
 import bgSignage from "@/assets/daqs-bg-signage.png";
 import bgNeon from "@/assets/daqs-bg-neon.png";
 import logoSmall from "@/assets/logo-small.png";
+
+const bannerImages = [logoSmall, bgNeon, bgGold, bgBillboard, bgMountain, bgSignage];
 
 const categoryImages: Record<string, string> = {
   "python-intro": bgNeon,
@@ -472,13 +475,11 @@ export default function Training() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                   {cat.courses.map((course) => (
                     <Card key={course.title} className="border border-border hover:shadow-lg transition-all group flex flex-col overflow-hidden">
-                      <div className="-mt-6 -mx-6 mb-4 h-32 overflow-hidden">
-                        <img
-                          src={logoSmall}
-                          alt={cat.label}
-                          className="w-full h-full object-cover animate-ken-burns animate-neon-pulse"
-                        />
-                      </div>
+                      <SlideshowBanner
+                        images={bannerImages}
+                        className="-mt-6 -mx-6 mb-4 h-32"
+                        alt={cat.label}
+                      />
                       <CardHeader className="pb-3">
                         <div className="flex items-start justify-between gap-3 mb-2">
                           <Badge className={`text-xs border ${levelColors[course.level]}`}>{course.level}</Badge>
