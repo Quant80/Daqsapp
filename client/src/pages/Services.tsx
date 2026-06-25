@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useEffect } from "react";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
+import logoSmall from "@/assets/logo-small.png";
 
 const stats = [
   { value: "10+", label: "Years Combined Experience", icon: Award },
@@ -237,16 +238,16 @@ export default function Services() {
       <section className="py-16 bg-gradient-to-b from-[#071428] to-[#0b1f33]">
         <div className="container">
           <Tabs defaultValue="data-analysis" className="w-full">
-            <TabsList className="flex flex-wrap h-auto gap-2 bg-white/5 border border-white/10 p-2 rounded-xl mb-10 justify-start">
+            <TabsList className="flex h-auto gap-1 bg-white/5 border border-white/10 p-2 rounded-xl mb-10 w-full">
               {serviceCategories.map((cat) => (
                 <TabsTrigger
                   key={cat.id}
                   value={cat.id}
                   id={cat.id}
-                  className="flex items-center gap-2 text-white/70 data-[state=active]:bg-blue-500 data-[state=active]:text-white rounded-lg px-4 py-2"
+                  className="flex-1 flex items-center justify-center gap-1.5 text-white/70 data-[state=active]:bg-blue-500 data-[state=active]:text-white rounded-lg px-2 py-2 text-xs sm:text-sm"
                 >
-                  <cat.icon className="w-4 h-4" />
-                  {cat.label}
+                  <img src={logoSmall} alt="" className="w-3.5 h-3.5 shrink-0 object-contain" />
+                  <span className="truncate">{cat.label}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -258,7 +259,7 @@ export default function Services() {
                   <div className="lg:col-span-1">
                     <div className={`bg-gradient-to-br ${cat.color} rounded-2xl p-8 text-white h-fit sticky top-24`}>
                       <div className="w-14 h-14 rounded-xl bg-white/20 flex items-center justify-center mb-4">
-                        <cat.icon className="w-7 h-7 text-white" />
+                        <img src={logoSmall} alt="DAQS" className="w-10 h-10 object-contain" />
                       </div>
                       <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-serif)" }}>{cat.title}</h2>
                       <p className="text-white/70 text-sm mb-4">{cat.subtitle}</p>
@@ -272,7 +273,7 @@ export default function Services() {
                         </div>
                       </div>
                       <Link href="/contact" asChild>
-                        <Button className="w-full bg-white text-foreground hover:bg-white/90 font-semibold">
+                        <Button className="w-full bg-white text-slate-900 hover:bg-slate-100 font-semibold">
                           Get a Quote <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
                       </Link>
@@ -286,7 +287,7 @@ export default function Services() {
                         <CardContent className="p-5">
                           <div className="flex items-start gap-3">
                             <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
-                              <CheckCircle className="w-4 h-4 text-primary" />
+                              <img src={logoSmall} alt="DAQS" className="w-5 h-5 object-contain" />
                             </div>
                             <div>
                               <h3 className="font-semibold text-foreground text-sm mb-1.5">{service.title}</h3>
