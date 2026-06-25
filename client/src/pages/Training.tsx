@@ -370,7 +370,7 @@ export default function Training() {
         <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-accent/15 rounded-full blur-3xl" />
 
         <div className="container relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
               <Badge className="mb-5 bg-accent/15 text-accent border-accent/30 gap-1.5">
                 Training & Education
