@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import daqsLogo from "@/assets/daqs-logo-final.png";
+import logoSmall from "@/assets/logo-small.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -274,7 +275,7 @@ export default function Navigation() {
                         <NavigationMenuLink key={s.href} asChild>
                           <Link href={s.href} className="flex gap-3 p-3 rounded-lg hover:bg-muted transition-colors group cursor-pointer">
                             <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                              <s.icon className="w-4 h-4 text-primary" />
+                              <img src={logoSmall} alt="DAQS" className="w-5 h-5 object-contain" />
                             </div>
                             <div>
                               <div className="text-sm font-semibold text-foreground">{s.label}</div>

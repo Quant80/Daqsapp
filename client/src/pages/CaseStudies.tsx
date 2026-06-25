@@ -13,6 +13,7 @@ import bgGold from "@/assets/daqs-bg-gold.png";
 import bgMountain from "@/assets/daqs-bg-mountain.png";
 import bgSignage from "@/assets/daqs-bg-signage.png";
 import bgNeon from "@/assets/daqs-bg-neon.png";
+import logoSmall from "@/assets/logo-small.png";
 
 const liveProjects = [
   {
@@ -22,9 +23,10 @@ const liveProjects = [
     challenge: "Hospital staff relied on disconnected charts and manual rounds, making it hard to spot patient deterioration early enough to act.",
     solution: "DAQS built SmartCare AI — a real-time hospital management platform that unifies every patient's vitals, alerts, and bed status into one live dashboard, powered by AI risk scoring.",
     results: "94% AI model accuracy in flagging at-risk patients, full visibility across all 186 beds, and 24/7 live monitoring for clinical teams.",
-    imageUrl: bgNeon,
+    imageUrl: logoSmall,
     url: "https://smartcare-systems.netlify.app/",
     icon: HeartPulse,
+    useLogo: true,
     capabilities: [
       { icon: LayoutDashboard, title: "Real-Time Patient Dashboard", desc: "Live, ward-by-ward view of every active patient's vitals and status." },
       { icon: Brain, title: "AI-Powered Risk Scoring", desc: "XGBoost models continuously flag patient deterioration before it becomes critical." },
@@ -89,9 +91,10 @@ const caseStudies = [
     challenge: "A banking institution faced increasing fraud losses and needed a more sophisticated detection system beyond rule-based approaches.",
     solution: "DAQS developed a deep learning model trained on historical transaction data to identify fraudulent patterns with high accuracy.",
     results: "92% fraud detection rate, 60% reduction in false positives, saved millions in fraud losses annually.",
-    imageUrl: bgNeon,
+    imageUrl: logoSmall,
     clientName: "Premier Bank Corporation",
     icon: BarChart3,
+    useLogo: true,
     capabilities: [
       { icon: Brain, title: "Transaction Pattern Analysis", desc: "Deep learning models score every transaction for fraud risk." },
       { icon: AlertTriangle, title: "Real-Time Alerts", desc: "Flags suspicious activity within seconds of occurrence." },
@@ -211,7 +214,11 @@ export default function CaseStudies() {
                     <CardContent className={`p-8 flex flex-col justify-center ${isEven ? "md:order-1" : "md:order-2"}`}>
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                          <project.icon className="w-6 h-6 text-primary" />
+                          {(project as any).useLogo ? (
+                            <img src={logoSmall} alt="DAQS" className="w-9 h-9 object-contain" />
+                          ) : (
+                            <project.icon className="w-6 h-6 text-primary" />
+                          )}
                         </div>
                         <div>
                           <h3 className="font-bold text-xl text-foreground">{project.name}</h3>
@@ -328,8 +335,12 @@ export default function CaseStudies() {
                     {/* Content */}
                     <CardContent className={`p-8 flex flex-col justify-center ${isEven ? "md:order-1" : "md:order-2"}`}>
                       <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-primary" />
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                          {(study as any).useLogo ? (
+                            <img src={logoSmall} alt="DAQS" className="w-9 h-9 object-contain" />
+                          ) : (
+                            <Icon className="w-6 h-6 text-primary" />
+                          )}
                         </div>
                         <h3 className="font-bold text-xl text-foreground">{study.title}</h3>
                       </div>
