@@ -65,21 +65,25 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="hidden md:flex fixed left-0 top-16 lg:top-20 bottom-0 w-[180px] lg:w-[215px] flex-col border-r-2 border-white z-30 overflow-hidden"
+      className="hidden md:flex fixed left-0 top-0 bottom-0 w-[180px] lg:w-[215px] flex-col border-r-2 border-white/40 z-30"
     >
-      {/* Blurred background image — same image as hero, fixed to viewport */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url('${daqsPageBlue}')`,
-          backgroundAttachment: "fixed",
-          filter: "blur(6px)",
-          transform: "scale(1.12)",
-        } as React.CSSProperties}
-      />
-      {/* Dark glass overlay */}
-      <div className="absolute inset-0 bg-[#071428]/20" />
-      <nav className="px-2 pt-3 pb-4 relative z-10">
+      {/* Blurred background — overflow-hidden on this wrapper only, so flyout popovers aren't clipped */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url('${daqsPageBlue}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "60% center",
+            filter: "blur(10px)",
+            transform: "scale(1.15)",
+          } as React.CSSProperties}
+        />
+        {/* Dark overlay — enough to keep text readable, light enough to see image */}
+        <div className="absolute inset-0 bg-[#071428]/45" />
+      </div>
+      {/* Nav starts below the nav bar height */}
+      <nav className="px-2 pt-3 pb-4 relative z-10 mt-16 lg:mt-20">
         {sections.map((section) => {
           const isOpen = active === section.id;
           return (
