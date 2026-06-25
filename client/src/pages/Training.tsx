@@ -14,6 +14,7 @@ import bgBillboard from "@/assets/daqs-bg-billboard.png";
 import bgMountain from "@/assets/daqs-bg-mountain.png";
 import bgSignage from "@/assets/daqs-bg-signage.png";
 import bgNeon from "@/assets/daqs-bg-neon.png";
+import logoSmall from "@/assets/logo-small.png";
 
 const categoryImages: Record<string, string> = {
   "python-intro": bgNeon,
@@ -450,15 +451,15 @@ export default function Training() {
         }} />
         <div className="container relative z-10">
           <Tabs defaultValue="python-intro" className="w-full">
-            <TabsList className="flex flex-wrap h-auto gap-2 bg-muted p-2 rounded-xl mb-10 justify-start">
+            <TabsList className="flex h-auto gap-1 bg-muted p-2 rounded-xl mb-10 w-full">
               {categories.map((cat) => (
                 <TabsTrigger
                   key={cat.id}
                   value={cat.id}
-                  className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg px-4 py-2"
+                  className="flex-1 flex items-center justify-center gap-1.5 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg px-2 py-2 text-xs sm:text-sm"
                 >
-                  <cat.icon className="w-4 h-4" />
-                  {cat.label}
+                  <cat.icon className="w-3.5 h-3.5 shrink-0" />
+                  <span className="truncate">{cat.label}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -578,14 +579,14 @@ export default function Training() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Users, title: "Group Training", desc: "Tailored workshops for teams of any size" },
-                { icon: Laptop, title: "Virtual Delivery", desc: "Live online sessions with expert instructors" },
-                { icon: Calendar, title: "Flexible Schedule", desc: "Weekday, weekend, and intensive formats" },
-                { icon: Award, title: "Certification", desc: "Industry-recognised certificates issued" },
+                { title: "Group Training", desc: "Tailored workshops for teams of any size" },
+                { title: "Virtual Delivery", desc: "Live online sessions with expert instructors" },
+                { title: "Flexible Schedule", desc: "Weekday, weekend, and intensive formats" },
+                { title: "Certification", desc: "Industry-recognised certificates issued" },
               ].map((item) => (
                 <div key={item.title} className="bg-background rounded-xl p-5 border border-border hover:shadow-md transition-shadow">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                    <item.icon className="w-5 h-5 text-primary" />
+                    <img src={logoSmall} alt="DAQS" className="w-7 h-7 object-contain" />
                   </div>
                   <div className="font-semibold text-foreground text-sm mb-1">{item.title}</div>
                   <div className="text-muted-foreground text-xs">{item.desc}</div>
