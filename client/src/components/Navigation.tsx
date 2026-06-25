@@ -100,7 +100,7 @@ export default function Navigation() {
         <div className="flex items-center h-16 lg:h-20">
           {/* Logo + Quick Access hamburger, grouped tight at the far left; divider sits after the hamburger */}
           <div className="flex items-center shrink-0 gap-2 lg:gap-3 pr-[39px] lg:pr-[38px] border-r border-white/20">
-          <Link href="/" className="flex items-center justify-center shrink-0 h-16 lg:h-20 w-[89px] lg:w-[117px] overflow-hidden">
+          <Link href="/" className="flex items-center justify-center shrink-0 h-16 lg:h-20 w-[89px] lg:w-[117px] overflow-hidden bg-[#071428]">
             <img src={daqsLogo} alt="DAQS - Data Analytics & Quantitative Solutions" className="h-full w-full object-cover" />
           </Link>
 
@@ -344,58 +344,58 @@ export default function Navigation() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 p-0">
+            <SheetContent side="right" className="w-80 p-0 bg-[#071428] [&>button]:text-white/70 [&>button]:hover:text-white">
               <div className="daqs-gradient p-6">
                 <img src={daqsLogo} alt="DAQS" className="h-10 w-auto" />
               </div>
               <nav className="p-4 space-y-1">
                 <Link href="/" onClick={() => setMobileOpen(false)}>
-                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/") ? "bg-white/15 text-sky-300" : "hover:bg-white/10 text-white/90"}`}>
                     Home
                   </div>
                 </Link>
                 <Link href="/services" onClick={() => setMobileOpen(false)}>
-                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/services") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/services") ? "bg-white/15 text-sky-300" : "hover:bg-white/10 text-white/90"}`}>
                     <BarChart3 className="w-4 h-4" /> Services
                   </div>
                 </Link>
                 <Link href="/about" onClick={() => setMobileOpen(false)}>
-                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/about") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/about") ? "bg-white/15 text-sky-300" : "hover:bg-white/10 text-white/90"}`}>
                     About & Team
                   </div>
                 </Link>
                 <Link href="/training" onClick={() => setMobileOpen(false)}>
-                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/training") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/training") ? "bg-white/15 text-sky-300" : "hover:bg-white/10 text-white/90"}`}>
                     <BookOpen className="w-4 h-4" /> Training
                   </div>
                 </Link>
                 <Link href="/media" onClick={() => setMobileOpen(false)}>
-                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/media") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/media") ? "bg-white/15 text-sky-300" : "hover:bg-white/10 text-white/90"}`}>
                     <Video className="w-4 h-4" /> Media Hub
                   </div>
                 </Link>
                 <Link href="/projects" onClick={() => setMobileOpen(false)}>
-                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/projects") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/projects") ? "bg-white/15 text-sky-300" : "hover:bg-white/10 text-white/90"}`}>
                     <TrendingUp className="w-4 h-4" /> Projects
                   </div>
                 </Link>
                 <Link href="/assessment" onClick={() => setMobileOpen(false)}>
-                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/assessment") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/assessment") ? "bg-white/15 text-sky-300" : "hover:bg-white/10 text-white/90"}`}>
                     <ClipboardCheck className="w-4 h-4" /> Assessment
                   </div>
                 </Link>
                 <Link href="/documents" onClick={() => setMobileOpen(false)}>
-                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/documents") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/documents") ? "bg-white/15 text-sky-300" : "hover:bg-white/10 text-white/90"}`}>
                     <FileText className="w-4 h-4" /> Documents
                   </div>
                 </Link>
                 <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/contact") ? "bg-primary/10 text-primary" : "hover:bg-muted text-foreground"}`}>
+                  <div className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${isActive("/contact") ? "bg-white/15 text-sky-300" : "hover:bg-white/10 text-white/90"}`}>
                     <Phone className="w-4 h-4" /> Contact
                   </div>
                 </Link>
                 <Link href="/live-demo" onClick={() => setMobileOpen(false)}>
-                  <div className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-emerald-600 hover:bg-emerald-50">
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-emerald-300 hover:bg-white/10">
                     <Zap className="w-4 h-4" /> Live Demo
                   </div>
                 </Link>

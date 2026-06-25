@@ -236,7 +236,7 @@ export default function Assessment() {
             </div>
 
             {/* Right: glass stats card */}
-            <div className="relative hidden lg:block pt-4 w-3/4 ml-auto">
+            <div className="relative hidden lg:block pt-8 w-3/4 ml-auto">
               <div className="rounded-2xl border border-white/25 bg-white/10 backdrop-blur-xl shadow-2xl p-3">
                 <div className="flex items-center gap-1.5 mb-3">
                   <span className="w-2 h-2 rounded-full bg-red-400/80" />
@@ -255,6 +255,22 @@ export default function Assessment() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              <div className="absolute top-12 -right-3 bg-white/15 backdrop-blur-xl border border-white/30 rounded-lg shadow-lg p-2 w-40 hidden xl:block z-10">
+                <div className="flex items-center gap-1.5 text-emerald-300 text-[10px] font-semibold mb-0.5">
+                  <ClipboardCheck className="w-2.5 h-2.5 shrink-0" /> LIVE QUIZ
+                </div>
+                <div className="text-white text-[11px] font-semibold leading-tight">AI Readiness</div>
+                <div className="text-white/70 text-[10px] leading-tight mt-0.5">Get your score in 2 minutes</div>
+              </div>
+
+              <div className="absolute bottom-4 -left-3 bg-white/15 backdrop-blur-xl border border-white/30 rounded-lg shadow-lg p-2 w-40 hidden xl:block z-10">
+                <div className="flex items-center gap-1.5 text-sky-300 text-[10px] font-semibold mb-0.5">
+                  <Award className="w-2.5 h-2.5 shrink-0" /> CERTIFIED
+                </div>
+                <div className="text-white text-[11px] font-semibold leading-tight">Industry Framework</div>
+                <div className="text-white/70 text-[10px] leading-tight mt-0.5">Based on global AI standards</div>
               </div>
             </div>
           </div>
