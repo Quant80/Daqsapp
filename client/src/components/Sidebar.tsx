@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { Database, Brain, Cpu, Bot, Rocket, ChevronDown } from "lucide-react";
+import { Database, Brain, Cpu, Bot, Rocket, ChevronDown, Code2 } from "lucide-react";
 
 const sections = [
+  {
+    id: "python-intro",
+    label: "Intro to Python",
+    icon: Code2,
+    color: "text-emerald-400",
+    links: [
+      { label: "Introduction to Python Programming", href: "/training#courses" },
+    ],
+  },
   {
     id: "data-science",
     label: "Data Science",
@@ -59,7 +68,7 @@ export default function Sidebar() {
         {sections.map((section) => {
           const isOpen = active === section.id;
           return (
-            <div key={section.id} className="relative mb-1">
+            <div key={section.id} className="relative">
               <button
                 type="button"
                 onClick={() => toggle(section.id)}
@@ -82,21 +91,25 @@ export default function Sidebar() {
                   ))}
                 </div>
               )}
+              <div className="h-px bg-white/20 mx-2" />
             </div>
           );
         })}
 
         {/* N³ Smart Solutions - coming soon, not expandable */}
-        <div className="flex items-center gap-2 px-2 py-2.5 rounded-lg">
-          <Rocket className="w-4 h-4 shrink-0 text-white/40" />
-          <div className="flex-1">
-            <div className="text-sm font-medium text-white/60 leading-tight">
-              N<sup>3</sup> Smart Solutions
+        <div>
+          <div className="flex items-center gap-2 px-2 py-2.5 rounded-lg">
+            <Rocket className="w-4 h-4 shrink-0 text-white/40" />
+            <div className="flex-1">
+              <div className="text-sm font-medium text-white/60 leading-tight">
+                N<sup>3</sup> Smart Solutions
+              </div>
+              <span className="inline-block text-[9px] font-semibold uppercase tracking-wider text-[#58a6ff]/70 bg-[#58a6ff]/10 border border-[#58a6ff]/20 rounded-full px-1.5 py-0.5 mt-1">
+                Coming Soon
+              </span>
             </div>
-            <span className="inline-block text-[9px] font-semibold uppercase tracking-wider text-[#58a6ff]/70 bg-[#58a6ff]/10 border border-[#58a6ff]/20 rounded-full px-1.5 py-0.5 mt-1">
-              Coming Soon
-            </span>
           </div>
+          <div className="h-px bg-white/20 mx-2" />
         </div>
 
         <div className="-mx-2 mt-3 border-t border-white/70" />
