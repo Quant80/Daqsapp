@@ -151,14 +151,14 @@ export default function Navigation() {
                     <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Follow DAQS</div>
                     <div className="flex gap-2">
                       {[
-                        { icon: Linkedin, label: "LinkedIn" },
-                        { icon: Twitter, label: "Twitter" },
-                        { icon: Facebook, label: "Facebook" },
-                        { icon: Youtube, label: "YouTube" },
-                      ].map(({ icon: Icon, label }) => (
+                        { icon: Linkedin, href: "#", label: "LinkedIn" },
+                        { icon: Twitter, href: "#", label: "Twitter" },
+                        { icon: Facebook, href: "https://www.facebook.com/share/1DAdgqKZYY/", label: "Facebook" },
+                        { icon: Youtube, href: "#", label: "YouTube" },
+                      ].map(({ icon: Icon, href, label }) => (
                         <a
                           key={label}
-                          href="#"
+                          href={href}
                           aria-label={label}
                           className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
                         >
