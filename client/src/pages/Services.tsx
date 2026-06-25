@@ -259,7 +259,7 @@ export default function Services() {
                   <div className="lg:col-span-1">
                     <div className={`bg-gradient-to-br ${cat.color} rounded-2xl text-white h-fit sticky top-24 overflow-hidden`}>
                       <div className="h-40 overflow-hidden">
-                        <img src={logoSmall} alt="DAQS" className="w-full h-full object-cover" />
+                        <img src={logoSmall} alt="DAQS" className="w-full h-full object-cover animate-ken-burns animate-neon-pulse" />
                       </div>
                       <div className="p-8">
                         <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-serif)" }}>{cat.title}</h2>
