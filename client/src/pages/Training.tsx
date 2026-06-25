@@ -471,7 +471,7 @@ export default function Training() {
                     <Card key={course.title} className="border border-border hover:shadow-lg transition-all group flex flex-col overflow-hidden">
                       <div className="-mt-6 -mx-6 mb-4 h-32 overflow-hidden">
                         <img
-                          src={categoryImages[cat.id]}
+                          src={logoSmall}
                           alt={cat.label}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
