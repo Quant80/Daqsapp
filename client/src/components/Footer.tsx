@@ -20,7 +20,7 @@ export default function Footer() {
               {[
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
                 { icon: Twitter, href: "#", label: "Twitter" },
-                { icon: Facebook, href: "#", label: "Facebook" },
+                { icon: Facebook, href: "https://www.facebook.com/share/1DAdgqKZYY/", label: "Facebook" },
                 { icon: Youtube, href: "#", label: "YouTube" },
               ].map(({ icon: Icon, href, label }) => (
                 <a

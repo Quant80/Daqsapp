@@ -13,6 +13,7 @@ import bgGold from "@/assets/daqs-bg-gold.png";
 import bgBillboard from "@/assets/daqs-bg-billboard.png";
 import bgSignage from "@/assets/daqs-bg-signage.png";
 import bgNeon from "@/assets/daqs-bg-neon.png";
+import daqsPageBlue from "@/assets/daqs-page-blue.png";
 
 const stats = [
   { value: "10+", label: "Years Combined Experience", icon: Award },
@@ -204,23 +205,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Dashboard mockup */}
+            {/* Right: DAQS page blue hero image */}
             <div className="relative hidden lg:block">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm shadow-2xl p-5">
-                <div className="flex items-center gap-2 mb-5">
-                  <span className="w-3 h-3 rounded-full bg-red-400/70" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
-                  <span className="w-3 h-3 rounded-full bg-green-400/70" />
-                  <span className="ml-2 text-white/50 text-xs">DAQS Insights · Live</span>
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  {stats.map((s) => (
-                    <div key={s.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
-                      <div className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-serif)" }}>{s.value}</div>
-                      <div className="text-white/55 text-xs mt-1">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
+              <div className="rounded-2xl overflow-hidden border border-white/15 shadow-2xl shadow-blue-900/40">
+                <img
+                  src={daqsPageBlue}
+                  alt="DAQS Data Analytics"
+                  className="w-full h-full object-cover animate-ken-burns animate-neon-pulse"
+                />
               </div>
 
               <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-xl p-4 w-56 hidden xl:block">
