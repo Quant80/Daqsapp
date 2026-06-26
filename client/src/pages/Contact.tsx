@@ -420,56 +420,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Domain & Email Setup Guide */}
-      <section className="py-16 bg-muted/40">
-        <div className="container">
-          <Card className="border-0 shadow-lg">
-            <CardContent className="p-8">
-              <SectionHeader
-                icon={Globe}
-                title="Domain & Email Setup Guide"
-                subtitle="Steps to activate your DAQS domain and professional email addresses"
-              />
-              <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  {
-                    step: "1",
-                    title: "Register www.daqs.com",
-                    desc: "Visit a domain registrar (GoDaddy, Namecheap, or Google Domains) and register daqs.com or daqs.co.za as your primary domain.",
-                  },
-                  {
-                    step: "2",
-                    title: "Set Up Email Hosting",
-                    desc: "Use Google Workspace, Microsoft 365, or Zoho Mail to create Ncube.T@daqstech.com and A.ncube@daqs.co.za as professional email accounts.",
-                  },
-                  {
-                    step: "3",
-                    title: "Configure DNS Records",
-                    desc: "Point your domain's DNS records (MX, CNAME, TXT) to your email provider and this website's hosting server.",
-                  },
-                  {
-                    step: "4",
-                    title: "Go Live",
-                    desc: "Once DNS propagates (24-48 hours), your domain and email addresses will be fully active and accessible worldwide.",
-                  },
-                ].map((item) => (
-                <div key={item.step} className="bg-background rounded-xl p-5 border border-border hover:shadow-lg transition-shadow">
-                  <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-sm font-bold shrink-0">
-                      {item.step}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-foreground text-sm mb-1">{item.title}</div>
-                      <div className="text-muted-foreground text-xs leading-relaxed">{item.desc}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </section>
   </div>
   );
 }
