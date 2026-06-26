@@ -48,7 +48,7 @@ const team = [
     initials: "AN",
     color: "from-emerald-700 to-emerald-900",
     phone: "+263 77 327 8724",
-    email: "A.ncube@daqs.co.za",
+    email: "Ncube.A@daqstech.com",
     bio: "Albert Ncube is a seasoned accounting and finance professional with extensive expertise in financial management, auditing, pension administration, and investment advisory. As co-founder and CEO of DAQS, he leads the firm's accounting, finance, and investment services division.",
     bio2: "With both a BSc and MSc in Accounting, Albert brings rigorous academic training and years of practical experience to every client engagement. His deep understanding of financial reporting standards, tax legislation, and investment principles makes him an invaluable advisor to businesses and individuals alike.",
     expertise: [

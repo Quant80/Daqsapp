@@ -615,8 +615,11 @@ export default function Training() {
           <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Invest in Your Team's Future
           </h2>
-          <p className="text-white/75 mb-8 max-w-xl mx-auto">
+          <p className="text-white/75 mb-6 max-w-xl mx-auto">
             Contact us to discuss your training needs and receive a customised program proposal.
+          </p>
+          <p className="text-white/60 text-sm mb-8">
+            Email us directly: <a href="mailto:training@daqstech.com" className="text-sky-300 hover:text-sky-200 underline underline-offset-2">training@daqstech.com</a>
           </p>
           <Link href="/contact" asChild>
             <Button size="lg" className="rounded-full bg-blue-500 text-white hover:bg-blue-600 font-semibold shadow-lg shadow-blue-500/30 border-0">
