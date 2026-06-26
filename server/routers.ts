@@ -4,6 +4,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { notifyOwner } from "./_core/notification";
+import { sendContactEmail } from "./_core/email";
 import { invokeLLM } from "./_core/llm";
 import { storagePut } from "./storage";
 import { getDb } from "./db";
@@ -49,6 +50,12 @@ const contactRouter = router({
         });
       } catch (error) {
         console.error("[Contact] notifyOwner failed:", error);
+      }
+
+      try {
+        await sendContactEmail(input);
+      } catch (error) {
+        console.error("[Contact] sendContactEmail failed:", error);
       }
 
       return { success: true };
