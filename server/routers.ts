@@ -52,11 +52,13 @@ const contactRouter = router({
         console.error("[Contact] notifyOwner failed:", error);
       }
 
+      console.log("[Contact] Calling sendContactEmail for:", input.email);
       try {
         await sendContactEmail(input);
       } catch (error) {
         console.error("[Contact] sendContactEmail failed:", error);
       }
+      console.log("[Contact] sendContactEmail done");
 
       return { success: true };
     }),
