@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { ENV } from "./env";
 
-const NOTIFY_TO = "Ncube.T@daqstech.com";
+const NOTIFY_TO = "trymorencube@yahoo.com";
 const FROM = "DAQS Contact <onboarding@resend.dev>";
 
 export async function sendContactEmail(params: {
