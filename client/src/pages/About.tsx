@@ -160,19 +160,19 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-transparent">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-foreground mb-6" style={{ fontFamily: "var(--font-serif)" }}>
+            <h2 className="text-3xl font-bold text-white mb-6" style={{ fontFamily: "var(--font-serif)" }}>
               Our Story
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+            <p className="text-white/70 text-lg leading-relaxed mb-6">
               Data Analytics and Quantitative Solutions (DAQS) was founded by Trymore Ncube and Albert Ncube — two professionals who recognised a critical gap in the market: organisations needed not just data, but the analytical intelligence to act on it decisively.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-white/70 leading-relaxed mb-6">
               Combining expertise that spans mathematics, financial engineering, machine learning, artificial intelligence, and accounting, DAQS was built to offer a truly integrated service — one where quantitative rigour meets financial acumen. We serve clients ranging from startups to established enterprises, government bodies to individual investors.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-white/70 leading-relaxed">
               Today, DAQS is a growing force in the data analytics and financial services landscape, with a commitment to continuous learning, innovation, and delivering measurable value to every client we serve.
             </p>
           </div>
@@ -180,14 +180,14 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section id="team" className="py-20 bg-muted/40">
+      <section id="team" className="py-20 bg-transparent">
         <div className="container">
           <div className="text-center mb-14">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Leadership Team</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4" style={{ fontFamily: "var(--font-serif)" }}>
+            <Badge className="mb-4 bg-white/10 text-sky-300 border-white/20">Leadership Team</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
               Meet Our Co-Founders & CEOs
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-white/70 max-w-2xl mx-auto">
               Two exceptional leaders whose combined expertise spans data science, AI, financial engineering, and accounting.
             </p>
           </div>
@@ -228,19 +228,19 @@ export default function About() {
                 {/* Bio & Expertise */}
                 <div className="lg:col-span-2 space-y-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-4" style={{ fontFamily: "var(--font-serif)" }}>{member.name}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>{member.name}</h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
-                    <p className="text-muted-foreground leading-relaxed">{member.bio2}</p>
+                    <p className="text-white/70 leading-relaxed">{member.bio2}</p>
                   </div>
 
                   <div>
-                    <h4 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                      <Briefcase className="w-4 h-4 text-primary" /> Areas of Expertise
+                    <h4 className="font-bold text-white mb-4 flex items-center gap-2">
+                      <Briefcase className="w-4 h-4 text-sky-300" /> Areas of Expertise
                     </h4>
                     <div className="grid sm:grid-cols-2 gap-2">
                       {member.expertise.map((item) => (
-                        <div key={item} className="flex items-center gap-2 text-sm text-foreground">
-                          <CheckCircle className="w-4 h-4 text-secondary shrink-0" />
+                        <div key={item} className="flex items-center gap-2 text-sm text-white/90">
+                          <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
                           {item}
                         </div>
                       ))}
@@ -254,7 +254,7 @@ export default function About() {
                       </Button>
                     </a>
                     <a href={`tel:${member.phone.replace(/\s/g, "")}`}>
-                      <Button variant="outline">
+                      <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
                         <Phone className="w-4 h-4 mr-2" /> Call
                       </Button>
                     </a>
@@ -267,21 +267,21 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-transparent">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-3" style={{ fontFamily: "var(--font-serif)" }}>Our Core Values</h2>
-            <p className="text-muted-foreground">The principles that guide everything we do</p>
+            <h2 className="text-3xl font-bold text-white mb-3" style={{ fontFamily: "var(--font-serif)" }}>Our Core Values</h2>
+            <p className="text-white/70">The principles that guide everything we do</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((val) => (
-              <Card key={val.title} className="border-0 shadow-sm hover:shadow-md transition-shadow text-center">
+              <Card key={val.title} className="bg-white/5 border border-white/10 hover:bg-white/8 transition-colors text-center">
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <val.icon className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mx-auto mb-4">
+                    <val.icon className="w-6 h-6 text-sky-300" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-2">{val.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{val.desc}</p>
+                  <h3 className="font-bold text-white mb-2">{val.title}</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">{val.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -290,7 +290,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-[#0b2540] to-[#061726]">
+      <section className="py-16 bg-transparent">
         <div className="container text-center">
           <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-serif)" }}>
             Work With Our Expert Team
