@@ -117,8 +117,8 @@ export default function Sidebar() {
 
         {/* N³ Smart Solutions - coming soon, not expandable */}
         <div>
-          <div className="flex items-center gap-2 px-2 py-2.5 rounded-lg">
-            <Rocket className="w-4 h-4 shrink-0 text-white/35" />
+          <div className="flex items-start gap-2 px-2 py-2.5 rounded-lg">
+            <Rocket className="w-4 h-4 shrink-0 text-white/35 mt-0.5" />
             <div className="flex-1">
               <div className="text-sm font-medium text-white/55 leading-tight">
                 N<sup>3</sup> Smart Solutions
