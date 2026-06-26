@@ -115,23 +115,23 @@ export default function Navigation() {
                   <Menu className="size-6 lg:size-7" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[85vw] sm:w-[420px] sm:max-w-[420px] p-0 overflow-y-auto">
-                <div className="daqs-gradient p-6 sticky top-0 z-10">
+              <SheetContent side="left" className="w-[85vw] sm:w-[420px] sm:max-w-[420px] p-0 overflow-y-auto bg-[#071428] [&>button]:text-white/70 [&>button]:hover:text-white">
+                <div className="bg-[#071428]/80 backdrop-blur-sm border-b border-white/10 p-6 sticky top-0 z-10">
                   <div className="text-white font-bold text-lg" style={{ fontFamily: "var(--font-serif)" }}>Quick Access</div>
-                  <div className="text-white/70 text-xs">Jump to any part of the site, or reach our team</div>
+                  <div className="text-white/60 text-xs">Jump to any part of the site, or reach our team</div>
                 </div>
 
                 <div className="p-5 space-y-6">
                   {/* Quick Links */}
                   <div>
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Quick Links</div>
+                    <div className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-3">Quick Links</div>
                     <div className="grid grid-cols-2 gap-2">
                       {quickLinks.map((item) => (
                         <Link key={item.href} href={item.href} onClick={() => setQuickOpen(false)}>
                           <div className={`flex items-center gap-2 p-3 rounded-lg border transition-colors ${
                             isActive(item.href)
-                              ? "border-primary/40 bg-primary/10 text-primary"
-                              : "border-border hover:border-primary/30 hover:bg-muted/40 text-foreground"
+                              ? "border-sky-400/40 bg-white/10 text-sky-300"
+                              : "border-white/15 hover:border-white/30 hover:bg-white/10 text-white/80"
                           }`}>
                             <item.icon className="w-4 h-4 shrink-0" />
                             <span className="text-sm font-medium">{item.label}</span>
@@ -142,13 +142,13 @@ export default function Navigation() {
                   </div>
 
                   <Link href="/contact" onClick={() => setQuickOpen(false)}>
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                    <Button className="w-full bg-blue-500 text-white hover:bg-blue-600 border-0">
                       Get a Consultation <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                   </Link>
 
                   <div>
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Follow DAQS</div>
+                    <div className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-3">Follow DAQS</div>
                     <div className="flex gap-2">
                       {[
                         { icon: Linkedin, href: "https://www.linkedin.com/company/134944154/admin/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BtA0mxMwSRCKoUTdLte1z6A%3D%3D", label: "LinkedIn" },
@@ -160,7 +160,7 @@ export default function Navigation() {
                           key={label}
                           href={href}
                           aria-label={label}
-                          className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors text-muted-foreground"
+                          className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/15 hover:text-sky-300 transition-colors text-white/70"
                         >
                           <Icon className="w-4 h-4" />
                         </a>
@@ -168,44 +168,44 @@ export default function Navigation() {
                     </div>
                   </div>
 
-                  <div className="border-t border-border pt-5">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-lg px-3 py-2 mb-4">
-                      <Clock className="w-4 h-4 text-primary shrink-0" />
+                  <div className="border-t border-white/10 pt-5">
+                    <div className="flex items-center gap-2 text-sm text-white/60 bg-white/5 rounded-lg px-3 py-2 mb-4">
+                      <Clock className="w-4 h-4 text-sky-400 shrink-0" />
                       We typically respond within 24 hours
                     </div>
 
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Talk to Our Team</div>
+                    <div className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-3">Talk to Our Team</div>
                     <div className="space-y-3">
-                      <a href="tel:+27603431561" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
-                        <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                          <Phone className="w-4 h-4 text-primary" />
+                      <a href="tel:+27603431561" className="flex items-center gap-3 p-3 rounded-lg border border-white/15 hover:border-white/30 hover:bg-white/10 transition-colors group">
+                        <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                          <Phone className="w-4 h-4 text-sky-400" />
                         </div>
                         <div>
-                          <div className="text-sm font-semibold text-foreground">Trymore Ncube</div>
-                          <div className="text-xs text-muted-foreground">+27 60 343 1561</div>
+                          <div className="text-sm font-semibold text-white">Trymore Ncube</div>
+                          <div className="text-xs text-white/55">+27 60 343 1561</div>
                         </div>
                       </a>
-                      <a href="tel:+263773278724" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
-                        <div className="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                          <Phone className="w-4 h-4 text-secondary" />
+                      <a href="tel:+263773278724" className="flex items-center gap-3 p-3 rounded-lg border border-white/15 hover:border-white/30 hover:bg-white/10 transition-colors group">
+                        <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                          <Phone className="w-4 h-4 text-emerald-400" />
                         </div>
                         <div>
-                          <div className="text-sm font-semibold text-foreground">Albert Ncube</div>
-                          <div className="text-xs text-muted-foreground">+263 77 327 8724</div>
+                          <div className="text-sm font-semibold text-white">Albert Ncube</div>
+                          <div className="text-xs text-white/55">+263 77 327 8724</div>
                         </div>
                       </a>
-                      <a href="mailto:Ncube.T@daqstech.com" className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-muted/40 transition-colors group">
-                        <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                          <Mail className="w-4 h-4 text-primary" />
+                      <a href="mailto:Ncube.T@daqstech.com" className="flex items-center gap-3 p-3 rounded-lg border border-white/15 hover:border-white/30 hover:bg-white/10 transition-colors group">
+                        <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                          <Mail className="w-4 h-4 text-sky-400" />
                         </div>
-                        <div className="text-sm text-foreground truncate">Ncube.T@daqstech.com</div>
+                        <div className="text-sm text-white/80 truncate">Ncube.T@daqstech.com</div>
                       </a>
                     </div>
                   </div>
 
                   {/* Mini contact form */}
-                  <div className="border-t border-border pt-5">
-                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Send a Quick Message</div>
+                  <div className="border-t border-white/10 pt-5">
+                    <div className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-3">Send a Quick Message</div>
                     <form onSubmit={handleQuickSubmit} className="space-y-3">
                       <Input
                         placeholder="Your name"
@@ -270,22 +270,22 @@ export default function Navigation() {
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[480px] p-4 grid grid-cols-2 gap-2">
+                    <div className="w-[480px] p-4 grid grid-cols-2 gap-2 bg-[#071428]/95 backdrop-blur-xl border border-white/10 rounded-xl">
                       {services.map((s) => (
                         <NavigationMenuLink key={s.href} asChild>
-                          <Link href={s.href} className="flex gap-3 p-3 rounded-lg hover:bg-muted transition-colors group cursor-pointer">
-                            <div className="w-8 h-8 rounded-md bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                          <Link href={s.href} className="flex gap-3 p-3 rounded-lg border border-transparent hover:border-white/15 hover:bg-white/8 transition-colors group cursor-pointer">
+                            <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/15 transition-colors">
                               <img src={logoSmall} alt="DAQS" className="w-5 h-5 object-contain" />
                             </div>
                             <div>
-                              <div className="text-sm font-semibold text-foreground">{s.label}</div>
-                              <div className="text-xs text-muted-foreground mt-0.5">{s.desc}</div>
+                              <div className="text-sm font-semibold text-white">{s.label}</div>
+                              <div className="text-xs text-white/55 mt-0.5">{s.desc}</div>
                             </div>
                           </Link>
                         </NavigationMenuLink>
                       ))}
                       <NavigationMenuLink asChild>
-                        <Link href="/services" className="col-span-2 flex items-center justify-center gap-2 p-3 rounded-lg bg-primary/5 hover:bg-primary/10 transition-colors text-sm font-medium text-primary cursor-pointer">
+                        <Link href="/services" className="col-span-2 flex items-center justify-center gap-2 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors text-sm font-medium text-sky-300 cursor-pointer">
                           View All Services <ChevronDown className="w-3 h-3 rotate-[-90deg]" />
                         </Link>
                       </NavigationMenuLink>
