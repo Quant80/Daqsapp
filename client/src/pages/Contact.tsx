@@ -223,11 +223,11 @@ export default function Contact() {
                       </div>
                       +263 77 327 8724
                     </a>
-                    <a href="mailto:A.ncube@daqs.co.za" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
+                    <a href="mailto:Ncube.A@daqstech.com" className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors group">
                       <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                         <Mail className="w-4 h-4 text-primary" />
                       </div>
-                      A.ncube@daqs.co.za
+                      Ncube.A@daqstech.com
                     </a>
                   </div>
                 </CardContent>
@@ -273,7 +273,15 @@ export default function Contact() {
                     </div>
                     <div className="bg-background rounded-lg px-3 py-2 border border-border">
                       <div className="text-xs text-muted-foreground">CEO — Accounting</div>
-                      <div className="text-sm font-mono font-medium text-primary">A.ncube@daqs.co.za</div>
+                      <div className="text-sm font-mono font-medium text-primary">Ncube.A@daqstech.com</div>
+                    </div>
+                    <div className="bg-background rounded-lg px-3 py-2 border border-border">
+                      <div className="text-xs text-muted-foreground">General Enquiries</div>
+                      <div className="text-sm font-mono font-medium text-primary">info@daqstech.com</div>
+                    </div>
+                    <div className="bg-background rounded-lg px-3 py-2 border border-border">
+                      <div className="text-xs text-muted-foreground">Training Enquiries</div>
+                      <div className="text-sm font-mono font-medium text-primary">training@daqstech.com</div>
                     </div>
                   </div>
                 </CardContent>

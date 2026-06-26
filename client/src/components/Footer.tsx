@@ -112,7 +112,8 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-[#58a6ff] mt-0.5 shrink-0" />
                 <div>
                   <a href="mailto:Ncube.T@daqstech.com" className="text-white/80 hover:text-white text-xs transition-colors block">Ncube.T@daqstech.com</a>
-                  <a href="mailto:A.ncube@daqs.co.za" className="text-white/80 hover:text-white text-xs transition-colors block mt-1">A.ncube@daqs.co.za</a>
+                  <a href="mailto:Ncube.A@daqstech.com" className="text-white/80 hover:text-white text-xs transition-colors block mt-1">Ncube.A@daqstech.com</a>
+                  <a href="mailto:info@daqstech.com" className="text-white/80 hover:text-white text-xs transition-colors block mt-1">info@daqstech.com</a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
