@@ -1,4 +1,3 @@
-import { Resend } from "resend";
 import { ENV } from "./env";
 
 const NOTIFY_TO = "trymorencube@yahoo.com";
@@ -11,20 +10,13 @@ export async function sendContactEmail(params: {
   company?: string;
   service?: string;
   message: string;
-  isBooking?: boolean;
-  bookingDate?: string;
-  bookingTime?: string;
 }): Promise<void> {
   if (!ENV.resendApiKey) {
     console.warn("[Email] RESEND_API_KEY not set — skipping email.");
     return;
   }
 
-  const resend = new Resend(ENV.resendApiKey);
-
-  const subject = params.isBooking
-    ? `New Booking Request from ${params.name}`
-    : `New Contact Form Submission from ${params.name}`;
+  const subject = `New Contact Form Submission from ${params.name}`;
 
   const lines: string[] = [
     `<strong>Name:</strong> ${params.name}`,
@@ -33,10 +25,6 @@ export async function sendContactEmail(params: {
   if (params.phone) lines.push(`<strong>Phone:</strong> ${params.phone}`);
   if (params.company) lines.push(`<strong>Company:</strong> ${params.company}`);
   if (params.service) lines.push(`<strong>Service:</strong> ${params.service}`);
-  if (params.isBooking) {
-    if (params.bookingDate) lines.push(`<strong>Preferred Date:</strong> ${params.bookingDate}`);
-    if (params.bookingTime) lines.push(`<strong>Preferred Time:</strong> ${params.bookingTime}`);
-  }
   lines.push(`<br/><strong>Message:</strong><br/>${params.message.replace(/\n/g, "<br/>")}`);
 
   const html = `
@@ -52,16 +40,26 @@ export async function sendContactEmail(params: {
     </div>
   `;
 
-  const { error } = await resend.emails.send({
-    from: FROM,
-    to: [NOTIFY_TO],
-    replyTo: params.email,
-    subject,
-    html,
+  const response = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${ENV.resendApiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: FROM,
+      to: [NOTIFY_TO],
+      reply_to: params.email,
+      subject,
+      html,
+    }),
   });
 
-  if (error) {
-    console.error("[Email] Resend error:", error);
-    throw new Error(`Email send failed: ${error.message}`);
+  if (!response.ok) {
+    const detail = await response.text().catch(() => "");
+    console.error(`[Email] Resend API error ${response.status}: ${detail}`);
+    throw new Error(`Email send failed: ${response.status}`);
   }
+
+  console.log(`[Email] Sent successfully to ${NOTIFY_TO}`);
 }
