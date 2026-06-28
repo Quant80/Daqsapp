@@ -140,7 +140,7 @@ export default function Sidebar() {
                 className="block"
               >
                 <div className="text-xs text-[#58a6ff] hover:text-[#79c0ff] hover:underline leading-snug py-0.5 cursor-pointer">
-                  DAQS DataPro
+                  N3 DataPro Solutions
                 </div>
                 <div className="text-[10px] text-white/40 leading-tight mt-0.5">Corporates &amp; Individuals · Data</div>
               </a>
@@ -152,7 +152,7 @@ export default function Sidebar() {
                 className="block"
               >
                 <div className="text-xs text-[#58a6ff] hover:text-[#79c0ff] hover:underline leading-snug py-0.5 cursor-pointer">
-                  N³ EduSolutions
+                  N3 EduTech Solutions
                 </div>
                 <div className="text-[10px] text-white/40 leading-tight mt-0.5">Educators &amp; Students</div>
               </a>
