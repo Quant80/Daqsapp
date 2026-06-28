@@ -115,19 +115,49 @@ export default function Sidebar() {
           );
         })}
 
-        {/* N³ Smart Solutions - coming soon, not expandable */}
-        <div>
-          <div className="flex items-start gap-2 px-2 py-2.5 rounded-lg">
-            <Rocket className="w-4 h-4 shrink-0 text-white/35 mt-0.5" />
-            <div className="flex-1">
-              <div className="text-sm font-medium text-white/55 leading-tight">
-                N<sup>3</sup> Smart Solutions
-              </div>
-              <span className="inline-block text-[9px] font-semibold uppercase tracking-wider text-[#58a6ff]/70 bg-[#58a6ff]/10 border border-[#58a6ff]/20 rounded-full px-1.5 py-0.5 mt-1">
-                Coming Soon
-              </span>
+        {/* N³ Smart Solutions - expandable with external links */}
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => toggle("smart-solutions")}
+            aria-expanded={active === "smart-solutions"}
+            className={`w-full flex items-center gap-2 px-2 py-2.5 rounded-lg transition-colors ${active === "smart-solutions" ? "bg-white/10" : "hover:bg-white/8"}`}
+          >
+            <Rocket className={`w-4 h-4 shrink-0 text-amber-400`} />
+            <span className="flex-1 text-left text-sm font-medium text-white/90 leading-tight">
+              N<sup>3</sup> Smart Solutions
+            </span>
+            <ChevronDown className={`w-3.5 h-3.5 shrink-0 text-white/35 transition-transform ${active === "smart-solutions" ? "rotate-180" : ""}`} />
+          </button>
+          {active === "smart-solutions" && (
+            <div className="absolute left-full top-0 ml-1 w-56 rounded-lg border border-white/15 bg-[#071428]/75 backdrop-blur-xl shadow-xl p-3 space-y-3 z-40">
+              <div className="text-xs font-semibold text-white/65 mb-1">N³ Smart Solutions</div>
+              <a
+                href="https://learn.daqstech.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setActive(null)}
+                className="block"
+              >
+                <div className="text-xs text-[#58a6ff] hover:text-[#79c0ff] hover:underline leading-snug py-0.5 cursor-pointer">
+                  DAQS DataPro
+                </div>
+                <div className="text-[10px] text-white/40 leading-tight mt-0.5">Corporates &amp; Individuals · Data</div>
+              </a>
+              <a
+                href="https://quant80.github.io/N3_SmartSolutions/"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setActive(null)}
+                className="block"
+              >
+                <div className="text-xs text-[#58a6ff] hover:text-[#79c0ff] hover:underline leading-snug py-0.5 cursor-pointer">
+                  N³ EduSolutions
+                </div>
+                <div className="text-[10px] text-white/40 leading-tight mt-0.5">Educators &amp; Students</div>
+              </a>
             </div>
-          </div>
+          )}
           <div className="h-px bg-white/10 mx-2" />
         </div>
 
