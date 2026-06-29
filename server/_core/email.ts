@@ -85,11 +85,10 @@ export async function sendAutoReply(params: {
     <tr><td align="center">
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
-        <!-- HEADER — logo + title — light grey bg -->
+        <!-- HEADER — title only — light grey bg -->
         <tr>
           <td style="background:#eef2f7;border-radius:10px 10px 0 0;padding:20px 32px 10px;text-align:center;">
-            <img src="https://www.daqstech.com/daqs-logo-final.png" alt="DAQS" width="90" style="display:block;margin:0 auto 8px;height:auto;"/>
-            <div style="font-size:22px;font-weight:900;letter-spacing:2px;color:#071428;margin-bottom:2px;">DAQS<span style="color:#c9a84c;">.</span></div>
+            <div style="font-size:26px;font-weight:900;letter-spacing:2px;color:#071428;margin-bottom:2px;">DAQS<span style="color:#c9a84c;">.</span></div>
             <div style="font-size:9px;letter-spacing:2px;color:#888;text-transform:uppercase;">Data Analytics &amp; Quantitative Solutions</div>
           </td>
         </tr>
@@ -131,7 +130,7 @@ export async function sendAutoReply(params: {
 
         <!-- WHITE CARD STARTS HERE — Training Programmes -->
         <tr>
-          <td style="background:#ffffff;padding:14px 32px 14px;border-top:3px solid #c9a84c;">
+          <td style="background:#ffffff;padding:14px 32px 14px;border-top:1px solid #e8d5a0;">
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#F7F9FF;border-radius:8px;">
               <tr>
                 <td style="padding:12px 16px;">
