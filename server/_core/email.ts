@@ -85,18 +85,18 @@ export async function sendAutoReply(params: {
     <tr><td align="center">
       <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
-        <!-- HEADER — logo + title -->
+        <!-- HEADER — logo + title — light grey bg -->
         <tr>
-          <td style="background:#ffffff;border-radius:10px 10px 0 0;padding:20px 32px 16px;text-align:center;border-bottom:3px solid #c9a84c;">
+          <td style="background:#eef2f7;border-radius:10px 10px 0 0;padding:20px 32px 10px;text-align:center;">
             <img src="https://www.daqstech.com/daqs-logo-final.png" alt="DAQS" width="90" style="display:block;margin:0 auto 8px;height:auto;"/>
             <div style="font-size:22px;font-weight:900;letter-spacing:2px;color:#071428;margin-bottom:2px;">DAQS<span style="color:#c9a84c;">.</span></div>
             <div style="font-size:9px;letter-spacing:2px;color:#888;text-transform:uppercase;">Data Analytics &amp; Quantitative Solutions</div>
           </td>
         </tr>
 
-        <!-- HERO — checkmark + thank you -->
+        <!-- HERO — checkmark + thank you — light grey bg -->
         <tr>
-          <td style="background:#ffffff;padding:20px 32px 14px;text-align:center;">
+          <td style="background:#eef2f7;padding:14px 32px 10px;text-align:center;">
             <div style="width:40px;height:40px;background:#1a73e8;border-radius:50%;margin:0 auto 12px;line-height:40px;font-size:20px;color:#fff;">✓</div>
             <div style="font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:4px;">Thank you, ${firstName}.</div>
             <div style="font-size:16px;font-weight:600;color:#1a73e8;margin-bottom:14px;">We've received your message.</div>
@@ -107,16 +107,16 @@ export async function sendAutoReply(params: {
         </tr>
 
         ${params.service ? `
-        <!-- SERVICE INTEREST -->
+        <!-- SERVICE INTEREST — light grey bg -->
         <tr>
-          <td style="background:#ffffff;padding:0 32px 14px;">
-            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f7f9ff;border-radius:8px;border-left:4px solid #1a73e8;">
+          <td style="background:#eef2f7;padding:10px 32px 14px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#dde8f5;border-radius:8px;border-left:4px solid #1a73e8;">
               <tr>
                 <td style="padding:10px 14px;">
                   <table cellpadding="0" cellspacing="0">
                     <tr>
                       <td style="width:28px;vertical-align:middle;">
-                        <div style="width:24px;height:24px;border-radius:50%;background:#e8f0fe;text-align:center;line-height:24px;font-size:13px;">👤</div>
+                        <div style="width:24px;height:24px;border-radius:50%;background:#c8daf0;text-align:center;line-height:24px;font-size:13px;">👤</div>
                       </td>
                       <td style="padding-left:10px;font-size:12px;color:#444;">
                         We noted your interest in <strong style="color:#c9a84c;">${params.service}</strong> — one of our team members who specialises in this area will be in touch shortly.
@@ -129,9 +129,9 @@ export async function sendAutoReply(params: {
           </td>
         </tr>` : ""}
 
-        <!-- TRAINING PROGRAMMES -->
+        <!-- WHITE CARD STARTS HERE — Training Programmes -->
         <tr>
-          <td style="background:#ffffff;padding:0 32px 14px;">
+          <td style="background:#ffffff;padding:14px 32px 14px;border-top:3px solid #c9a84c;">
             <table width="100%" cellpadding="0" cellspacing="0" style="background:#F7F9FF;border-radius:8px;">
               <tr>
                 <td style="padding:12px 16px;">
