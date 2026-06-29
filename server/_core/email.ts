@@ -192,8 +192,7 @@ export async function sendAutoReply(params: {
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:6px;">
                     <tr>
                       <td style="background:#ffffff;border:1px solid #e8e8e8;border-radius:8px;padding:12px;text-align:center;">
-                        <div style="font-size:18px;margin-bottom:4px;">💼</div>
-                        <div style="font-size:10px;font-weight:700;color:#b8860b;margin-bottom:2px;">N3 DataPro Solutions</div>
+                        <div style="font-size:11px;font-weight:700;color:#b8860b;margin-bottom:2px;">💼 DataPro Solutions</div>
                         <div style="font-size:9px;color:#888;margin-bottom:1px;">For Corporates &amp; Individuals</div>
                         <div style="font-size:9px;color:#aaa;margin-bottom:8px;">Data-driven learning &amp; consulting</div>
                         <a href="https://learn.daqstech.com/" style="display:inline-block;background:#c9a84c;color:#fff;font-size:9px;font-weight:700;padding:5px 14px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
@@ -204,8 +203,7 @@ export async function sendAutoReply(params: {
                   <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                       <td style="background:#ffffff;border:1px solid #e8e8e8;border-radius:8px;padding:12px;text-align:center;">
-                        <div style="font-size:18px;margin-bottom:4px;">📚</div>
-                        <div style="font-size:10px;font-weight:700;color:#1a73e8;margin-bottom:2px;">N3 EduTech Solutions</div>
+                        <div style="font-size:11px;font-weight:700;color:#1a73e8;margin-bottom:2px;">📚 EduTech Solutions</div>
                         <div style="font-size:9px;color:#888;margin-bottom:1px;">For Educators &amp; Students</div>
                         <div style="font-size:9px;color:#aaa;margin-bottom:8px;">Smart tools for modern learning</div>
                         <a href="https://quant80.github.io/N3_SmartSolutions/" style="display:inline-block;background:#1a73e8;color:#fff;font-size:9px;font-weight:700;padding:5px 14px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
@@ -290,7 +288,7 @@ export async function sendAutoReply(params: {
             <div style="font-size:13px;font-weight:900;color:#071428;letter-spacing:1px;">DAQS<span style="color:#c9a84c;">.</span></div>
             <div style="font-size:9px;letter-spacing:1px;color:#888;text-transform:uppercase;margin-bottom:4px;">Data Analytics &amp; Quantitative Solutions</div>
             <div style="font-size:10px;color:#1565c0;margin-bottom:3px;">
-              <a href="mailto:info@daqstech.com" style="color:#1565c0;text-decoration:none;">info@daqstech.com</a> &nbsp;|&nbsp; <a href="mailto:training@daqstech.com" style="color:#1565c0;text-decoration:none;">training@daqstech.com</a>
+              <a href="https://www.daqstech.com/" style="color:#1565c0;text-decoration:none;font-weight:600;">www.daqstech.com</a> &nbsp;|&nbsp; <a href="mailto:info@daqstech.com" style="color:#1565c0;text-decoration:none;">info@daqstech.com</a> &nbsp;|&nbsp; <a href="mailto:training@daqstech.com" style="color:#1565c0;text-decoration:none;">training@daqstech.com</a>
             </div>
             <div style="font-size:9px;color:#8a9ab8;">You received this because you submitted an enquiry on our website.</div>
           </td>
