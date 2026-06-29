@@ -4,7 +4,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { notifyOwner } from "./_core/notification";
-import { sendContactEmail } from "./_core/email";
+import { sendContactEmail, sendAutoReply } from "./_core/email";
 import { invokeLLM } from "./_core/llm";
 import { storagePut } from "./storage";
 import { getDb } from "./db";
@@ -59,6 +59,12 @@ const contactRouter = router({
         console.error("[Contact] sendContactEmail failed:", error);
       }
       console.log("[Contact] sendContactEmail done");
+
+      try {
+        await sendAutoReply({ name: input.name, email: input.email, service: input.service });
+      } catch (error) {
+        console.error("[Contact] sendAutoReply failed:", error);
+      }
 
       return { success: true };
     }),
