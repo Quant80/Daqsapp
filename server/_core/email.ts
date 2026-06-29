@@ -1,6 +1,6 @@
 import { ENV } from "./env";
 
-const NOTIFY_TO = ["Ncube.T@daqstech.com"];
+const NOTIFY_TO = ["Ncube.T@daqstech.com", "training@daqstech.com"];
 const FROM = "DAQS Contact <info@daqstech.com>";
 
 export async function sendContactEmail(params: {
