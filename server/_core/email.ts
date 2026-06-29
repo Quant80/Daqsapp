@@ -81,97 +81,107 @@ export async function sendAutoReply(params: {
 <html lang="en">
 <head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/></head>
 <body style="margin:0;padding:0;background:#f0f4f8;font-family:'Segoe UI',Arial,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f4f8;padding:20px 0;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f4f8;padding:16px 0;">
     <tr><td align="center">
       <table width="580" cellpadding="0" cellspacing="0" style="max-width:580px;width:100%;">
 
-        <!-- HEADER -->
+        <!-- HEADER — tight fit -->
         <tr>
-          <td style="background:#071428;border-radius:10px 10px 0 0;padding:20px 28px 16px;text-align:center;border-bottom:3px solid #c9a84c;">
-            <div style="font-size:22px;font-weight:900;letter-spacing:3px;color:#ffffff;margin-bottom:1px;">DAQS</div>
-            <div style="font-size:9px;letter-spacing:2px;color:#c9a84c;text-transform:uppercase;margin-bottom:10px;">Data Analytics &amp; Quantitative Solutions</div>
-            <div style="font-size:16px;font-weight:600;color:#ffffff;">Thank you, ${firstName} — we've received your message.</div>
+          <td style="background:#071428;border-radius:10px 10px 0 0;padding:10px 28px 8px;text-align:center;border-bottom:3px solid #c9a84c;">
+            <div style="font-size:20px;font-weight:900;letter-spacing:3px;color:#ffffff;margin-bottom:0;">DAQS</div>
+            <div style="font-size:9px;letter-spacing:2px;color:#c9a84c;text-transform:uppercase;margin-bottom:6px;">Data Analytics &amp; Quantitative Solutions</div>
+            <div style="font-size:14px;font-weight:600;color:#ffffff;margin-bottom:2px;">Thank you, ${firstName} — we've received your message.</div>
           </td>
         </tr>
 
         <!-- BODY -->
         <tr>
-          <td style="background:#ffffff;padding:22px 28px;">
+          <td style="background:#ffffff;padding:18px 28px;">
 
-            <p style="margin:0 0 14px;font-size:13px;color:#333;line-height:1.65;">
-              Someone from our team will be in touch within <strong>24 hours</strong>.${params.service ? ` Your interest in <strong>${params.service}</strong> has been noted and we'll make sure the right person reaches out.` : ""}
+            <p style="margin:0 0 12px;font-size:13px;color:#333;line-height:1.6;">
+              Someone from our team will be in touch within <strong>24 hours</strong>.${params.service ? ` Your interest in <strong>${params.service}</strong> has been noted and the right person will reach out.` : ""}
             </p>
 
-            <!-- PROGRAMMES -->
-            <div style="font-size:12px;font-weight:700;color:#071428;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">What We Offer</div>
+            <!-- PROGRAMMES — 3 columns, round bullets -->
+            <div style="font-size:11px;font-weight:700;color:#071428;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;">Our Training Programmes</div>
             <table width="100%" cellpadding="0" cellspacing="0">
               <tr>
-                <td width="48%" style="vertical-align:top;padding-right:10px;">
-                  <div style="font-size:11px;color:#444;line-height:2;">
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Intro to Python Programming<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Foundations of Data Science<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Advanced Data Analytics<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Business Intelligence &amp; Dashboards<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Machine Learning Fundamentals<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Deep Learning &amp; Neural Networks<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> AI Strategy for Business Leaders<br/>
+                <td width="32%" style="vertical-align:top;">
+                  <div style="font-size:9.5px;color:#444;line-height:1.85;">
+                    • Intro to Python Programming<br/>
+                    • Foundations of Data Science<br/>
+                    • Advanced Data Analytics<br/>
+                    • Business Intelligence &amp; Dashboards<br/>
+                    • Machine Learning Fundamentals<br/>
                   </div>
                 </td>
-                <td width="4%"></td>
-                <td width="48%" style="vertical-align:top;">
-                  <div style="font-size:11px;color:#444;line-height:2;">
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Generative AI &amp; Prompt Engineering<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Building AI Agents &amp; Workflows<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Quantitative Finance Essentials<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Algorithmic Trading with Python<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Accounting &amp; Investment Analysis<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Pension Fund Management<br/>
-                    <span style="color:#c9a84c;font-weight:700;">›</span> Robotics &amp; Automation<br/>
+                <td width="2%"></td>
+                <td width="32%" style="vertical-align:top;">
+                  <div style="font-size:9.5px;color:#444;line-height:1.85;">
+                    • Deep Learning &amp; Neural Networks<br/>
+                    • AI Strategy for Business Leaders<br/>
+                    • Generative AI &amp; Prompt Engineering<br/>
+                    • Building AI Agents &amp; Workflows<br/>
+                    • Agentic AI for Business Leaders<br/>
+                  </div>
+                </td>
+                <td width="2%"></td>
+                <td width="32%" style="vertical-align:top;">
+                  <div style="font-size:9.5px;color:#444;line-height:1.85;">
+                    • Quantitative Finance Essentials<br/>
+                    • Algorithmic Trading with Python<br/>
+                    • Accounting &amp; Investment Analysis<br/>
+                    • Pension Fund Management<br/>
+                    • Robotics &amp; Automation<br/>
                   </div>
                 </td>
               </tr>
             </table>
 
-            <div style="border-top:1px solid #eef0f5;margin:16px 0;"></div>
+            <div style="border-top:1px solid #eef0f5;margin:14px 0;"></div>
 
-            <!-- N3 SOLUTIONS — light background -->
-            <div style="font-size:12px;font-weight:700;color:#071428;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">N³ Smart Solutions</div>
+            <!-- N3 SOLUTIONS — dark cards -->
+            <div style="font-size:11px;font-weight:700;color:#071428;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Explore Our N³ Smart Solutions</div>
             <table width="100%" cellpadding="0" cellspacing="0">
               <tr>
-                <td width="48%" style="background:#fdf8ee;border:1px solid #e8d9a8;border-radius:8px;padding:12px 14px;vertical-align:middle;">
-                  <div style="font-size:11px;font-weight:700;color:#8a6a10;margin-bottom:2px;">N3 DataPro Solutions</div>
-                  <div style="font-size:10px;color:#777;margin-bottom:8px;">Corporates &amp; Individuals</div>
-                  <a href="https://learn.daqstech.com/" style="font-size:10px;font-weight:700;color:#c9a84c;text-decoration:underline;">learn.daqstech.com →</a>
+                <td width="48%" style="background:#071428;border-radius:8px;padding:14px;text-align:center;vertical-align:top;">
+                  <div style="font-size:18px;margin-bottom:6px;">💼</div>
+                  <div style="font-size:11px;font-weight:700;color:#c9a84c;margin-bottom:3px;">N3 DataPro Solutions</div>
+                  <div style="font-size:10px;color:#aac4e0;margin-bottom:4px;">For Corporates &amp; Individuals</div>
+                  <div style="font-size:10px;color:#7a9ab8;margin-bottom:10px;">Data-driven learning &amp; consulting</div>
+                  <a href="https://learn.daqstech.com/" style="display:inline-block;background:#c9a84c;color:#071428;font-size:10px;font-weight:700;padding:6px 16px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
                 </td>
                 <td width="4%"></td>
-                <td width="48%" style="background:#eef4ff;border:1px solid #b8d0f0;border-radius:8px;padding:12px 14px;vertical-align:middle;">
-                  <div style="font-size:11px;font-weight:700;color:#1a4a8a;margin-bottom:2px;">N3 EduTech Solutions</div>
-                  <div style="font-size:10px;color:#777;margin-bottom:8px;">Educators &amp; Students</div>
-                  <a href="https://quant80.github.io/N3_SmartSolutions/" style="font-size:10px;font-weight:700;color:#2563eb;text-decoration:underline;">N3 EduTech Portal →</a>
+                <td width="48%" style="background:#071428;border-radius:8px;padding:14px;text-align:center;vertical-align:top;">
+                  <div style="font-size:18px;margin-bottom:6px;">📚</div>
+                  <div style="font-size:11px;font-weight:700;color:#58a6ff;margin-bottom:3px;">N3 EduTech Solutions</div>
+                  <div style="font-size:10px;color:#aac4e0;margin-bottom:4px;">For Educators &amp; Students</div>
+                  <div style="font-size:10px;color:#7a9ab8;margin-bottom:10px;">Smart tools for modern learning</div>
+                  <a href="https://quant80.github.io/N3_SmartSolutions/" style="display:inline-block;background:#58a6ff;color:#071428;font-size:10px;font-weight:700;padding:6px 16px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
                 </td>
               </tr>
             </table>
 
-            <div style="border-top:1px solid #eef0f5;margin:16px 0;"></div>
+            <div style="border-top:1px solid #eef0f5;margin:14px 0;"></div>
 
             <!-- TEAM -->
-            <div style="font-size:12px;font-weight:700;color:#071428;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Reach Us Directly</div>
+            <div style="font-size:11px;font-weight:700;color:#071428;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Talk Directly to Our Team</div>
             <table width="100%" cellpadding="0" cellspacing="0">
               <tr>
                 <td width="48%" style="background:#f8f9fc;border-radius:6px;padding:10px 14px;border-left:3px solid #c9a84c;vertical-align:top;">
                   <div style="font-size:12px;font-weight:700;color:#071428;">Trymore Ncube</div>
-                  <div style="font-size:10px;color:#888;margin-bottom:5px;">CEO &amp; Director · Data &amp; AI</div>
-                  <div style="font-size:11px;color:#444;">+27 60 343 1561</div>
-                  <a href="mailto:Ncube.T@daqstech.com" style="font-size:11px;color:#2563eb;text-decoration:none;">Ncube.T@daqstech.com</a><br/>
-                  <a href="https://www.daqstech.com/" style="font-size:10px;color:#c9a84c;text-decoration:underline;font-weight:600;">www.daqstech.com</a>
+                  <div style="font-size:10px;color:#58a6ff;margin-bottom:5px;">CEO &amp; Director · Data Science &amp; AI</div>
+                  <div style="font-size:11px;color:#555;">📞 +27 60 343 1561</div>
+                  <div style="font-size:11px;color:#555;">✉️ Ncube.T@daqstech.com</div>
+                  <a href="https://www.daqstech.com/" style="font-size:11px;color:#1a73e8;text-decoration:none;font-weight:600;">🌐 www.daqstech.com</a>
                 </td>
                 <td width="4%"></td>
-                <td width="48%" style="background:#f8f9fc;border-radius:6px;padding:10px 14px;border-left:3px solid #3b82f6;vertical-align:top;">
+                <td width="48%" style="background:#f8f9fc;border-radius:6px;padding:10px 14px;border-left:3px solid #58a6ff;vertical-align:top;">
                   <div style="font-size:12px;font-weight:700;color:#071428;">Albert Ncube</div>
-                  <div style="font-size:10px;color:#888;margin-bottom:5px;">Director · Finance &amp; Advisory</div>
-                  <div style="font-size:11px;color:#444;">+263 77 327 8724</div>
-                  <a href="mailto:A.ncube@daqs.co.za" style="font-size:11px;color:#2563eb;text-decoration:none;">A.ncube@daqs.co.za</a><br/>
-                  <a href="mailto:training@daqstech.com" style="font-size:10px;color:#c9a84c;text-decoration:underline;font-weight:600;">training@daqstech.com</a>
+                  <div style="font-size:10px;color:#58a6ff;margin-bottom:5px;">Director · Finance &amp; Investment Advisory</div>
+                  <div style="font-size:11px;color:#555;">📞 +263 77 327 8724</div>
+                  <div style="font-size:11px;color:#555;">✉️ Ncube.A@daqstech.com</div>
+                  <a href="mailto:training@daqstech.com" style="font-size:11px;color:#1a73e8;text-decoration:none;font-weight:600;">✉️ training@daqstech.com</a>
                 </td>
               </tr>
             </table>
@@ -181,10 +191,11 @@ export async function sendAutoReply(params: {
 
         <!-- FOOTER -->
         <tr>
-          <td style="background:#071428;border-radius:0 0 10px 10px;padding:12px 28px;text-align:center;border-top:2px solid #c9a84c;">
+          <td style="background:#071428;border-radius:0 0 10px 10px;padding:10px 28px;text-align:center;border-top:2px solid #c9a84c;">
             <div style="font-size:10px;color:#6a8aaa;line-height:1.7;">
-              <strong style="color:#c9a84c;">DAQS</strong> · Data Analytics &amp; Quantitative Solutions &nbsp;·&nbsp; info@daqstech.com<br/>
-              <span style="color:#3d5a78;">© ${new Date().getFullYear()} DAQS. You're receiving this because you contacted us via our website.</span>
+              <strong style="color:#c9a84c;">DAQS</strong> · Data Analytics &amp; Quantitative Solutions<br/>
+              <a href="mailto:info@daqstech.com" style="color:#6a8aaa;text-decoration:none;">info@daqstech.com</a> &nbsp;|&nbsp; <a href="mailto:training@daqstech.com" style="color:#6a8aaa;text-decoration:none;">training@daqstech.com</a><br/>
+              <span style="color:#3d5a78;">© ${new Date().getFullYear()} DAQS. You received this because you submitted an enquiry on our website.</span>
             </div>
           </td>
         </tr>
