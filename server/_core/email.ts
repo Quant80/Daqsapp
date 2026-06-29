@@ -80,17 +80,17 @@ export async function sendAutoReply(params: {
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/></head>
-<body style="margin:0;padding:0;background:#f0f4f8;font-family:'Segoe UI',Arial,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f4f8;padding:16px 0;">
+<body style="margin:0;padding:0;background:#dce8f7;font-family:'Segoe UI',Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#dce8f7;padding:16px 0;">
     <tr><td align="center">
       <table width="580" cellpadding="0" cellspacing="0" style="max-width:580px;width:100%;">
 
-        <!-- HEADER — tight fit -->
+        <!-- HEADER — light blue -->
         <tr>
-          <td style="background:#071428;border-radius:10px 10px 0 0;padding:10px 28px 8px;text-align:center;border-bottom:3px solid #c9a84c;">
-            <div style="font-size:20px;font-weight:900;letter-spacing:3px;color:#ffffff;margin-bottom:0;">DAQS</div>
-            <div style="font-size:9px;letter-spacing:2px;color:#c9a84c;text-transform:uppercase;margin-bottom:6px;">Data Analytics &amp; Quantitative Solutions</div>
-            <div style="font-size:14px;font-weight:600;color:#ffffff;margin-bottom:2px;">Thank you, ${firstName} — we've received your message.</div>
+          <td style="background:#dce8f7;border-radius:10px 10px 0 0;padding:10px 28px 8px;text-align:center;border-bottom:2px solid #c9a84c;">
+            <div style="font-size:20px;font-weight:900;letter-spacing:3px;color:#071428;margin-bottom:0;">DAQS</div>
+            <div style="font-size:9px;letter-spacing:2px;color:#1565c0;text-transform:uppercase;margin-bottom:6px;">Data Analytics &amp; Quantitative Solutions</div>
+            <div style="font-size:14px;font-weight:600;color:#071428;margin-bottom:2px;">Thank you, ${firstName} — we've received your message.</div>
           </td>
         </tr>
 
@@ -102,62 +102,73 @@ export async function sendAutoReply(params: {
               Someone from our team will be in touch within <strong>24 hours</strong>.${params.service ? ` Your interest in <strong>${params.service}</strong> has been noted and the right person will reach out.` : ""}
             </p>
 
-            <!-- PROGRAMMES — 3 columns, round bullets -->
-            <div style="font-size:11px;font-weight:700;color:#071428;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;">Our Training Programmes</div>
-            <table width="100%" cellpadding="0" cellspacing="0">
+            <!-- PROGRAMMES — #F7F9FF bg, vivid blue text, 3 columns -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#F7F9FF;border-radius:8px;margin-bottom:14px;">
               <tr>
-                <td width="32%" style="vertical-align:top;">
-                  <div style="font-size:9.5px;color:#444;line-height:1.85;">
-                    • Intro to Python Programming<br/>
-                    • Foundations of Data Science<br/>
-                    • Advanced Data Analytics<br/>
-                    • Business Intelligence &amp; Dashboards<br/>
-                    • Machine Learning Fundamentals<br/>
-                  </div>
-                </td>
-                <td width="2%"></td>
-                <td width="32%" style="vertical-align:top;">
-                  <div style="font-size:9.5px;color:#444;line-height:1.85;">
-                    • Deep Learning &amp; Neural Networks<br/>
-                    • AI Strategy for Business Leaders<br/>
-                    • Generative AI &amp; Prompt Engineering<br/>
-                    • Building AI Agents &amp; Workflows<br/>
-                    • Agentic AI for Business Leaders<br/>
-                  </div>
-                </td>
-                <td width="2%"></td>
-                <td width="32%" style="vertical-align:top;">
-                  <div style="font-size:9.5px;color:#444;line-height:1.85;">
-                    • Quantitative Finance Essentials<br/>
-                    • Algorithmic Trading with Python<br/>
-                    • Accounting &amp; Investment Analysis<br/>
-                    • Pension Fund Management<br/>
-                    • Robotics &amp; Automation<br/>
-                  </div>
+                <td style="padding:12px 16px;">
+                  <div style="font-size:11px;font-weight:700;color:#1565c0;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Our Training Programmes</div>
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td width="32%" style="vertical-align:top;">
+                        <div style="font-size:9.5px;color:#1565c0;line-height:1.85;">
+                          • Intro to Python Programming<br/>
+                          • Foundations of Data Science<br/>
+                          • Advanced Data Analytics<br/>
+                          • Business Intelligence &amp; Dashboards<br/>
+                          • Machine Learning Fundamentals<br/>
+                        </div>
+                      </td>
+                      <td width="2%"></td>
+                      <td width="32%" style="vertical-align:top;">
+                        <div style="font-size:9.5px;color:#1565c0;line-height:1.85;">
+                          • Deep Learning &amp; Neural Networks<br/>
+                          • AI Strategy for Business Leaders<br/>
+                          • Generative AI &amp; Prompt Engineering<br/>
+                          • Building AI Agents &amp; Workflows<br/>
+                          • Agentic AI for Business Leaders<br/>
+                        </div>
+                      </td>
+                      <td width="2%"></td>
+                      <td width="32%" style="vertical-align:top;">
+                        <div style="font-size:9.5px;color:#1565c0;line-height:1.85;">
+                          • Quantitative Finance Essentials<br/>
+                          • Algorithmic Trading with Python<br/>
+                          • Accounting &amp; Investment Analysis<br/>
+                          • Pension Fund Management<br/>
+                          • Robotics &amp; Automation<br/>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
               </tr>
             </table>
 
-            <div style="border-top:1px solid #eef0f5;margin:14px 0;"></div>
-
-            <!-- N3 SOLUTIONS — dark cards -->
+            <!-- N3 SOLUTIONS — stacked vertically, dark cards -->
             <div style="font-size:11px;font-weight:700;color:#071428;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px;">Explore Our N³ Smart Solutions</div>
-            <table width="100%" cellpadding="0" cellspacing="0">
+
+            <!-- Card 1 -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:8px;">
               <tr>
-                <td width="48%" style="background:#071428;border-radius:8px;padding:14px;text-align:center;vertical-align:top;">
+                <td style="background:#071428;border-radius:8px;padding:14px;text-align:center;">
                   <div style="font-size:18px;margin-bottom:6px;">💼</div>
                   <div style="font-size:11px;font-weight:700;color:#c9a84c;margin-bottom:3px;">N3 DataPro Solutions</div>
-                  <div style="font-size:10px;color:#aac4e0;margin-bottom:4px;">For Corporates &amp; Individuals</div>
+                  <div style="font-size:10px;color:#aac4e0;margin-bottom:3px;">For Corporates &amp; Individuals</div>
                   <div style="font-size:10px;color:#7a9ab8;margin-bottom:10px;">Data-driven learning &amp; consulting</div>
-                  <a href="https://learn.daqstech.com/" style="display:inline-block;background:#c9a84c;color:#071428;font-size:10px;font-weight:700;padding:6px 16px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
+                  <a href="https://learn.daqstech.com/" style="display:inline-block;background:#c9a84c;color:#071428;font-size:10px;font-weight:700;padding:6px 20px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
                 </td>
-                <td width="4%"></td>
-                <td width="48%" style="background:#071428;border-radius:8px;padding:14px;text-align:center;vertical-align:top;">
+              </tr>
+            </table>
+
+            <!-- Card 2 -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px;">
+              <tr>
+                <td style="background:#071428;border-radius:8px;padding:14px;text-align:center;">
                   <div style="font-size:18px;margin-bottom:6px;">📚</div>
                   <div style="font-size:11px;font-weight:700;color:#58a6ff;margin-bottom:3px;">N3 EduTech Solutions</div>
-                  <div style="font-size:10px;color:#aac4e0;margin-bottom:4px;">For Educators &amp; Students</div>
+                  <div style="font-size:10px;color:#aac4e0;margin-bottom:3px;">For Educators &amp; Students</div>
                   <div style="font-size:10px;color:#7a9ab8;margin-bottom:10px;">Smart tools for modern learning</div>
-                  <a href="https://quant80.github.io/N3_SmartSolutions/" style="display:inline-block;background:#58a6ff;color:#071428;font-size:10px;font-weight:700;padding:6px 16px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
+                  <a href="https://quant80.github.io/N3_SmartSolutions/" style="display:inline-block;background:#58a6ff;color:#071428;font-size:10px;font-weight:700;padding:6px 20px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
                 </td>
               </tr>
             </table>
@@ -189,13 +200,13 @@ export async function sendAutoReply(params: {
           </td>
         </tr>
 
-        <!-- FOOTER -->
+        <!-- FOOTER — light blue -->
         <tr>
-          <td style="background:#071428;border-radius:0 0 10px 10px;padding:10px 28px;text-align:center;border-top:2px solid #c9a84c;">
-            <div style="font-size:10px;color:#6a8aaa;line-height:1.7;">
-              <strong style="color:#c9a84c;">DAQS</strong> · Data Analytics &amp; Quantitative Solutions<br/>
-              <a href="mailto:info@daqstech.com" style="color:#6a8aaa;text-decoration:none;">info@daqstech.com</a> &nbsp;|&nbsp; <a href="mailto:training@daqstech.com" style="color:#6a8aaa;text-decoration:none;">training@daqstech.com</a><br/>
-              <span style="color:#3d5a78;">© ${new Date().getFullYear()} DAQS. You received this because you submitted an enquiry on our website.</span>
+          <td style="background:#dce8f7;border-radius:0 0 10px 10px;padding:10px 28px;text-align:center;border-top:2px solid #c9a84c;">
+            <div style="font-size:10px;color:#1565c0;line-height:1.7;">
+              <strong style="color:#071428;">DAQS</strong> · Data Analytics &amp; Quantitative Solutions<br/>
+              <a href="mailto:info@daqstech.com" style="color:#1565c0;text-decoration:none;">info@daqstech.com</a> &nbsp;|&nbsp; <a href="mailto:training@daqstech.com" style="color:#1565c0;text-decoration:none;">training@daqstech.com</a><br/>
+              <span style="color:#5a7a9a;">© ${new Date().getFullYear()} DAQS. You received this because you submitted an enquiry on our website.</span>
             </div>
           </td>
         </tr>
