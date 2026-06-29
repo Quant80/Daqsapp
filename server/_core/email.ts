@@ -1,6 +1,6 @@
 import { ENV } from "./env";
 
-const NOTIFY_TO = "Ncube.T@daqstech.com";
+const NOTIFY_TO = ["Ncube.T@daqstech.com", "trymorencube@yahoo.com"];
 const FROM = "DAQS Contact <onboarding@resend.dev>";
 
 export async function sendContactEmail(params: {
@@ -48,7 +48,7 @@ export async function sendContactEmail(params: {
     },
     body: JSON.stringify({
       from: FROM,
-      to: [NOTIFY_TO],
+      to: NOTIFY_TO,
       reply_to: params.email,
       subject,
       html,
@@ -61,5 +61,5 @@ export async function sendContactEmail(params: {
     throw new Error(`Email send failed: ${response.status}`);
   }
 
-  console.log(`[Email] Sent successfully to ${NOTIFY_TO}`);
+  console.log(`[Email] Sent successfully to ${NOTIFY_TO.join(", ")}`);
 }
