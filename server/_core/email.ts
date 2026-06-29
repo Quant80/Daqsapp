@@ -171,7 +171,7 @@ export async function sendAutoReply(params: {
 
             <!-- CTA -->
             <div style="text-align:center;margin-top:16px;">
-              <a href="https://learn.daqstech.com/" style="display:inline-block;background:#071428;color:#c9a84c;font-size:12px;font-weight:700;padding:12px 28px;border-radius:30px;text-decoration:none;letter-spacing:1px;border:2px solid #c9a84c;">VISIT DAQS PLATFORM →</a>
+              <a href="https://www.daqstech.com/" style="display:inline-block;background:#071428;color:#c9a84c;font-size:12px;font-weight:700;padding:12px 28px;border-radius:30px;text-decoration:none;letter-spacing:1px;border:2px solid #c9a84c;">VISIT DAQSTECH.COM →</a>
             </div>
 
           </td>
