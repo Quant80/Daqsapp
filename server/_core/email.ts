@@ -191,24 +191,24 @@ export async function sendAutoReply(params: {
                   <!-- DataPro card -->
                   <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:6px;">
                     <tr>
-                      <td style="background:#071428;border-radius:8px;padding:12px;text-align:center;">
-                        <div style="font-size:16px;margin-bottom:4px;">💼</div>
-                        <div style="font-size:10px;font-weight:700;color:#c9a84c;margin-bottom:2px;">N3 DataPro Solutions</div>
-                        <div style="font-size:9px;color:#aac4e0;margin-bottom:2px;">For Corporates &amp; Individuals</div>
-                        <div style="font-size:9px;color:#7a9ab8;margin-bottom:8px;">Data-driven learning &amp; consulting</div>
-                        <a href="https://learn.daqstech.com/" style="display:inline-block;background:#c9a84c;color:#071428;font-size:9px;font-weight:700;padding:5px 14px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
+                      <td style="background:#ffffff;border:1px solid #e8e8e8;border-radius:8px;padding:12px;text-align:center;">
+                        <div style="font-size:18px;margin-bottom:4px;">💼</div>
+                        <div style="font-size:10px;font-weight:700;color:#b8860b;margin-bottom:2px;">N3 DataPro Solutions</div>
+                        <div style="font-size:9px;color:#888;margin-bottom:1px;">For Corporates &amp; Individuals</div>
+                        <div style="font-size:9px;color:#aaa;margin-bottom:8px;">Data-driven learning &amp; consulting</div>
+                        <a href="https://learn.daqstech.com/" style="display:inline-block;background:#c9a84c;color:#fff;font-size:9px;font-weight:700;padding:5px 14px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
                       </td>
                     </tr>
                   </table>
                   <!-- EduTech card -->
                   <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
-                      <td style="background:#071428;border-radius:8px;padding:12px;text-align:center;">
-                        <div style="font-size:16px;margin-bottom:4px;">📚</div>
-                        <div style="font-size:10px;font-weight:700;color:#58a6ff;margin-bottom:2px;">N3 EduTech Solutions</div>
-                        <div style="font-size:9px;color:#aac4e0;margin-bottom:2px;">For Educators &amp; Students</div>
-                        <div style="font-size:9px;color:#7a9ab8;margin-bottom:8px;">Smart tools for modern learning</div>
-                        <a href="https://quant80.github.io/N3_SmartSolutions/" style="display:inline-block;background:#58a6ff;color:#071428;font-size:9px;font-weight:700;padding:5px 14px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
+                      <td style="background:#ffffff;border:1px solid #e8e8e8;border-radius:8px;padding:12px;text-align:center;">
+                        <div style="font-size:18px;margin-bottom:4px;">📚</div>
+                        <div style="font-size:10px;font-weight:700;color:#1a73e8;margin-bottom:2px;">N3 EduTech Solutions</div>
+                        <div style="font-size:9px;color:#888;margin-bottom:1px;">For Educators &amp; Students</div>
+                        <div style="font-size:9px;color:#aaa;margin-bottom:8px;">Smart tools for modern learning</div>
+                        <a href="https://quant80.github.io/N3_SmartSolutions/" style="display:inline-block;background:#1a73e8;color:#fff;font-size:9px;font-weight:700;padding:5px 14px;border-radius:20px;text-decoration:none;">EXPLORE NOW →</a>
                       </td>
                     </tr>
                   </table>
